@@ -1,0 +1,13 @@
+{
+  "title": "استطيع المساعدة",
+  "place": "places",
+  "word_key":"word",
+  "complex": {
+    "page1": {
+      "title": "العنوان"
+    },
+    "page2": {
+      "title": "العنوان"
+    }
+  }
+}

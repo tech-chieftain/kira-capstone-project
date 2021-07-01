@@ -1,0 +1,12 @@
+{
+  "title": "I Can Help",
+  "word_key": "Word",
+  "complex": {
+    "page1": {
+      "title": "Title"
+    },
+    "page2": {
+      "title": "Title"
+    }
+  }
+}
