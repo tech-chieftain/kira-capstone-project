@@ -1,15 +1,17 @@
-import React from "react";
-
-import { FaTwitter, FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
+import { FaTwitter, FaLinkedinIn, FaInstagram, FaFacebookF, FaGlobe } from "react-icons/fa";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Dropdown from "react-bootstrap/Dropdown";
 import FooterContainer from "./Footer.styled";
 import Logo from "./FooterLogo";
 
 const Footer = () => (
-  <FooterContainer className="main-footer">
+  <FooterContainer>
     <div className="footer-middle">
-      <div className="container">
-        <div className="row px-4">
-          <div className="col-md-3 col-sm-6">
+      <Container>
+        <Row className="px-4">
+          <Col md={3} sm={6}>
             <h4>Catagories</h4>
             <ul className="list-unstyled">
               <li>
@@ -34,8 +36,8 @@ const Footer = () => (
                 <a href="/">Business</a>
               </li>
             </ul>
-          </div>
-          <div className="col-md-3 col-sm-6">
+          </Col>
+          <Col md={3} sm={6}>
             <h4>Community</h4>
             <ul className="list-unstyled">
               <li>
@@ -48,8 +50,8 @@ const Footer = () => (
                 <a href="/">Forum</a>
               </li>
             </ul>
-          </div>
-          <div className="col-md-3 col-sm-6">
+          </Col>
+          <Col md={3} sm={6}>
             <h4>Support</h4>
             <ul className="list-unstyled">
               <li>
@@ -65,8 +67,8 @@ const Footer = () => (
                 <a href="/">Accessability</a>
               </li>
             </ul>
-          </div>
-        </div>
+          </Col>
+        </Row>
         <div className="footer-container">
           <div className="icon-container d-flex justify-content-center">
             <ul className="list-unstyled d-flex flex-row">
@@ -97,11 +99,29 @@ const Footer = () => (
           </div>
         </div>
         <div className="footer-bottom">
-          <p className="text-center small">
-            Kira &copy;{new Date().getFullYear()} All Rights Reserved
-          </p>
+          <div className="d-flex justify-content-center">
+            <p className="text-center small">
+              Kira &copy;{new Date().getFullYear()} All Rights Reserved
+            </p>
+          </div>
+          <div className="dropdown-container d-flex justify-content-md-end">
+            <Dropdown>
+              <Dropdown.Toggle
+                variant="Info"
+                id="dropdown-basic-button"
+                className="text-white btn-lg"
+              >
+                <FaGlobe /> Language
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">English</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Arabic</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
         </div>
-      </div>
+      </Container>
     </div>
   </FooterContainer>
 );

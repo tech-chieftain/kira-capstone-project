@@ -5,6 +5,9 @@ const FooterContainer = styled.footer`
     background: #008080;
     padding-top: 3rem;
     color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 
   .footer-bottom {
@@ -36,13 +39,27 @@ const FooterContainer = styled.footer`
     margin: 0 0.3rem;
   }
 
-  .logo-container {
+  .logo-container{
     margin-top: -10rem;
     margin-right: 1rem;
 
     @media (max-width: 800px) {
       margin-top: -6rem;
       justify-content: center;
+    }}
+
+    .footer-bottom{
+      displa: flex;
+      flex-direction: row;
+    }
+
+    .dropdown-container {
+      margin-top: -3.1rem;
+    }
+
+    #dropdown-basic-button {
+      box-shadow: none;
+      webkit-box-shadow: none;
     }
   }
 `;
