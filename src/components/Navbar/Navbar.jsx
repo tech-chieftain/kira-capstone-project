@@ -1,13 +1,17 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
+import React, { Component } from "react";
+import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { Header } from "./Navbar.styled";
 
-const Navbar = () => (
+const Navobar = () => (
   <div>
-    <p>This is an example of a component</p>
-    <Button variant="primary">Example of Antd button</Button>
-    <Header>WELCOME</Header>
+    <Container>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">Kira</Navbar.Brand>
+        <Button>Log in</Button>
+        <Button>Join</Button>
+      </Navbar>
+    </Container>
   </div>
 );
 
-export default Navbar;
+export default Navobar;

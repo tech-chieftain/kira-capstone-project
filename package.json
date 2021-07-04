@@ -10,7 +10,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "autoprefixer": "^9.8.6",
-    "bootstrap": "^5.0.0-beta3",
+    "bootstrap": "^4.6.0",
     "firebase": "^7.24.0",
     "i18next": "^19.8.3",
     "i18next-browser-languagedetector": "^6.1.2",
