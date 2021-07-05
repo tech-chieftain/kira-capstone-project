@@ -10,9 +10,9 @@ const Footer = () => (
   <FooterContainer>
     <div className="footer-middle">
       <Container>
-        <Row className="px-4">
-          <Col md={3} sm={6}>
-            <h4>Catagories</h4>
+        <Row>
+          <Col md={2} sm={6} className="col">
+            <h5>Catagories</h5>
             <ul className="list-unstyled">
               <li>
                 <a href="/">Graphics & Design</a>
@@ -37,8 +37,8 @@ const Footer = () => (
               </li>
             </ul>
           </Col>
-          <Col md={3} sm={6}>
-            <h4>Community</h4>
+          <Col md={2} sm={6} className="col">
+            <h5>Community</h5>
             <ul className="list-unstyled">
               <li>
                 <a href="/">Events</a>
@@ -51,8 +51,8 @@ const Footer = () => (
               </li>
             </ul>
           </Col>
-          <Col md={3} sm={6}>
-            <h4>Support</h4>
+          <Col md={2} sm={6} className="col">
+            <h5>Support</h5>
             <ul className="list-unstyled">
               <li>
                 <a href="/">Terms and </a>
@@ -113,10 +113,13 @@ const Footer = () => (
               >
                 <FaGlobe /> Language
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">English</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Arabic</Dropdown.Item>
+                <Dropdown.Item href="#/action-1" className="dropdown-item">
+                  English
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-2" className="dropdown-item">
+                  Arabic
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
