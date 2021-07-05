@@ -2,147 +2,179 @@
 
 exports[`renders Footer correctly 1`] = `
 <footer
-  className="Footerstyled__FooterContainer-sc-173ctjc-0 cMTBeO"
+  className="Footerstyled__FooterContainer-sc-173ctjc-0 ffSMBY"
 >
   <div
     className="footer-middle"
   >
     <div
-      className="container"
+      className="main-container"
     >
       <div
-        className="row"
+        className="container"
       >
         <div
-          className="col col-md-2 col-sm-6"
+          className="row"
         >
-          <h5>
-            Catagories
-          </h5>
-          <ul
-            className="list-unstyled"
+          <div
+            className="col col-md-2 col-sm-6"
           >
-            <li>
-              <a
-                href="/"
-              >
-                Graphics & Design
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Digital Marketing
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Writing & Translation
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Video & Animation
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Programming & Tech
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Music & Audio
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Business
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="col col-md-2 col-sm-6"
-        >
-          <h5>
-            Community
-          </h5>
-          <ul
-            className="list-unstyled"
+            <h5>
+              Catagories
+            </h5>
+            <ul
+              className="list-unstyled"
+            >
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Graphics & Design
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Digital Marketing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Writing & Translation
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Video & Animation
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Programming & Tech
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Music & Audio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Business
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="col col-md-2 col-sm-6"
           >
-            <li>
-              <a
-                href="/"
-              >
-                Events
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Forum
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="col col-md-2 col-sm-6"
-        >
-          <h5>
-            Support
-          </h5>
-          <ul
-            className="list-unstyled"
+            <h5>
+              Community
+            </h5>
+            <ul
+              className="list-unstyled"
+            >
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Events
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Forum
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="col col-md-2 col-sm-6"
           >
-            <li>
-              <a
-                href="/"
-              >
-                Terms and 
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Conditions
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Privacy and cookies
-              </a>
-            </li>
-            <li>
-              <a
-                href="/"
-              >
-                Accessability
-              </a>
-            </li>
-          </ul>
+            <h5>
+              Support
+            </h5>
+            <ul
+              className="list-unstyled"
+            >
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Terms and 
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Conditions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Privacy and cookies
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  Accessability
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div
@@ -157,6 +189,8 @@ exports[`renders Footer correctly 1`] = `
             <li>
               <a
                 href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <svg
                   fill="currentColor"
@@ -181,6 +215,8 @@ exports[`renders Footer correctly 1`] = `
             <li>
               <a
                 href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <svg
                   fill="currentColor"
@@ -205,6 +241,8 @@ exports[`renders Footer correctly 1`] = `
             <li>
               <a
                 href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <svg
                   fill="currentColor"
@@ -229,6 +267,8 @@ exports[`renders Footer correctly 1`] = `
             <li>
               <a
                 href="/"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <svg
                   fill="currentColor"
@@ -336,7 +376,8 @@ exports[`renders Footer correctly 1`] = `
                   d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"
                 />
               </svg>
-               Language
+               
+              English
             </button>
           </div>
         </div>

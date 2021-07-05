@@ -10,6 +10,11 @@ const FooterContainer = styled.footer`
     width: 100%;
   }
 
+  .main-container {
+    width: 85%;
+    margin: 0 auto;
+  }
+
   .footer-bottom {
     padding-top: 1rem;
     padding-bottom: 1rem;
