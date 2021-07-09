@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MdClose } from "react-icons/md";
 
 const Background = styled.div`
   width: 100%;
@@ -146,6 +147,22 @@ const Form = styled.form`
   }
 `;
 
+const CloseModalButton = styled(MdClose)`
+  cursor: pointer;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  z-index: 10;
+  color: #008080;
+
+  &:hover {
+    color: red;
+  }
+`;
+
 const ModalBubbles = styled.div`
   .uper-bigBubble {
     width: 101px;
@@ -188,4 +205,4 @@ const ModalBubbles = styled.div`
   }
 `;
 
-export { ModalContent, ModalWrapper, Background, ModalBubbles, Form, Button };
+export { ModalContent, ModalWrapper, Background, ModalBubbles, Form, Button, CloseModalButton };

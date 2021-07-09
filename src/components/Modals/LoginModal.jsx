@@ -3,7 +3,15 @@ import React, { useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { SiFacebook } from "react-icons/si";
 import { FcGoogle } from "react-icons/fc";
-import { ModalContent, ModalWrapper, Background, ModalBubbles, Form, Button } from "./Modal.styled";
+import {
+  ModalContent,
+  ModalWrapper,
+  Background,
+  ModalBubbles,
+  Form,
+  Button,
+  CloseModalButton,
+} from "./Modal.styled";
 
 const LoginModal = ({ showLogin, setShowLogin }) => {
   const modalRef = useRef();
@@ -52,6 +60,7 @@ const LoginModal = ({ showLogin, setShowLogin }) => {
                   <button type="button"> Join now </button>
                 </p>
               </ModalContent>
+              <CloseModalButton onClick={() => setShowLogin((show) => !show)} />
               <ModalBubbles>
                 <div className="uper-bigBubble" />
                 <div className="uper-smallBubble" />
