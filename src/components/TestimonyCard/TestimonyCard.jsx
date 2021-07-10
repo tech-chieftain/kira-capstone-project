@@ -13,19 +13,21 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 
 const TestimonyCard = ({imgSrc, quote, stars, color}) => (
   <Card>
-    <Row>
+    <Row >
       <Col>
         <Card.Img variant="top" src={imgSrc} />
       </Col>
-      <Col>
+      <Col className="align-self-center">
         <Card.Body>
-          <Container>
-            <FontAwesomeIcon icon={faQuoteLeft} color={color} />
-            <Card.Text className="text-center">{quote}</Card.Text>
-            <div className="justify-content-end">
-              <FontAwesomeIcon icon={faQuoteRight} color={color} />
+          <Card.Text className="text-center">
+            <div className="text-start">
+              <FontAwesomeIcon icon={faQuoteLeft} color={color} size="2x"/>
             </div>
-          </Container>
+            {quote}
+            <div className="text-end">
+              <FontAwesomeIcon icon={faQuoteRight} color={color} size="2x"/>
+            </div>
+          </Card.Text>
           <Rating
             readonly
             initialRating={stars}
@@ -33,7 +35,6 @@ const TestimonyCard = ({imgSrc, quote, stars, color}) => (
             fullSymbol={<FontAwesomeIcon icon={fasStar} />}
             fractions={2}
           />
-
         </Card.Body>
       </Col>
     </Row>
@@ -44,6 +45,7 @@ TestimonyCard.defaultProps = {
   imgSrc: "https://picsum.photos/300/200",
   quote: "To be, or not to be?",
   stars: 4,
+  color: "green",
 }
 
 export default TestimonyCard;
