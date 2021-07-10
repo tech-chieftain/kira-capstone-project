@@ -1,37 +1,30 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import React from "react";
+import PropTypes from "prop-types";
+import Card from "react-bootstrap/Card";
 
-import SmallProfileCard from '../SmallProfileCard/SmallProfileCard'
+import SmallProfileCard from "../SmallProfileCard/SmallProfileCard";
 
-const FPCard = (props) => {
-  if (props.overlay)
+const FPCard = ({ overlay, width, imgSrc, title, subtitle, profilePicture }) => {
+  if (overlay)
     return (
-      <Card className="text-white" style={{ width: `${props.width}rem` }}>
-        <Card.Img variant="top" src={props.imgSrc} alt="" />
+      <Card className="text-white" style={{ width: `${width}rem` }}>
+        <Card.Img variant="top" src={imgSrc} alt="" />
         <Card.ImgOverlay>
-          <Card.Subtitle>{props.subtitle}</Card.Subtitle>
-          <Card.Title>{props.title}</Card.Title>
+          <Card.Subtitle>{subtitle}</Card.Subtitle>
+          <Card.Title>{title}</Card.Title>
         </Card.ImgOverlay>
       </Card>
-    )
+    );
 
   return (
-    <Card style={{ width: `${props.width}rem` }}>
-      <Card.Img variant="top" src={props.imgSrc} alt="" />
+    <Card style={{ width: `${width}rem` }}>
+      <Card.Img variant="top" src={imgSrc} alt="" />
       <Card.Body>
-        <SmallProfileCard
-          profilePicture={props.profilePicture}
-          name={props.title}
-          job={props.subtitle}
-        />
+        <SmallProfileCard profilePicture={profilePicture} name={title} job={subtitle} />
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
 FPCard.propTypes = {
   overlay: PropTypes.bool,
@@ -40,7 +33,7 @@ FPCard.propTypes = {
   subtitle: PropTypes.string,
   imgSrc: PropTypes.string,
   profilePicture: PropTypes.string,
-}
+};
 
 FPCard.defaultProps = {
   overlay: true,
@@ -49,7 +42,6 @@ FPCard.defaultProps = {
   subtitle: "",
   imgSrc: "https://picsum.photos/200/300",
   profilePicture: "",
-}
+};
 
-
-export default FPCard
+export default FPCard;
