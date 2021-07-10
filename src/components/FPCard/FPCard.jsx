@@ -4,7 +4,8 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Image from 'react-bootstrap/Image'
+
+import SmallProfileCard from '../SmallProfileCard/SmallProfileCard'
 
 const FPCard = (props) => {
   if (props.overlay)
@@ -22,17 +23,11 @@ const FPCard = (props) => {
     <Card style={{ width: `${props.width}rem` }}>
       <Card.Img variant="top" src={props.imgSrc} alt="" />
       <Card.Body>
-        <Container>
-          <Row>
-            <Col xs={3}>
-              <Image src={props.profilePicture} roundedCircle />
-            </Col>
-            <Col>
-              <Card.Title>{props.title}</Card.Title>
-              <Card.Subtitle>{props.subtitle}</Card.Subtitle>
-            </Col>
-          </Row>
-        </Container>
+        <SmallProfileCard
+          profilePicture={props.profilePicture}
+          name={props.title}
+          job={props.subtitle}
+        />
       </Card.Body>
     </Card>
   )
