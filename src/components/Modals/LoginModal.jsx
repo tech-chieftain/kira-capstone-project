@@ -32,7 +32,7 @@ const LoginModal = ({ showLogin, setShowLogin }) => {
 
   return (
     <>
-      {showLogin ? (
+      {showLogin && (
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
             <ModalWrapper showLogin={showLogin}>
@@ -70,7 +70,7 @@ const LoginModal = ({ showLogin, setShowLogin }) => {
             </ModalWrapper>
           </animated.div>
         </Background>
-      ) : null}
+      )}
     </>
   );
 };

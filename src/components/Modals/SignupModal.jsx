@@ -32,7 +32,7 @@ const SignupModal = ({ showSignup, setShowSignup }) => {
 
   return (
     <>
-      {showSignup ? (
+      {showSignup && (
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
             <ModalWrapper showSignup={showSignup}>
@@ -76,7 +76,7 @@ const SignupModal = ({ showSignup, setShowSignup }) => {
             </ModalWrapper>
           </animated.div>
         </Background>
-      ) : null}
+      )}
     </>
   );
 };
