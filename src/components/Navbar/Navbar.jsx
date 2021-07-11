@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import { Navbar, Nav, Button, Container } from "react-bootstrap";
-import { Header } from "./Navbar.styled";
+import NavLogo from "./Logo";
+import { Container, Btn } from "./Navbar.styled";
 
 const Navobar = () => (
-  <div>
-    <Container>
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Kira</Navbar.Brand>
-        <Button>Log in</Button>
-        <Button>Join</Button>
-      </Navbar>
-    </Container>
-  </div>
+  <Container>
+    <div className="logo-container">
+      <NavLogo />
+    </div>
+    <Btn>
+      <button className="join">Join</button>
+      <button className="login">Log In</button>
+    </Btn>
+  </Container>
 );
 
 export default Navobar;

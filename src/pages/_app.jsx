@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Head from "next/head";
 import "../styles/globals.css";
 import { appWithTranslation } from "next-i18next";
 import { i18n } from "next-i18next";
@@ -13,9 +12,6 @@ function App({ Component, pageProps }) {
 
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
       <Component {...pageProps} />
     </>
   );
