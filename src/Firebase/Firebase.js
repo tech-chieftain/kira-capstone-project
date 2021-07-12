@@ -15,11 +15,11 @@ import "firebase/firestore";
 // };
 var firebaseConfig = {
   apiKey: "AIzaSyD8p3sWlX_ef2-yrEGwnzv4ekPlqQawhqQ",
-  authDomain: "kira-freelance-app.firebaseapp.com",
-  projectId: "kira-freelance-app",
-  storageBucket: "kira-freelance-app.appspot.com",
-  messagingSenderId: "734137959084",
-  appId: "1:734137959084:web:87a775570291e8ecd09509"
+    authDomain: "kira-freelance-app.firebaseapp.com",
+    projectId: "kira-freelance-app",
+    storageBucket: "kira-freelance-app.appspot.com",
+    messagingSenderId: "734137959084",
+    appId: "1:734137959084:web:cb0f308db3947ca6d09509"
 };
 
 // Initialize Firebase

@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Navbar from "../components/Navbar/Navbar";
 // import { Navbar } from "@components/Navbar/Navbar";
-
+import Addname from "../components/Addname";
 function Homepage() {
   // This controls the direction of the page for RTL languages
   const { t } = useTranslation("common");
@@ -12,6 +12,7 @@ function Homepage() {
     <div>
       {t("title")}
       <Navbar />
+      <Addname />
     </div>
   );
 }
