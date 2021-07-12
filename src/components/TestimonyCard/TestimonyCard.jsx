@@ -10,7 +10,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as fasStar, faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
 
-const TestimonyCard = ({ imgSrc, quote, rating, color }) => (
+import SmallProfileCard from "../SmallProfileCard/SmallProfileCard";
+
+const TestimonyCard = ({ imgSrc, quote, rating, color, name, job, profilePicture }) => (
   <Card>
     <Row>
       <Col>
@@ -26,14 +28,17 @@ const TestimonyCard = ({ imgSrc, quote, rating, color }) => (
             <div className="text-end">
               <FontAwesomeIcon icon={faQuoteRight} color={color} size="2x" />
             </div>
+            <Rating
+              readonly
+              initialRating={rating}
+              emptySymbol={<FontAwesomeIcon icon={farStar} />}
+              fullSymbol={<FontAwesomeIcon icon={fasStar} />}
+              fractions={2}
+            />
           </Card.Text>
-          <Rating
-            readonly
-            initialRating={rating}
-            emptySymbol={<FontAwesomeIcon icon={farStar} />}
-            fullSymbol={<FontAwesomeIcon icon={fasStar} />}
-            fractions={2}
-          />
+        </Card.Body>
+        <Card.Body>
+          <SmallProfileCard name={name} job={job} ProfilePicture={profilePicture} />
         </Card.Body>
       </Col>
     </Row>
@@ -45,6 +50,9 @@ TestimonyCard.propTypes = {
   quote: PropTypes.string,
   rating: PropTypes.number,
   color: PropTypes.string,
+  name: PropTypes.string,
+  job: PropTypes.string,
+  profilePicture: PropTypes.string,
 };
 
 TestimonyCard.defaultProps = {
@@ -52,6 +60,9 @@ TestimonyCard.defaultProps = {
   quote: "",
   rating: 4.5,
   color: "",
+  name: "",
+  job: "",
+  profilePicture: "",
 };
 
 export default TestimonyCard;
