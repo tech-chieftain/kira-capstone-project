@@ -1,23 +1,27 @@
 import { FaTwitter, FaLinkedinIn, FaInstagram, FaFacebookF, FaGlobe } from "react-icons/fa";
-import { Container, Row, Col, Dropdown } from "react-bootstrap";
+import { Container, Row, Col, Dropdown, DropdownButton } from "react-bootstrap";
 import React, { useState } from "react";
 import Link from "next/link";
-import { FooterContainer, MainContainer } from "./Footer.styled";
+import { FooterContainer, MainContainer, Select } from "./Footer.styled";
 import Logo from "./FooterLogo";
 
 // eslint-disable-next-line arrow-body-style
 const Footer = () => {
-  const [language1, setLanguage1] = useState("English");
-  const [language2, setLanguage2] = useState("Arabic");
+  // const [language1, setLanguage1] = useState("English");
+  // const [language2, setLanguage2] = useState("Arabic");
 
-  const changeLanguage = () => {
-    if (language2 === "Arabic") {
-      setLanguage1("Arabic");
-      setLanguage2("English");
-    } else {
-      setLanguage2("Arabic");
-      setLanguage1("English");
-    }
+  // const changeLanguage = () => {
+  //   if (language2 === "Arabic") {
+  //     setLanguage1("Arabic");
+  //     setLanguage2("English");
+  //   } else {
+  //     setLanguage2("Arabic");
+  //     setLanguage1("English");
+  //   }
+  // };
+
+  const languages = {
+    arrayOfLanguage: ["English", "Arabic"],
   };
 
   return (
@@ -162,14 +166,20 @@ const Footer = () => {
                 id="dropdown-basic-button"
                 className="text-white btn-lg"
               >
-                <FaGlobe /> {language1}
+                <FaGlobe /> Language
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1" className="dropdown-item" onClick={changeLanguage}>
-                  {language2}
-                </Dropdown.Item>
+                {languages.arrayOfLanguage.map((language) => (
+                  <Dropdown.Item className="dropdown-item">{language}</Dropdown.Item>
+                ))}
               </Dropdown.Menu>
             </Dropdown>
+
+            {/* <Select>
+              {languages.arrayOfLanguage.map((language) => (
+                <option>{language}</option>
+              ))}
+            </Select> */}
           </div>
         </div>
       </MainContainer>
