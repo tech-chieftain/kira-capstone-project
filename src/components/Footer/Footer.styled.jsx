@@ -76,24 +76,3 @@ export const MainContainer = styled.div`
     }
   }
 `;
-
-export const Select = styled.select`
-  webkit-appearance: none;
-  moz-appearance: none;
-  appearance: none;
-  padding: 10px 25px;
-  box-shadow: none;
-  webkit-box-shadow: none;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: white;
-  font-size: 20px;
-
-  option {
-    background: white;
-    color: black;
-    font-size: 16px;
-  }
-
-`;
