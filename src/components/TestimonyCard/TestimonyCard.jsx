@@ -59,7 +59,7 @@ TestimonyCard.defaultProps = {
   imgSrc: "https://picsum.photos/300/200",
   quote: "",
   rating: 4.5,
-  color: "",
+  color: "#008080",
   name: "",
   job: "",
   profilePicture: "",
