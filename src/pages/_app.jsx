@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
-import "../styles/globals.css";
-import { appWithTranslation } from "next-i18next";
-import { i18n } from "next-i18next";
+
+import { appWithTranslation, i18n } from "next-i18next";
+
 import "bootstrap/dist/css/bootstrap.css";
+import "../styles/scss/global.scss";
 
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {
