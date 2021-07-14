@@ -12,9 +12,9 @@ const SmallProfileCard = ({ profilePicture, name, job }) => (
   <Card>
     <Card.Body>
       <Row>
-        <Col xs={3} className="align-self-center">
+        <Col xs={4} className="align-self-center">
           {profilePicture ? (
-            <Card src={profilePicture} roundedCircle fluid />
+            <Image src={profilePicture} roundedCircle fluid />
           ) : (
             <FontAwesomeIcon icon={faUserCircle} size="2x" />
           )}
