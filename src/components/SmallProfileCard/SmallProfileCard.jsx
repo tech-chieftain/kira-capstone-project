@@ -16,7 +16,7 @@ const SmallProfileCard = ({ profilePicture, name, job }) => (
           {profilePicture ? (
             <Image src={profilePicture} roundedCircle fluid />
           ) : (
-            <FontAwesomeIcon icon={faUserCircle} size="2x" />
+            <FontAwesomeIcon icon={faUserCircle} size="3x" />
           )}
         </Col>
         <Col>
