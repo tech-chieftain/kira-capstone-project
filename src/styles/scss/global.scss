@@ -17,9 +17,7 @@ $font-family-sans-serif: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvet
 
 p,
 a {
-  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
-    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+  font-family: $font-family-sans-serif;
 }
 
 h1,
@@ -28,9 +26,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto Condensed", "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue",
-    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Roboto Condensed", $font-family-sans-serif;
 }
 
 @import "/node_modules/bootstrap/scss/bootstrap.scss";
