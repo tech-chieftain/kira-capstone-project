@@ -1,22 +1,40 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Card from "react-bootstrap/Card";
+import { Card, Col, Row } from "react-bootstrap";
 import { FaHeart, FaUserCircle } from "react-icons/fa";
-import { StarIcon, Button } from "./ServicesCard.styled";
+import { StarIcon, Button, CardBody, Img } from "./ServicesCard.styled";
 
 const ServicesCard = ({ person, width, photo, profilePic, description, rating, price, name }) => {
+  const [favorate, setFavorate] = useState(false);
+
+  const favorated = () => {
+    setFavorate(!favorate);
+  };
+
   if (person)
     return (
       <Card style={{ width: `${width}rem` }} className="shadow z-depth-5">
         <Card.Img variant="top" src={photo} alt="" />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
+        <CardBody>
+          <Row md={2} className="d-flex align-items-center mb-2">
+            <Col>
+              {profilePic ? (
+                <Img src={profilePic} roundedCircle fluid />
+              ) : (
+                <FaUserCircle size="28px" className="text-secondary" />
+              )}
+            </Col>
+            <Col className="username">
+              <Card.Subtitle>{name}</Card.Subtitle>
+            </Col>
+          </Row>
           <Card.Text>{description}</Card.Text>
-        </Card.Body>
-        <small className="text-warning d-flex align-items-center mx-3 my-1">
-          <StarIcon /> {rating}
-        </small>
+          <small className="text-warning d-flex align-items-center">
+            <StarIcon /> {rating}
+          </small>
+        </CardBody>
         <Card.Footer className="bg-white d-flex align-items-center justify-content-between">
-          <Button>
+          <Button onClick={favorated} style={{ color: favorate ? "red" : "grey" }}>
             <FaHeart />
           </Button>
           <small className="text-muted">
@@ -28,14 +46,14 @@ const ServicesCard = ({ person, width, photo, profilePic, description, rating, p
   return (
     <Card style={{ width: `${width}rem` }} className="shadow z-depth-5">
       <Card.Img variant="top" src={photo} alt="" />
-      <Card.Body>
+      <CardBody>
         <Card.Text>{description}</Card.Text>
-      </Card.Body>
-      <small className="text-warning d-flex align-items-center mx-3 my-1">
-        <StarIcon /> {rating}
-      </small>
+        <small className="text-warning d-flex align-items-center">
+          <StarIcon /> {rating}
+        </small>
+      </CardBody>
       <Card.Footer className="bg-white d-flex align-items-center justify-content-between">
-        <Button>
+        <Button onClick={favorated} style={{ color: favorate ? "red" : "grey" }}>
           <FaHeart />
         </Button>
         <small className="text-muted">
@@ -54,16 +72,18 @@ ServicesCard.propTypes = {
   photo: PropTypes.string,
   description: PropTypes.string,
   name: PropTypes.string,
+  profilePic: PropTypes.string,
 };
 
 ServicesCard.defaultProps = {
   person: true,
   width: 18,
   photo: "https://picsum.photos/307/186",
-  name: "",
-  description: "",
+  name: "Username",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   rating: 10,
   price: 8,
+  profilePic: "https://picsum.photos/307/186",
 };
 
 export default ServicesCard;
