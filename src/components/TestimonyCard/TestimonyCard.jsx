@@ -6,13 +6,9 @@ import Col from "react-bootstrap/Col";
 
 import Rating from "react-rating";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar as fasStar, faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
-import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
+import { FaStar, FaRegStar, FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
-import SmallProfileCard from "../SmallProfileCard/SmallProfileCard";
-
-const TestimonyCard = ({ imgSrc, quote, rating, color, name, job, profilePicture }) => (
+const TestimonyCard = ({ imgSrc, quote, rating, color, name, job }) => (
   <Card>
     <Row>
       <Col>
@@ -21,25 +17,32 @@ const TestimonyCard = ({ imgSrc, quote, rating, color, name, job, profilePicture
       <Col className="align-self-center">
         <Card.Body>
           <Card.Text className="text-center">
-            <div className="text-start">
-              <FontAwesomeIcon icon={faQuoteLeft} color={color} size="2x" />
-            </div>
-            {quote}
-            <div className="text-end">
-              <FontAwesomeIcon icon={faQuoteRight} color={color} size="2x" />
-            </div>
-            <Rating
-              readonly
-              initialRating={rating}
-              emptySymbol={<FontAwesomeIcon icon={farStar} />}
-              fullSymbol={<FontAwesomeIcon icon={fasStar} />}
-              fractions={2}
-            />
+            <blockquote className="blockquote">
+              <div className="text-start">
+                <FaQuoteLeft color={color} size="2rem" />
+              </div>
+              <p>{quote}</p>
+              <div className="text-end">
+                <FaQuoteRight color={color} size="2rem" />
+              </div>
+            </blockquote>
+            <footer className="blockquote-footer">
+              <small className="text-muted">
+                {name} <span className="fst-italic fw-light">{job}</span>
+              </small>
+              <div>
+                <Rating
+                  readonly
+                  initialRating={rating}
+                  emptySymbol={<FaRegStar />}
+                  fullSymbol={<FaStar />}
+                  fractions={2}
+                />
+              </div>
+            </footer>
           </Card.Text>
         </Card.Body>
-        <Card.Body>
-          <SmallProfileCard name={name} job={job} ProfilePicture={profilePicture} />
-        </Card.Body>
+        <Card.Body className="text-center" />
       </Col>
     </Row>
   </Card>
@@ -52,17 +55,15 @@ TestimonyCard.propTypes = {
   color: PropTypes.string,
   name: PropTypes.string,
   job: PropTypes.string,
-  profilePicture: PropTypes.string,
 };
 
 TestimonyCard.defaultProps = {
-  imgSrc: "https://picsum.photos/300/200",
+  imgSrc: "https://picsum.photos/900/700",
   quote: "",
-  rating: 4.5,
+  rating: 0,
   color: "#008080",
   name: "",
   job: "",
-  profilePicture: "",
 };
 
 export default TestimonyCard;
