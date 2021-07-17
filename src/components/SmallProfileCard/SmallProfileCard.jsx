@@ -8,11 +8,17 @@ import Image from "react-bootstrap/Image";
 import { FaUserCircle } from "react-icons/fa";
 
 const SmallProfileCard = ({ profilePicture, name, job }) => (
-  <Card>
+  <Card style={{ border: "0", width: "16rem" }}>
     <Card.Body>
-      <Row>
-        <Col xs={4} className="align-self-center">
-          {profilePicture ? <Image src={profilePicture} roundedCircle fluid /> : <FaUserCircle />}
+      <Row className="align-items-center">
+        <Col xs={4}>
+          {profilePicture ? (
+            <Image src={profilePicture} alt="" roundedCircle fluid />
+          ) : (
+            <div className="d-flex justify-content-end">
+              <FaUserCircle size="3em" />
+            </div>
+          )}
         </Col>
         <Col>
           <Card.Title>{name}</Card.Title>
