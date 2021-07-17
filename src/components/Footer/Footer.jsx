@@ -2,6 +2,7 @@ import { FaTwitter, FaLinkedinIn, FaInstagram, FaFacebookF, FaGlobe } from "reac
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 import { FooterContainer, MainContainer } from "./Footer.styled";
 import Logo from "./FooterLogo";
 
@@ -12,92 +13,89 @@ const Footer = () => {
     chosenLanguage: "English",
   });
 
+  const { t } = useTranslation();
+
   return (
     <FooterContainer>
       <MainContainer>
         <Container>
           <Row lg={5} md={2} xs={1}>
             <Col>
-              <h5>Catagories</h5>
+              <h5>{t("Catagories")}</h5>
               <ul className="list-unstyled ">
                 <li>
                   <Link href="/">
-                    <a>Graphics & Design</a>
+                    <a>{t("Graphics & Design")}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>Digital Marketing</a>
+                    <a>{t("Digital Marketing")}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>Writing & Translation</a>
+                    <a>{t("Writing & Translation")}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>Video & Animation</a>
+                    <a>{t("Video & Animation")}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>Programming & Tech</a>
+                    <a>{t("Programming & Tech")}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>Music & Audio</a>
+                    <a>{t("Music & Audio")}</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>Business</a>
-                  </Link>
-                </li>
-              </ul>
-            </Col>
-            <Col>
-              <h5>Community</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <Link href="/">
-                    <a>Events</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>Blog</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>Forum</a>
+                    <a>{t("Business")}</a>
                   </Link>
                 </li>
               </ul>
             </Col>
             <Col>
-              <h5>Support</h5>
+              <h5>{t("Community")}</h5>
               <ul className="list-unstyled">
                 <li>
                   <Link href="/">
-                    <a>Terms and </a>
+                    <a>{t("Events")} </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>Conditions</a>
+                    <a>{t("Blog")} </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>Privacy and cookies</a>
+                    <a>{t("Forum")} </a>
+                  </Link>
+                </li>
+              </ul>
+            </Col>
+            <Col>
+              <h5>{t("Support")} </h5>
+              <ul className="list-unstyled">
+                <li>
+                  <Link href="/">
+                    <a>{t("Terms and Conditions")} </a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/">
-                    <a>Accessability</a>
+                    <a>{t("Privacy and cookies")} </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/">
+                    <a>{t("Accessability")} </a>
                   </Link>
                 </li>
               </ul>
