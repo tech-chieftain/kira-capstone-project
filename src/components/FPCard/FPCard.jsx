@@ -41,7 +41,6 @@ FPCard.defaultProps = {
   title: "",
   subtitle: "",
   imgSrc: "https://picsum.photos/200/300",
-  profilePicture: "",
 };
 
 export default FPCard;
