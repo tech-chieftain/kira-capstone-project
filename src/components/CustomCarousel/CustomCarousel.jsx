@@ -51,7 +51,7 @@ CustomCarousel.propTypes = {
 CustomCarousel.defaultProps = {
   thumbnail: false,
   items: [],
-  slides: 3,
+  slides: 1,
 };
 
 export default CustomCarousel;
