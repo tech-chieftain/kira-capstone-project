@@ -8,23 +8,22 @@ function Homepage() {
   // This controls the direction of the page for RTL languages
   const { t } = useTranslation("common");
 
+  const arrayOfNodes = [
+    "https://picsum.photos/300/200?random=1",
+    "https://picsum.photos/300/200?random=2",
+    "https://picsum.photos/300/200?random=3",
+  ].map((image) => (
+    <img
+      className="m-auto"
+      src={image}
+      alt=""
+      style={{ height: "100%", objectFit: "100%" }}
+    />
+  ));
+
   return (
     <div style={{ height: "500px", width: "100%" }}>
-      <CustomCarousel
-        thumbnail
-        items={[
-          "https://picsum.photos/300/200?random=1",
-          "https://picsum.photos/300/200?random=2",
-          "https://picsum.photos/300/200?random=3",
-        ].map((image) => (
-          <img
-            className="m-auto"
-            src={image}
-            alt=""
-            style={{ height: "100%", objectFit: "100%" }}
-          />
-        ))}
-      />
+      <CustomCarousel thumbnail items={arrayOfNodes} />
     </div>
   );
 }
