@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import SliderData from "./SliderData";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { NextArrow, PrevArrow } from "./SliderArrow";
 
 const ImagesSlider = () => {
   const settings = {
@@ -12,7 +13,7 @@ const ImagesSlider = () => {
           <img
             src={SliderData[i].imgURL}
             alt=""
-            className="image"
+            className="shadow"
             style={{ width: "110px", height: "80px", objectFit: "cover" }}
           />
         </a>
@@ -24,14 +25,46 @@ const ImagesSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
-    <Slider {...settings}>
-      {SliderData.map((slide) => (
-        <img src={slide.imgURL} alt="" />
-      ))}
-    </Slider>
+    <>
+      <Slider {...settings} className="shadow m-5 slider">
+        {SliderData.map((slide) => (
+          <img src={slide.imgURL} alt="" />
+        ))}
+      </Slider>
+
+      <style global jsx>{`
+        .slider,
+        img {
+          width: 700px;
+          height: 500px;
+        }
+
+        .slick-dots.slick-thumb {
+          bottom: -90px;
+        }
+
+        .slick-dots.slick-thumb li {
+          width: 100px;
+          height: 80px;
+          list-style-type: none;
+          filter: grayscale(100%);
+          margin-right: 10px;
+        }
+
+        .slick-dots.slick-thumb li.slick-active {
+          filter: grayscale(0%);
+        }
+
+        .prev-btn {
+          z-index: 1;
+        }
+      `}</style>
+    </>
   );
 };
 
