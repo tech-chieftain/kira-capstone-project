@@ -33,13 +33,13 @@ const ImagesSlider = () => {
     <>
       <Slider {...settings} className="shadow m-5 slider">
         {SliderData.map((slide) => (
-          <img src={slide.imgURL} alt="" />
+          <img src={slide.imgURL} alt="" className="slider-img" />
         ))}
       </Slider>
 
       <style global jsx>{`
         .slider,
-        img {
+        .slider-img {
           width: 700px;
           height: 500px;
         }
@@ -58,10 +58,6 @@ const ImagesSlider = () => {
 
         .slick-dots.slick-thumb li.slick-active {
           filter: grayscale(0%);
-        }
-
-        .prev-btn {
-          z-index: 1;
         }
       `}</style>
     </>
