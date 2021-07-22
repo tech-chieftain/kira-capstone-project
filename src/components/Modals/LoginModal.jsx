@@ -13,7 +13,7 @@ import {
   CloseModalButton,
 } from "./Modal.styled";
 
-const LoginModal = ({ showLogin, setShowLogin }) => {
+const LoginModal = ({ showLogin, setShowLogin, setShowSignup }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -57,7 +57,15 @@ const LoginModal = ({ showLogin, setShowLogin }) => {
                 </Form>
                 <p>
                   Not a member yet?
-                  <button type="button"> Join now </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowSignup((show) => !show);
+                      setShowLogin((show) => !show);
+                    }}
+                  >
+                    Join now
+                  </button>
                 </p>
               </ModalContent>
               <CloseModalButton onClick={() => setShowLogin((show) => !show)} />

@@ -23,7 +23,7 @@ const ModalWrapper = styled.div`
   position: relative;
   z-index: 1;
   border-radius: 15px;
-  margin-top: -3rem;
+  margin-top: -5rem;
 `;
 
 const ModalContent = styled.div`
@@ -34,7 +34,7 @@ const ModalContent = styled.div`
   align-items: center;
   line-height: 1.9;
   color: #141414;
-  padding: 2.3rem 0;
+  padding: 2.5rem 0;
 
   h4 {
     color: #008080;
@@ -150,13 +150,13 @@ const Form = styled.form`
 const CloseModalButton = styled(MdClose)`
   cursor: pointer;
   position: absolute;
-  top: 13px;
-  right: 13px;
-  width: 25px;
-  height: 25px;
+  top: 14px;
+  right: 14px;
+  width: 26px;
+  height: 26px;
   padding: 0;
   z-index: 10;
-  color: #008080;
+  color: grey;
 
   &:hover {
     color: red;

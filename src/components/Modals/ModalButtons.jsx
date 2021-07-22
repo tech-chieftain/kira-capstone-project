@@ -7,7 +7,7 @@ const ModalButtons = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
-  const openModal = () => {
+  const openLoginModal = () => {
     setShowLogin((show) => !show);
   };
 
@@ -17,15 +17,19 @@ const ModalButtons = () => {
 
   return (
     <>
-      <Button onClick={openModal} variant="secondary">
+      <Button onClick={openLoginModal} variant="secondary">
         Log In
       </Button>
-      <LoginModal showLogin={showLogin} setShowLogin={setShowLogin} />
+      <LoginModal showLogin={showLogin} setShowLogin={setShowLogin} setShowSignup={setShowSignup} />
 
       <Button onClick={openSignupModal} variant="dark">
         Sign Up
       </Button>
-      <SignupModal showSignup={showSignup} setShowSignup={setShowSignup} />
+      <SignupModal
+        showSignup={showSignup}
+        setShowSignup={setShowSignup}
+        setShowLogin={setShowLogin}
+      />
     </>
   );
 };

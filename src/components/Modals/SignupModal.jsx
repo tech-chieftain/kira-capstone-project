@@ -13,7 +13,7 @@ import {
   CloseModalButton,
 } from "./Modal.styled";
 
-const SignupModal = ({ showSignup, setShowSignup }) => {
+const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -58,12 +58,20 @@ const SignupModal = ({ showSignup, setShowSignup }) => {
                   <input type="text" name="name" placeholder="Your Username" />
                   <input type="email" name="email" placeholder="Email" />
                   <input type="password" name="password" placeholder="Password" />
-                  <input type="password" name="password" placeholder="Confirm Password" />
+                  <input type="password" name="ConfirmPassword" placeholder="Confirm Password" />
                   <Button className="join-btn">Continue</Button>
                 </Form>
                 <p>
                   Already have an account?
-                  <button type="button"> Log In </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowSignup((show) => !show);
+                      setShowLogin((show) => !show);
+                    }}
+                  >
+                    Log In
+                  </button>
                 </p>
               </ModalContent>
               <CloseModalButton onClick={() => setShowSignup((show) => !show)} />
