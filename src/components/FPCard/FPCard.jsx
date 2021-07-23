@@ -36,7 +36,7 @@ FPCard.propTypes = {
 };
 
 FPCard.defaultProps = {
-  overlay: true,
+  overlay: false,
   width: 18,
   title: "",
   subtitle: "",
