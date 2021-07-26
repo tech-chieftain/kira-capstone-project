@@ -4,16 +4,9 @@ import { FaUserCircle, FaTwitter, FaInstagram, FaFacebookF } from "react-icons/f
 import { VscLocation, VscStarFull, VscStarEmpty } from "react-icons/vsc";
 import Link from "next/link";
 import Rating from "react-rating";
-import { Background, Img, MainContainer } from "./ProfileHeader.styled";
+import { Background, Img, MainContainer, Btn } from "./ProfileHeader.styled";
 
-const ProfileHeader = ({
-  profilePicture,
-  name,
-  //   profession,
-  location,
-  description,
-  rating,
-}) => (
+const ProfileHeader = ({ profilePicture, name, profession, location, description, rating }) => (
   <Background>
     <MainContainer>
       <Row>
@@ -25,7 +18,10 @@ const ProfileHeader = ({
           )}
         </Col>
         <Col sm={9} className="info-container">
-          <h1>{name}</h1>
+          <div className="d-flex flex-row">
+            <h1>{name}</h1>
+            <span className="m-3">({profession})</span>
+          </div>
           <h5>
             <VscLocation size="32px" />
             <span>{location}</span>
@@ -56,14 +52,16 @@ const ProfileHeader = ({
             </ul>
           </div>
           <h5>{description}</h5>
-          <div>
+          <div className="d-flex flex-row mt-3">
             <Rating
               readonly
               initialRating={rating}
-              emptySymbol={<VscStarEmpty size="35px" />}
-              fullSymbol={<VscStarFull size="35px" />}
+              emptySymbol={<VscStarEmpty size="36px" />}
+              fullSymbol={<VscStarFull size="36px" />}
               fractions={2}
             />
+
+            <Btn>Contact Me</Btn>
           </div>
         </Col>
       </Row>
@@ -74,7 +72,7 @@ const ProfileHeader = ({
 ProfileHeader.propTypes = {
   profilePicture: PropTypes.string,
   name: PropTypes.string,
-  //   profession: PropTypes.string,
+  profession: PropTypes.string,
   location: PropTypes.string,
   description: PropTypes.string,
   rating: PropTypes.number,
@@ -83,7 +81,7 @@ ProfileHeader.propTypes = {
 ProfileHeader.defaultProps = {
   profilePicture: "",
   name: "",
-  //   profession: "",
+  profession: "",
   location: "",
   description: "",
   rating: 0,
