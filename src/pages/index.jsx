@@ -10,15 +10,10 @@ function Homepage() {
 
   const arrayOfNodes = [
     "https://picsum.photos/300/200?random=1",
-    "https://picsum.photos/300/200?random=2",
+    "https://picsum.photos/3000/2000?random=2",
     "https://picsum.photos/300/200?random=3",
   ].map((image) => (
-    <img
-      className="m-auto"
-      src={image}
-      alt=""
-      style={{ height: "100%", objectFit: "100%" }}
-    />
+    <img src={image} alt="" style={{ display: "block", height: "100%", objectFit: "100%" }} />
   ));
 
   return (
