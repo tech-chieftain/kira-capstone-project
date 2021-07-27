@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const CustomCarousel = ({ thumbnail, items, slides }) => {
   const settings = {
-    className: "slider-img",
+    className: "slider",
     dots: true,
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
@@ -39,18 +39,22 @@ const CustomCarousel = ({ thumbnail, items, slides }) => {
       <div className="container">
         <Slider {...settings}>
           {items.map((item) => (
-            <div>{item}</div>
+            <div className="slider-item">{item}</div>
           ))}
         </Slider>
       </div>
       <style global jsx>{`
-        .slider,
-        slider-img {
-          width: 100%;
-          height: 100px;
+        .slider {
+          width: auto;
+          height: 500px;
         }
-        .slick-active div div * {
+
+        .slider-item {
+          width: auto;
+          height: 500px;
+          object-fit: contain;
           margin: auto;
+          border: red solid;
         }
 
         .slick-dots.slick-thumb {
