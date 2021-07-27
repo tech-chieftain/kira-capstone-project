@@ -1,11 +1,13 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import Navbar from "../../components/Navbar/Navbar"
 
 const freelancers = () => (
   <>
     <Head>
       <title>Freelancer Search</title>
     </Head>
+    <Navbar />
   </>
 );
 
