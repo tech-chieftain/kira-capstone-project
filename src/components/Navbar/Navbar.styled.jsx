@@ -1,44 +1,41 @@
-/* eslint-disable import/prefer-default-export */
 import styled from "styled-components";
+import { Button, Image } from "react-bootstrap";
 
-export const Container = styled.nav`
-  background: #008080;
-  height: 64px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0%;
-  left: 0%;
+export const Img = styled(Image)`
+  margin: -8px 0;
+`;
 
-  .logo-container {
-    margin-left: 105px;
+export const JoinBtn = styled(Button)`
+  height: 32px;
+  width: 112px;
+  color: #006767;
+  background: #fff;
+  border-radius: 5px;
+  border: none;
+
+  &:focus,
+  :hover {
+    color: #006767;
+    background: #fff;
   }
 `;
-export const Btn = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: flex-end; */
-  position: relative;
-  right: 40px;
-  margin: 0, 100px;
-  margin-right: 105px;
-  .join {
-    height: 32px;
-    width: 112px;
-    color: #006767;
-    background-color: white;
-    border-radius: 5px;
-    border: none;
-  }
-  .login {
-    height: 32px;
-    width: 112px;
+
+export const LoginBtn = styled(Button)`
+  height: 32px;
+  width: 112px;
+  color: #fff;
+  background: #008080;
+  border-radius: 5px;
+  border: none;
+  margin-right: 75px;
+
+  &:focus,
+  :hover {
     color: #fff;
-    background-color: #008080;
-    border-radius: 5px;
-    border: none;
-    margin-right: 50px;
+    background: #008080;
+  }
+
+  @media (max-width: 768px) {
+    margin-right: 10px;
   }
 `;
