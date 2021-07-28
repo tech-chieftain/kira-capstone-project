@@ -4,7 +4,6 @@ import Head from "next/head";
 import { appWithTranslation, i18n } from "next-i18next";
 
 import "bootstrap/dist/css/bootstrap.css";
-import "../styles/scss/global.scss";
 
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {
@@ -17,6 +16,7 @@ function App({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      
       <Component {...pageProps} />
     </>
   );
