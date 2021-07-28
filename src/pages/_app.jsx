@@ -5,6 +5,7 @@ import { appWithTranslation, i18n } from "next-i18next";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/scss/global.scss";
+import Footer from "../components/Footer/Footer";
 
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {
@@ -15,6 +16,7 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }
