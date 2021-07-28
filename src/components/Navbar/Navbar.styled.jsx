@@ -36,6 +36,6 @@ export const LoginBtn = styled(Button)`
   }
 
   @media (max-width: 768px) {
-    margin-right: 10px;
+    margin-right: 20px;
   }
 `;
