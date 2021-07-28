@@ -4,11 +4,16 @@ import Card from "react-bootstrap/Card";
 
 import SmallProfileCard from "../SmallProfileCard/SmallProfileCard";
 
-const FPCard = ({ overlay, width, imgSrc, title, subtitle, profilePicture }) => {
+const FPCard = ({ overlay, width, imgSrc, title, subtitle, profilePicture, imgHeight }) => {
   if (overlay)
     return (
       <Card className="text-white" style={{ width: `${width}rem` }}>
-        <Card.Img variant="top" src={imgSrc} alt="" />
+        <Card.Img
+          variant="top"
+          src={imgSrc}
+          alt=""
+          style={{ height: `${imgHeight}rem`, objectFit: "cover" }}
+        />
         <Card.ImgOverlay>
           <Card.Subtitle>{subtitle}</Card.Subtitle>
           <Card.Title>{title}</Card.Title>
@@ -17,8 +22,13 @@ const FPCard = ({ overlay, width, imgSrc, title, subtitle, profilePicture }) => 
     );
 
   return (
-    <Card style={{ width: `${width}rem` }}>
-      <Card.Img variant="top" src={imgSrc} alt="" />
+    <Card style={{ maxWidth: `${width}rem` }}>
+      <Card.Img
+        variant="top"
+        src={imgSrc}
+        alt=""
+        style={{ height: `${imgHeight}rem`, objectFit: "cover" }}
+      />
       <Card.Body>
         <SmallProfileCard profilePicture={profilePicture} name={title} job={subtitle} />
       </Card.Body>
@@ -32,16 +42,17 @@ FPCard.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   imgSrc: PropTypes.string,
+  imgHeight: PropTypes.number,
   profilePicture: PropTypes.string,
 };
 
 FPCard.defaultProps = {
-  overlay: true,
+  overlay: false,
   width: 18,
   title: "",
   subtitle: "",
   imgSrc: "https://picsum.photos/200/300",
-  profilePicture: "",
+  imgHeight: 20,
 };
 
 export default FPCard;
