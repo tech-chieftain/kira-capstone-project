@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Container, Dropdown, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, Container, Dropdown, FormControl } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { FaUserCircle, FaUserAlt } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
-import { VscSearch } from "react-icons/vsc";
 import InputGroup from "react-bootstrap/InputGroup";
 import { IoSearch } from "react-icons/io5";
 import { MdSettings } from "react-icons/md";
@@ -14,7 +13,7 @@ import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
 
 // eslint-disable-next-line arrow-body-style
-const NavBar = ({ overview, profilePicture, search, name }) => {
+const NavBar = ({ overview, profilePicture, name }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -39,23 +38,21 @@ const NavBar = ({ overview, profilePicture, search, name }) => {
           />
         </Navbar.Brand>
 
-        {search && (
-          <SearchForm className="d-flex shadow">
-            <InputGroup.Text id="basic-addon1">
-              <IoSearch size="21px" />
-            </InputGroup.Text>
-            <FormControl
-              type="search"
-              placeholder="Find Services"
-              aria-label="Search"
-              className="input"
-            />
-            <Button className="input-btn">Search</Button>
-          </SearchForm>
-        )}
+        <SearchForm className="d-flex md-shadow mx-2">
+          <InputGroup.Text id="basic-addon1">
+            <IoSearch size="25px" />
+          </InputGroup.Text>
+          <FormControl
+            type="search"
+            placeholder="Find Services..."
+            aria-label="Search"
+            className="input"
+            onChange=""
+          />
+        </SearchForm>
 
         {overview ? (
-          <Nav>
+          <Nav className="w-100 d-flex justify-content-end">
             <LoginBtn onClick={openLoginModal}> Log In </LoginBtn>
             <LoginModal
               showLogin={showLogin}
@@ -71,10 +68,7 @@ const NavBar = ({ overview, profilePicture, search, name }) => {
             />
           </Nav>
         ) : (
-          <Nav>
-            <Button variant="primary">
-              <VscSearch size="28px" className="text-white mt-1" />
-            </Button>
+          <Nav className="w-75 d-flex justify-content-end">
             <Nav.Link href="/">
               <GrMail size="32px" className="text-white" />
             </Nav.Link>
@@ -113,14 +107,12 @@ const NavBar = ({ overview, profilePicture, search, name }) => {
 
 NavBar.propTypes = {
   overview: PropTypes.bool,
-  search: PropTypes.bool,
   profilePicture: PropTypes.string,
   name: PropTypes.string,
 };
 
 NavBar.defaultProps = {
   overview: true,
-  search: false,
   profilePicture: "",
   name: "",
 };

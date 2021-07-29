@@ -19,7 +19,7 @@ export const LoginBtn = styled(Button)`
   border: none;
   margin-right: 75px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     margin-right: 20px;
   }
 `;
@@ -40,24 +40,20 @@ export const DropDown = styled(Dropdown)`
     box-shadow: none;
     webkit-box-shadow: none;
     margin: 3px auto 0;
-
-    // &::after {
-    //   display: none;
-    // }
   }
 `;
 
 export const SearchForm = styled(Form)`
-  margin-left: -28rem;
   margin-top: 3px;
 
   .input {
-    border-radius: 0;
-    margin-left: -8px;
+    border-radius: 0 5px 5px 0;
+    margin-left: -10px;
     border: none;
     box-shadow: none;
     webkit-box-shadow: none;
-    width: 280px;
+    width: 390px;
+    height: 40px;
 
     &:focus {
       color: grey;
@@ -72,15 +68,25 @@ export const SearchForm = styled(Form)`
     margin-right: -5px;
   }
 
-  .input-btn {
-    border-radius: 0 5px 5px 0;
-    border: none;
-    background: #006767;
-    padding: 7px 15px;
+  @media (max-width: 800px) {
+    margin: 0;
 
-    &:focus {
-      box-shadow: none;
-      webkit-box-shadow: none;
+    .input {
+      width: 150px;
+      border-bottom: 1px solid white;
+      border-radius: 0;
+      background: #008080;
+
+      ::placeholder {
+        color: white;
+      }
+    }
+
+    #basic-addon1 {
+      border-bottom: 1px solid white;
+      border-radius: 0;
+      background: #008080;
+      color: white;
     }
   }
 `;
