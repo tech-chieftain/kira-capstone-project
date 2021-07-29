@@ -4,9 +4,11 @@ import Head from "next/head";
 import { appWithTranslation, i18n } from "next-i18next";
 
 import "bootstrap/dist/css/bootstrap.css";
+
 import "../styles/scss/global.scss";
 import Footer from "../components/Footer/Footer";
 import NavBar from "../components/Navbar/Navbar";
+
 
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {
@@ -16,6 +18,10 @@ function App({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      
       <NavBar />
       <Component {...pageProps} />
       <Footer />
