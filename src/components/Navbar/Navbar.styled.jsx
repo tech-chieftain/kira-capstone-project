@@ -1,44 +1,92 @@
-/* eslint-disable import/prefer-default-export */
 import styled from "styled-components";
+import { Button, Image, Dropdown, Form } from "react-bootstrap";
 
-export const Container = styled.nav`
+export const JoinBtn = styled(Button)`
+  height: 32px;
+  width: 112px;
+  color: #006767;
+  background: #fff;
+  border-radius: 5px;
+  border: none;
+`;
+
+export const LoginBtn = styled(Button)`
+  height: 32px;
+  width: 112px;
+  color: #fff;
   background: #008080;
-  height: 64px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0%;
-  left: 0%;
+  border-radius: 5px;
+  border: none;
+  margin-right: 75px;
 
-  .logo-container {
-    margin-left: 105px;
+  @media (max-width: 800px) {
+    margin-right: 20px;
   }
 `;
-export const Btn = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: flex-end; */
-  position: relative;
-  right: 40px;
-  margin: 0, 100px;
-  margin-right: 105px;
-  .join {
-    height: 32px;
-    width: 112px;
-    color: #006767;
-    background-color: white;
-    border-radius: 5px;
-    border: none;
+
+export const Img = styled(Image)`
+  margin: -8px 0;
+`;
+
+export const ProfileImg = styled(Image)`
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+`;
+
+export const DropDown = styled(Dropdown)`
+  .dropdown-basic {
+    color: white;
+    box-shadow: none;
+    webkit-box-shadow: none;
+    margin: 3px auto 0;
   }
-  .login {
-    height: 32px;
-    width: 112px;
-    color: #fff;
-    background-color: #008080;
-    border-radius: 5px;
+`;
+
+export const SearchForm = styled(Form)`
+  margin-top: 3px;
+
+  .input {
+    border-radius: 0 5px 5px 0;
+    margin-left: -10px;
     border: none;
-    margin-right: 50px;
+    box-shadow: none;
+    webkit-box-shadow: none;
+    width: 390px;
+    height: 40px;
+
+    &:focus {
+      color: grey;
+    }
+  }
+
+  #basic-addon1 {
+    background: white;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    color: grey;
+    margin-right: -5px;
+  }
+
+  @media (max-width: 800px) {
+    margin: 0;
+
+    .input {
+      width: 150px;
+      border-bottom: 1px solid white;
+      border-radius: 0;
+      background: #008080;
+
+      ::placeholder {
+        color: white;
+      }
+    }
+
+    #basic-addon1 {
+      border-bottom: 1px solid white;
+      border-radius: 0;
+      background: #008080;
+      color: white;
+    }
   }
 `;
