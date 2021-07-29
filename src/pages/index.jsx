@@ -10,8 +10,9 @@ function Homepage() {
 
   return (
     <div>
-      {t("title")}
+      {t("")}
       <Navbar />
+     
     </div>
   );
 }

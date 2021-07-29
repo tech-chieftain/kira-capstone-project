@@ -4,7 +4,7 @@ import "../styles/globals.css";
 import { appWithTranslation } from "next-i18next";
 import { i18n } from "next-i18next";
 import "bootstrap/dist/css/bootstrap.css";
-
+import Homepage from "../components/HeroComponent/Homepage/Homepage";
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {
   useEffect(() => {
@@ -13,11 +13,15 @@ function App({ Component, pageProps }) {
 
   return (
     <>
+     <Homepage/>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+     
       <Component {...pageProps} />
+       
     </>
+    
   );
 }
 export default appWithTranslation(App);
