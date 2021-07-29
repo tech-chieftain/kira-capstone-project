@@ -9,10 +9,10 @@ export const Background = styled.div`
 background: #008080;
 width: 100%;
 height: 550px;
-position: fixed;
-bottom: 1;
-left: 0;
-margin: 0;
+// position: absolute;
+// bottom: 1;
+// left: 0;
+// margin: 0;
 margin: 0px 0px;
 
 
@@ -51,7 +51,7 @@ border-radius: 4px;
 font-size: 16px;
 background-color: white;
 background-image: url('icon.png');
-background-position: 10px 10px; 
+// background-position: 10px 10px; 
 background-repeat: no-repeat;
 padding: 12px 20px 12px 40px;
 transition: width 0.4s ease-in-out;
@@ -74,12 +74,7 @@ opacity: 0.4;
 export const Header = styled.div`
 
 font-size: 40px;
-bottom: 0;
-left: 0;
-margin: 0;
 height: 120px;
-left: 100px;
-top: 140px;
 width: 556px;
 line-height: 50px;
 color: #fdfcfa;
@@ -138,7 +133,7 @@ export const MianContainer  = styled.div`
 width: 750px;
 height: 550px;
 color: #ffffff;
-position: fixed;
+position: absolute;
 margin: 0px -10px;
 right: -3rem;
 bottom: 12;

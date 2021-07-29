@@ -5,7 +5,7 @@ import { appWithTranslation } from "next-i18next";
 import { i18n } from "next-i18next";
 import "bootstrap/dist/css/bootstrap.css";
 import Landingpage from "../components/HeroComponent/LandingComponent/Landingpage";
-import Homepage from "../components/HeroComponent/Homepage/Homepage";
+//import Homepage from "../components/HeroComponent/Homepage/Homepage";
 
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {
@@ -15,12 +15,14 @@ function App({ Component, pageProps }) {
 
   return (
     <>
+          <Landingpage />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Component {...pageProps} />
-      <Landingpage />
-      <Homepage />
+
+     
+  
     </>
   );
 }

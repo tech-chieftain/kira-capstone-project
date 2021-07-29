@@ -8,13 +8,14 @@ import { Background, Form, MianContainer,ModalBubbles, Button, Header } from "./
 
 
 
-<div>
+
+const Landingpage = () => {
+   <div>
 <Head>
   <title> Home Page</title>
 </Head>
 </div>
 
-const Landingpage = () => {
  return (
 <Background>                
       <MianContainer >
