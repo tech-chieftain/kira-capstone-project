@@ -18,7 +18,6 @@ const LargeProfileCard = ({
   location,
   about,
   tags,
-  rate,
   topRated,
 }) => (
   <Card className="shadow" style={{ width: "18rem" }}>
@@ -82,27 +81,23 @@ const LargeProfileCard = ({
 );
 
 LargeProfileCard.propTypes = {
-  username: PropTypes.string,
+  username: PropTypes.string.isRequired,
   profilePicture: PropTypes.string,
   name: PropTypes.string.isRequired,
   job: PropTypes.string,
   location: PropTypes.string,
   about: PropTypes.string,
   tags: PropTypes.array,
-  rate: PropTypes.number,
   topRated: PropTypes.bool,
 };
 
 LargeProfileCard.defaultProps = {
-  username: "johndoe1",
-  profilePicture: "https://picsum.photos/100/100",
-  name: "John Doe",
-  job: "Web dev",
-  location: "Toronto",
-  about: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, quidem.",
-  tags: ["wordpress", "front end dev", "gaming", "catering"],
-  rate: 50,
-  topRated: true,
+  profilePicture: "",
+  job: "",
+  location: "",
+  about: "",
+  tags: [],
+  topRated: false,
 };
 
 export default LargeProfileCard;
