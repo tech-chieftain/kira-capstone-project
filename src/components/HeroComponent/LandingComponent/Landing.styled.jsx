@@ -9,10 +9,10 @@ export const Background = styled.div`
 background: #008080;
 width: 100%;
 height: 550px;
-// position: absolute;
-// bottom: 1;
-// left: 0;
-// margin: 0;
+position: absolute;
+bottom: 1;
+left: 0;
+margin: 0;
 margin: 0px 0px;
 
 
