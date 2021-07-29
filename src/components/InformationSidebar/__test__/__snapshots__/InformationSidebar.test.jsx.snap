@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`properly renders the InformationSidebar Component 1`] = `
+<div
+  className="InfromationSidebarstyled__Container-sc-uia6bb-0 gKYWP shadow"
+>
+  <div
+    className="card border-0"
+    style={
+      Object {
+        "width": "18rem",
+      }
+    }
+  >
+    <div
+      className="bg-white mx-3 h5 card-header"
+    >
+      Work History
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <ul>
+          <li>
+            <div>
+              Success Rate
+            </div>
+            <small>
+              80
+              %
+            </small>
+            <progress
+              className="InfromationSidebarstyled__ProgressBar-sc-uia6bb-1 ezGJSj"
+              id="file"
+              max="100"
+              value="80"
+            />
+          </li>
+          <li>
+            <div>
+              Hours Worked
+            </div>
+            <small>
+              80
+              %
+            </small>
+            <progress
+              className="InfromationSidebarstyled__ProgressBar-sc-uia6bb-1 ezGJSj"
+              id="file"
+              max="100"
+              value="80"
+            />
+          </li>
+          <li>
+            <div>
+              Jobs
+            </div>
+            <small>
+              50
+              %
+            </small>
+            <progress
+              className="InfromationSidebarstyled__ProgressBar-sc-uia6bb-1 ezGJSj"
+              id="file"
+              max="100"
+              value="50"
+            />
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <br />
+  <div
+    className="card border-0"
+    style={
+      Object {
+        "width": "18rem",
+      }
+    }
+  >
+    <div
+      className="bg-white mx-3 h5 card-header"
+    >
+      Details
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <ul>
+          <li>
+            Works 45hrs per week
+          </li>
+          <li>
+            $35.00/hr
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <br />
+  <div
+    className="card border-0"
+    style={
+      Object {
+        "width": "18rem",
+      }
+    }
+  >
+    <div
+      className="bg-white mx-3 h5 card-header"
+    >
+      Skills
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <ul>
+          <li>
+            Html
+          </li>
+          <li>
+            Javascript
+          </li>
+          <li>
+            Css
+          </li>
+          <li>
+            Web Developer
+          </li>
+          <li>
+            Responsive Website
+          </li>
+          <li>
+            Web Desesigner
+          </li>
+          <li>
+            Boot Strap
+          </li>
+          <li>
+            Jquery
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <br />
+  <div
+    className="card border-0"
+    style={
+      Object {
+        "width": "18rem",
+      }
+    }
+  >
+    <div
+      className="bg-white mx-3 h5 card-header"
+    >
+      Language
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <ul>
+          <li>
+            Kurdish
+             - 
+            Native
+          </li>
+          <li>
+            English
+             - 
+            Fluent
+          </li>
+          <li>
+            Arabic
+             - 
+            Good
+          </li>
+          <li>
+            French
+             - 
+            begginer
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <br />
+  <div
+    className="card border-0"
+    style={
+      Object {
+        "width": "18rem",
+      }
+    }
+  >
+    <div
+      className="bg-white mx-3 h5 card-header"
+    >
+      Education
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <ul>
+          <li>
+            Salahaddin University
+             - 
+            College of Engineering
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</div>
+`;
