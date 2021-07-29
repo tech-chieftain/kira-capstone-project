@@ -1,21 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders Navbar correctly 1`] = `
-<div>
-  <p>
-    This is an example of a component
-  </p>
-  <button
-    className="btn btn-primary"
-    disabled={false}
-    type="button"
+<nav
+  className="navbar navbar-expand navbar-light bg-primary"
+>
+  <div
+    className="container"
   >
-    Example of Antd button
-  </button>
-  <h1
-    className="Navbarstyled__Header-sc-ua2yiz-0 bAMbba"
-  >
-    WELCOME
-  </h1>
-</div>
+    <a
+      className="navbar-brand"
+      href="#home"
+    >
+      <img
+        alt="Nabar logo"
+        className="Navbarstyled__Img-sc-ua2yiz-2 iOUVHg d-inline-block align-top"
+        height="52px"
+        src="/NavbarLogo.png"
+        width="104px"
+      />
+    </a>
+    <div
+      className="navbar-nav"
+      onKeyDown={[Function]}
+    >
+      <button
+        className="Navbarstyled__LoginBtn-sc-ua2yiz-1 kLTAvf btn btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+         Log In 
+      </button>
+      <button
+        className="Navbarstyled__JoinBtn-sc-ua2yiz-0 hFOOdI btn btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+         Join 
+      </button>
+    </div>
+  </div>
+</nav>
 `;
