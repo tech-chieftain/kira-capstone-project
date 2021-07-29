@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
+import { Navbar, Nav, Container, Dropdown, Form, FormControl, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { FaUserCircle, FaUserAlt } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
 import { VscSearch } from "react-icons/vsc";
-import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown } from "./Navbar.styled";
+import InputGroup from "react-bootstrap/InputGroup";
+import { IoSearch } from "react-icons/io5";
+import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown, SearchForm } from "./Navbar.styled";
 import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
 
 // eslint-disable-next-line arrow-body-style
-const NavBar = ({ overview, profilePicture }) => {
+const NavBar = ({ overview, profilePicture, search }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -34,6 +36,21 @@ const NavBar = ({ overview, profilePicture }) => {
             alt="Nabar logo"
           />
         </Navbar.Brand>
+
+        {search && (
+          <SearchForm className="d-flex shadow">
+            <InputGroup.Text id="basic-addon1">
+              <IoSearch size="21px" />
+            </InputGroup.Text>
+            <FormControl
+              type="search"
+              placeholder="Find Services"
+              aria-label="Search"
+              className="input"
+            />
+            <Button className="input-btn">Search</Button>
+          </SearchForm>
+        )}
 
         {overview ? (
           <Nav>
@@ -88,11 +105,13 @@ const NavBar = ({ overview, profilePicture }) => {
 
 NavBar.propTypes = {
   overview: PropTypes.bool,
+  search: PropTypes.bool,
   profilePicture: PropTypes.string,
 };
 
 NavBar.defaultProps = {
-  overview: false,
+  overview: true,
+  search: true,
   profilePicture: "",
 };
 

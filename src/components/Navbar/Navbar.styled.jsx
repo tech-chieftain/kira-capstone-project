@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Image, Dropdown } from "react-bootstrap";
+import { Button, Image, Dropdown, Form } from "react-bootstrap";
 
 export const JoinBtn = styled(Button)`
   height: 32px;
@@ -8,12 +8,6 @@ export const JoinBtn = styled(Button)`
   background: #fff;
   border-radius: 5px;
   border: none;
-
-  // &:focus,
-  // :hover {
-  //   color: #006767;
-  //   background: #fff;
-  // }
 `;
 
 export const LoginBtn = styled(Button)`
@@ -24,12 +18,6 @@ export const LoginBtn = styled(Button)`
   border-radius: 5px;
   border: none;
   margin-right: 75px;
-
-  // &:focus,
-  // :hover {
-  //   color: #fff;
-  //   background: #008080;
-  // }
 
   @media (max-width: 768px) {
     margin-right: 20px;
@@ -56,5 +44,43 @@ export const DropDown = styled(Dropdown)`
     // &::after {
     //   display: none;
     // }
+  }
+`;
+
+export const SearchForm = styled(Form)`
+  margin-left: -28rem;
+  margin-top: 3px;
+
+  .input {
+    border-radius: 0;
+    margin-left: -8px;
+    border: none;
+    box-shadow: none;
+    webkit-box-shadow: none;
+    width: 280px;
+
+    &:focus {
+      color: grey;
+    }
+  }
+
+  #basic-addon1 {
+    background: white;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    color: grey;
+    margin-right: -5px;
+  }
+
+  .input-btn {
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background: #006767;
+    padding: 7px 15px;
+
+    &:focus {
+      box-shadow: none;
+      webkit-box-shadow: none;
+    }
   }
 `;
