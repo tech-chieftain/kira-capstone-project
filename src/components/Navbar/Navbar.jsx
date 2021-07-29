@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Container, Dropdown, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, Container, Dropdown, FormControl, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { FaUserCircle, FaUserAlt } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
@@ -7,12 +7,14 @@ import { GrMail } from "react-icons/gr";
 import { VscSearch } from "react-icons/vsc";
 import InputGroup from "react-bootstrap/InputGroup";
 import { IoSearch } from "react-icons/io5";
+import { MdSettings } from "react-icons/md";
+import { FiLogOut } from "react-icons/fi";
 import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown, SearchForm } from "./Navbar.styled";
 import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
 
 // eslint-disable-next-line arrow-body-style
-const NavBar = ({ overview, profilePicture, search }) => {
+const NavBar = ({ overview, profilePicture, search, name }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -70,9 +72,9 @@ const NavBar = ({ overview, profilePicture, search }) => {
           </Nav>
         ) : (
           <Nav>
-            <Nav.Link href="/">
+            <Button variant="primary">
               <VscSearch size="28px" className="text-white mt-1" />
-            </Nav.Link>
+            </Button>
             <Nav.Link href="/">
               <GrMail size="32px" className="text-white" />
             </Nav.Link>
@@ -92,8 +94,14 @@ const NavBar = ({ overview, profilePicture, search }) => {
                   ) : (
                     <FaUserCircle size="28px" />
                   )}
+                  <span className="mx-3 text-muted">{name}</span>
                 </Dropdown.Item>
-                <Dropdown.Item href="/" />
+                <Dropdown.Item href="/">
+                  <MdSettings size="20px" /> <span className="mx-3 text-muted">Settings</span>
+                </Dropdown.Item>
+                <Dropdown.Item href="/">
+                  <FiLogOut size="20px" /> <span className="mx-3 text-muted">Log Out</span>
+                </Dropdown.Item>
               </Dropdown.Menu>
             </DropDown>
           </Nav>
@@ -107,12 +115,14 @@ NavBar.propTypes = {
   overview: PropTypes.bool,
   search: PropTypes.bool,
   profilePicture: PropTypes.string,
+  name: PropTypes.string,
 };
 
 NavBar.defaultProps = {
   overview: true,
-  search: true,
+  search: false,
   profilePicture: "",
+  name: "",
 };
 
 export default NavBar;

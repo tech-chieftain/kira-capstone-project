@@ -157,10 +157,6 @@ const CloseModalButton = styled(MdClose)`
   padding: 0;
   z-index: 10;
   color: grey;
-
-  &:hover {
-    color: red;
-  }
 `;
 
 const ModalBubbles = styled.div`
