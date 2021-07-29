@@ -4,9 +4,7 @@ import Pagination from "../Pagination";
 
 it("renders Pagination", () => {
   const tree = renderer
-    .create(
-      <Pagination pageCount={10} handlePageClick={(pageNum) => pageNum} />
-    )
+    .create(<Pagination pageCount={10} handlePageClick={(pageNum) => pageNum} />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
