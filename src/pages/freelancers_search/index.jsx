@@ -1,5 +1,6 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import PropTypes from "prop-types";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -10,9 +11,10 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Navbar from "../../components/Navbar/Navbar";
 import Pagination from "../../components/Pagination/Pagination";
 
-const freelancers = ({ query }) => {
+const Freelancers = ({ query, data }) => {
   const pageCount = 10;
   const handlePageClick = (selectedPage) => "";
+
   return (
     <>
       <Head>
@@ -42,9 +44,26 @@ const freelancers = ({ query }) => {
   );
 };
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ["common"])),
-  },
-});
-export default freelancers;
+Freelancers.propTypes = {
+  query: PropTypes.string,
+  data: PropTypes.array,
+};
+
+export const getServerSideProps = async (context) => {
+  // const res = await fetch("<YOUR_API>");
+  // const data = await res.json();
+
+  const data = []; // delete this when you fetch the data from API like above
+
+  // some data filtering here maybe
+
+  return {
+    props: {
+      data,
+      query: context.query.q,
+      ...(await serverSideTranslations(context.locale, ["common"])),
+    }, // will be passed to the page component as props
+  };
+};
+
+export default Freelancers;
