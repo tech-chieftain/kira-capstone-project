@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 
-import Navbar from "../../components/Navbar/Navbar";
 import Pagination from "../../components/Pagination/Pagination";
 
 const Freelancers = ({ query, data }) => {
