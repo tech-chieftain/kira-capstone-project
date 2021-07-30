@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import PropTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { NextArrow, PrevArrow } from "./SliderArrow";
 
 const CustomCarousel = ({ thumbnail, items, slides }) => {
   const settings = {
@@ -12,24 +13,8 @@ const CustomCarousel = ({ thumbnail, items, slides }) => {
     speed: 500,
     slidesToShow: slides,
     slidesToScroll: 1,
-    nextArrow: (
-      <div>
-        <img
-          src="https://picsum.photos/100/100?random=1"
-          alt=""
-          style={{ height: "100%", objectFit: "100%" }}
-        />
-      </div>
-    ),
-    prevArrow: (
-      <div>
-        <img
-          src="https://picsum.photos/100/100?random=2"
-          alt=""
-          style={{ height: "100%", objectFit: "100%" }}
-        />
-      </div>
-    ),
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   if (thumbnail) settings.customPaging = (i) => <a>{items[i]}</a>;
