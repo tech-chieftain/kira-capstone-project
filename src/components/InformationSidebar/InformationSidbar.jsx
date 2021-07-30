@@ -1,87 +1,75 @@
-import React from "react";
-import Card from "react-bootstrap/Card";
 import PropTypes from "prop-types";
-import { Container, ProgressBar } from "./InfromationSidebar.styled";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import Container from "./InformationSidebar.styled";
 
-// eslint-disable-next-line arrow-body-style
 const InformationSidebar = ({ progresses, skills, details, languages, educations }) => (
   <Container className="shadow">
-    <Card border="0" style={{ width: "18rem" }}>
-      <Card.Header className="bg-white mx-3 h5">Work History</Card.Header>
-      <Card.Body>
-        <Card.Text>
-          <ul>
-            {progresses.map((progress, index) => (
-              <li key={index}>
-                <div>{progress.work}</div>
-                <small>{progress.level}%</small>
-                <ProgressBar id="file" value={progress.level} max="100" />
-              </li>
-            ))}
-          </ul>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    <br />
+    <div className="w-75 mx-auto my-5">
+      <h5 className="px-3 py-2 border-bottom border-light">Work History</h5>
+      <div>
+        <ul>
+          {progresses.map((progress, index) => (
+            <li key={index}>
+              <span>{progress.work} /month</span>
+              <ProgressBar
+                now={progress.level}
+                label={`${progress.level}%`}
+                variant="primary"
+                id="progress"
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
 
-    <Card border="0" style={{ width: "18rem" }}>
-      <Card.Header className="bg-white mx-3 h5">Details</Card.Header>
-      <Card.Body>
-        <Card.Text>
-          <ul>
-            {details.map((detail, index) => (
-              <li key={index}>{detail}</li>
-            ))}
-          </ul>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    <br />
+    <div className="w-75 mx-auto my-5">
+      <h5 className="px-3 py-2 border-bottom border-light">Details</h5>
+      <div>
+        <ul>
+          {details.map((detail, index) => (
+            <li key={index}>{detail}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
 
-    <Card border="0" style={{ width: "18rem" }}>
-      <Card.Header className="bg-white mx-3 h5">Skills</Card.Header>
-      <Card.Body>
-        <Card.Text>
-          <ul>
-            {skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
-            ))}
-          </ul>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    <br />
+    <div className="w-75 mx-auto my-5 ">
+      <h5 className="px-3 py-2 border-bottom border-light">Skills</h5>
+      <div>
+        <ul>
+          {skills.map((skill, index) => (
+            <li key={index}>{skill}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
 
-    <Card border="0" style={{ width: "18rem" }}>
-      <Card.Header className="bg-white mx-3 h5">Language</Card.Header>
-      <Card.Body>
-        <Card.Text>
-          <ul>
-            {languages.map((lang, index) => (
-              <li key={index}>
-                {lang.language} - {lang.level}
-              </li>
-            ))}
-          </ul>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-    <br />
+    <div className="w-75 mx-auto my-5">
+      <h5 className="px-3 py-2 border-bottom border-light">Language</h5>
+      <div>
+        <ul>
+          {languages.map((lang, index) => (
+            <li key={index}>
+              {lang.language} - {lang.level}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
 
-    <Card border="0" style={{ width: "18rem" }}>
-      <Card.Header className="bg-white mx-3 h5">Education</Card.Header>
-      <Card.Body>
-        <Card.Text>
-          <ul>
-            {educations.map((education, index) => (
-              <li key={index}>
-                {education.college} - {education.department}
-              </li>
-            ))}
-          </ul>
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <div className="w-75 mx-auto my-5">
+      <h5 className="px-3 py-2 border-bottom border-light">Education</h5>
+      <div>
+        <ul>
+          {educations.map((education, index) => (
+            <li key={index}>
+              {education.college} - {education.department}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   </Container>
 );
 
@@ -113,7 +101,7 @@ InformationSidebar.defaultProps = {
   ],
   educations: [{ college: "Salahaddin University", department: "College of Engineering" }],
   progresses: [
-    { work: "Success Rate", level: "80" },
+    { work: "Success Rate", level: "70" },
     { work: "Hours Worked", level: "80" },
     { work: "Jobs", level: "50" },
   ],
