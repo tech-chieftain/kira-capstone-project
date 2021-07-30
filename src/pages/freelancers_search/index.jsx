@@ -9,6 +9,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 
 import Pagination from "../../components/Pagination/Pagination";
+import LargeProfileCard from "../../components/LargeProfileCard/LargeProfileCard";
 
 const Freelancers = ({ query, data }) => {
   const pageCount = 10;
@@ -33,7 +34,9 @@ const Freelancers = ({ query, data }) => {
           </Col>
         </Row>
         <Row>
-          <Col>placeholder for cards</Col>
+          <Col>
+            <LargeProfileCard name="john" username="john" />
+          </Col>
         </Row>
         <Row>
           <Pagination pageCount={pageCount} handlePageClick={handlePageClick} />
