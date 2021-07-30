@@ -7,7 +7,7 @@ import { NextArrow, PrevArrow } from "./SliderArrow";
 const CustomCarousel = ({ thumbnail, items, slides }) => {
   const settings = {
     className: "slider",
-    dots: true,
+    dots: thumbnail,
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 500,
