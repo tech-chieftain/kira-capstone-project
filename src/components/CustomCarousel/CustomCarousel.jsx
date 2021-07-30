@@ -36,29 +36,33 @@ const CustomCarousel = ({ thumbnail, items, slides }) => {
 
   return (
     <>
-      <div className="container">
-        <Slider {...settings}>
-          {items.map((item) => (
-            <div className="slider-item">{item}</div>
-          ))}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {items.map((item) => (
+          <div className="slider-item">{item}</div>
+        ))}
+      </Slider>
+
       <style global jsx>{`
-        .slider {
+        .slider,
+        .slick-list,
+        .slick-list * {
           width: auto;
-          height: 500px;
+          height: 100%;
         }
 
-        .slider-item {
-          width: auto;
-          height: 500px;
-          object-fit: contain;
+        .slider-item * {
           margin: auto;
-          border: red solid;
+          height: 100%;
+          object-fit: contain;
         }
 
         .slick-dots.slick-thumb {
           bottom: -90px;
+        }
+
+        .slick-thumb img {
+          height: 100%;
+          object-fit: contain;
         }
 
         .slick-dots.slick-thumb li {

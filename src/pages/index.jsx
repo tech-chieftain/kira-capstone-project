@@ -12,12 +12,10 @@ function Homepage() {
     "https://picsum.photos/300/200?random=1",
     "https://picsum.photos/300/200?random=2",
     "https://picsum.photos/300/200?random=3",
-  ].map((image) => (
-    <img className="nodes" src={image} alt="" style={{ height: "100%", objectFit: "contain" }} />
-  ));
+  ].map((image) => <img src={image} alt="" />);
 
   return (
-    <div style={{ height: "500px", width: "100%" }}>
+    <div className="container" style={{ height: "400px", width: "100%" }}>
       <CustomCarousel thumbnail items={arrayOfNodes} />
     </div>
   );
