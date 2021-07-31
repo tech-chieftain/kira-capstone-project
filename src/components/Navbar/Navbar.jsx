@@ -4,7 +4,7 @@ import { Header } from "./Navbar.styled";
 
 const Navbar = () => (
   <div>
-
+    
   
 
   </div>
