@@ -3,10 +3,11 @@ import { Image } from "react-bootstrap";
 import { FaStar } from "react-icons/fa";
 
 export const Container = styled.div`
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid lightgrey;
   border-right: 0;
   border-left: 0;
-  width: 45rem;
+  width: 43rem;
+  font-size: 15px;
 
   .username {
     margin: 5px 0 0 -15px;

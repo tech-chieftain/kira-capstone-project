@@ -77,13 +77,4 @@ ProfileHeader.propTypes = {
   rating: PropTypes.number,
 };
 
-ProfileHeader.defaultProps = {
-  profilePicture: "",
-  name: "",
-  profession: "",
-  location: "",
-  description: "",
-  rating: 0,
-};
-
 export default ProfileHeader;

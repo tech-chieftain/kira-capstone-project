@@ -57,15 +57,4 @@ ServicesCard.propTypes = {
   profilePic: PropTypes.string,
 };
 
-ServicesCard.defaultProps = {
-  person: true,
-  width: 18,
-  photo: "https://picsum.photos/307/186",
-  name: "",
-  description: "",
-  rating: 10,
-  price: 8,
-  profilePic: "https://picsum.photos/307/186",
-};
-
 export default ServicesCard;
