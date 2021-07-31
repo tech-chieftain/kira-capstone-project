@@ -5,7 +5,7 @@ import { appWithTranslation } from "next-i18next";
 import { i18n } from "next-i18next";
 import "bootstrap/dist/css/bootstrap.css";
 //import Homepage from "../components/HeroComponent/Homepage/Homepage";
-import Logopage from "../components/LogopageComponent/Logopage";
+import Logopage from "../components/Service_Pricing_information/Pricepage";
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {
   useEffect(() => {
