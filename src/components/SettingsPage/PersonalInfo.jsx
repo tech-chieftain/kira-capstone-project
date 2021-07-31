@@ -1,6 +1,7 @@
-import { Form, Row, Col, FloatingLabel } from "react-bootstrap";
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/prop-types */
+import { Form, Row, Col } from "react-bootstrap";
 
-// eslint-disable-next-line arrow-body-style
 const PersonalInfo = ({ showPersonal }) => {
   return (
     <>
