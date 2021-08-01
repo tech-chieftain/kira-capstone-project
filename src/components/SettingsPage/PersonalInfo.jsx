@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/prop-types */
-import { Form, Row, Col } from "react-bootstrap";
+import { Form, Row, Col, Button } from "react-bootstrap";
 
 const PersonalInfo = ({ showPersonal }) => {
   return (
@@ -20,6 +20,12 @@ const PersonalInfo = ({ showPersonal }) => {
           <Form.Control type="password" placeholder="Password" className="my-4" />
           <Form.Control placeholder="Phone number" className="my-4" />
           <Form.Control placeholder="Location" className="mt-4" />
+          <Form.Control placeholder="profile picture link" className="mt-4" />
+          <div className="d-flex justify-content-end mt-4">
+            <Button variant="primary" type="submit">
+              Save
+            </Button>
+          </div>
         </Form>
       )}
     </>
