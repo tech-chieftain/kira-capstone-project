@@ -1,24 +1,18 @@
 import Reviews from "./Reviews";
+import { ReviewData } from "../MockData";
 
+// eslint-disable-next-line arrow-body-style
 const ReviewsData = () => {
-  const reviews = [
-    {
-      name: "",
-      description: "",
-      rating: "",
-      date: "",
-      profilePic: "",
-    },
-  ];
   return (
     <>
-      {reviews.map((review) => (
+      {ReviewData.map((data) => (
         <Reviews
-          name={review.name}
-          description={review.description}
-          rating={review.rating}
-          profilePic={review.profilePic}
-          date={review.date}
+          name={data.name}
+          description={data.description}
+          rating={data.rating}
+          profilePic={data.profilePic}
+          date={data.date}
+          width={data.width}
         />
       ))}
     </>
