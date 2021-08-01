@@ -10,10 +10,8 @@ export const Container = styled.div`
 export const MainContainer = styled.div`
   width: 58rem;
   heigh: 100%;
-  margin: 0 auto;
   padding: 4rem 0 6rem;
-  dislpay: flex;
-  align-items: center;
+  z-index: 1;
 
   .card {
     width: 100%;
@@ -21,20 +19,29 @@ export const MainContainer = styled.div`
     border-radius: 10px;
     padding: 1.5rem 1rem;
   }
+
+  @media (max-width: 900px) {
+    padding: 1rem 0;
+    width: 38rem;
+
+    .card {
+      padding: 1.5rem 1rem;
+    }
+  }
 `;
 
 export const Bubbles = styled.div`
-  .uper-bigBubble {
+  .uper-big {
     width: 300px;
     height: 300px;
     border-radius: 50%;
     background: rgba(0, 103, 103, 0.7);
     position: absolute;
-    top: 62px;
+    top: 64px;
     left: -150px;
   }
 
-  .uper-smallBubble {
+  .uper-small {
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -44,23 +51,55 @@ export const Bubbles = styled.div`
     right: 70px;
   }
 
-  .bottom-bigBubble {
+  .bottom-big {
     width: 300px;
     height: 300px;
     border-radius: 50%;
     background: rgba(0, 103, 103, 0.7);
     position: absolute;
-    bottom: -440px;
-    right: -140px;
+    bottom: -280px;
+    right: 250px;
   }
 
-  .bottom-smallBubble {
-    width: 200px;
-    height: 200px;
+  .bottom-small {
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
-    background: rgba(0, 103, 103, 0.85);
+    background: rgba(0, 103, 103, 0.8);
     position: absolute;
     bottom: -370px;
     left: 60px;
+  }
+
+  .left-small {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(0, 103, 103, 0.8);
+    position: absolute;
+    bottom: 70px;
+    left: 330px;
+  }
+
+  .right-small {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(0, 103, 103, 0.7);
+    position: absolute;
+    bottom: 80px;
+    right: 50px;
+  }
+
+  @media (max-width: 900px) {
+    .bottom-big,
+    .uper-big {
+      display: none;
+    }
+
+    .bottom-small {
+      bottom: -10px;
+      left: 5px;
+    }
   }
 `;

@@ -1,6 +1,6 @@
-import { Row, Col, Form, Card, Button } from "react-bootstrap";
 import React, { useState } from "react";
-import { Container, MainContainer, Bubbles } from "./AddService.styled"
+import { Row, Col, Form, Card, Button } from "react-bootstrap";
+import { Container, MainContainer, Bubbles } from "./AddService.styled";
 
 // eslint-disable-next-line arrow-body-style
 const AddService = () => {
@@ -8,18 +8,17 @@ const AddService = () => {
   const [perks, setPerks] = useState([]);
 
   const handleChange = (set) => (e) => {
-    set(e.target.value.split(", "));
+    set(e.target.value.split("\n"));
   };
 
   const handleSave = (e) => {
     e.preventDefault();
-    console.log(perks);
   };
 
-  const arrayToString = (arr) => arr.join(", ");
+  const arrayToString = (arr) => arr.join("\n");
 
   return (
-    <Container>
+    <Container className="d-flex flex-column justify-content-center align-items-center">
       <MainContainer>
         <h1 className="text-primary m-3">Build Your Service</h1>
         <Card className="card shadow">
@@ -31,42 +30,41 @@ const AddService = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>
-                  Service Images
-                  <small className="text-muted mx-2">
-                    Add images that best shaowcase your service
-                  </small>
-                </Form.Label>
+                <Form.Label>Service Images</Form.Label>
                 <Form.Control
                   as="textarea"
                   value={arrayToString(images)}
                   onChange={handleChange(setImages)}
                   name="images"
+                  placeholder="Add images that best shaowcase your service"
                 />
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>
-                  Price
-                  <small className="text-muted mx-2">Set a price for your service</small>
-                </Form.Label>
-                <Form.Control type="number" name="price" />
+                <Form.Label>Price</Form.Label>
+                <Form.Control
+                  type="number"
+                  name="price"
+                  placeholder="Set a price for your service"
+                />
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>
-                  Description
-                  <small className="text-muted mx-2">Briefly describe your service</small>
-                </Form.Label>
-                <Form.Control as="textarea" name="describtion" />
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  name="describtion"
+                  placeholder="Briefly describe your service"
+                />
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>
-                  Details
-                  <small className="text-muted mx-2">Describe your service with details</small>
-                </Form.Label>
-                <Form.Control as="textarea" name="details" />
+                <Form.Label>Details</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  name="details"
+                  placeholder="Describe your service with details"
+                />
               </Form.Group>
 
               <Row className="mb-3">
@@ -81,21 +79,19 @@ const AddService = () => {
               </Row>
 
               <Form.Group className="mb-3">
-                <Form.Label>
-                  Perks
-                  <small className="text-muted mx-2">Make your service more intresting</small>
-                </Form.Label>
+                <Form.Label>Perks</Form.Label>
                 <Form.Control
                   as="textarea"
                   value={arrayToString(perks)}
                   onChange={handleChange(setPerks)}
                   name="perks"
+                  placeholder="Make your service more intresting"
                   style={{ height: "100px" }}
                 />
               </Form.Group>
 
               <div className="d-flex justify-content-end mt-4">
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" className="px-5 m-2">
                   Save
                 </Button>
               </div>
@@ -104,10 +100,12 @@ const AddService = () => {
         </Card>
       </MainContainer>
       <Bubbles>
-        <div className="uper-bigBubble" />
-        <div className="uper-smallBubble" />
-        <div className="bottom-bigBubble" />
-        <div className="bottom-smallBubble" />
+        <div className="uper-big" />
+        <div className="uper-small" />
+        <div className="left-small" />
+        <div className="right-small" />
+        <div className="bottom-big" />
+        <div className="bottom-small" />
       </Bubbles>
     </Container>
   );
