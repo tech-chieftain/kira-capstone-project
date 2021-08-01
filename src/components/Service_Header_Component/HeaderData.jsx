@@ -1,15 +1,30 @@
-import React from "react";
+import ServiceHeader from "./ServiceHeader";
 
-function Data(props) {
+const HeaderList = () => {
+  const Headers = [
+    {
+      nameOfPerson: "",
+      reviews: "",
+      rating: "",
+      profilePic: "",
+      queue: "",
+      serviceName: "",
+    },
+  ];
   return (
     <>
-      <h1>{props.SeviceName}</h1>
-      <div>{props.img}</div>
-      <p>{props.NameOfPerson}</p>
-      <p>{props.stars}</p>
-      <p>{props.reviews}</p>
-      <p>{props.queues}</p>
+      {Headers.map((Header) => (
+        <Headers
+          serviceName={Header.serviceName}
+          reviews={Header.reviews}
+          rating={Header.rating}
+          profilePic={Header.profilePic}
+          queue={Header.queue}
+          nameOfPerson={Header.nameOfPerson}
+        />
+      ))}
     </>
   );
-}
-export default Data;
+};
+
+export default HeaderList;
