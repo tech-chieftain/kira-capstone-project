@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useRef } from "react";
 import { useSpring, animated } from "react-spring";
-import { SiFacebook } from "react-icons/si";
-import { FcGoogle } from "react-icons/fc";
+import Alert from "react-bootstrap/Alert";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import firebase from "../../Firebase";
 import {
   ModalContent,
   ModalWrapper,
@@ -12,6 +14,15 @@ import {
   Button,
   CloseModalButton,
 } from "./Modal.styled";
+
+const uiConfig = {
+  signInSuccessUrl: "/",
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    "apple.com",
+  ],
+};
 
 const LoginModal = ({ showLogin, setShowLogin, setShowSignup }) => {
   const modalRef = useRef();
@@ -30,6 +41,18 @@ const LoginModal = ({ showLogin, setShowLogin, setShowSignup }) => {
     }
   };
 
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(
+    firebase.auth(),
+  );
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    signInWithEmailAndPassword(formData.get("email"), formData.get("password"));
+  };
+
+  if (user) setShowLogin((show) => !show);
+
   return (
     <>
       {showLogin && (
@@ -38,22 +61,23 @@ const LoginModal = ({ showLogin, setShowLogin, setShowSignup }) => {
             <ModalWrapper showLogin={showLogin}>
               <ModalContent>
                 <h4>Login to kira</h4>
-                <Button className="fb-btn">
-                  <SiFacebook size="28px" color="white" className="m-1" />
-                  Continue With Facebook
-                </Button>
-                <Button className="gooogle-btn">
-                  <FcGoogle size="28px" className="m-1" /> Continue With Google
-                </Button>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
                 <div className="breake">
                   <hr />
                   <span>OR</span>
                   <hr />
                 </div>
-                <Form>
-                  <input type="text" name="name" placeholder="Your Username" />
+                {error && (
+                  <Alert className="mx-2 w-75" variant="danger">
+                    {error.message}
+                  </Alert>
+                )}
+                <Form onSubmit={handleLogin}>
+                  <input type="text" name="email" placeholder="Your Username" />
                   <input type="password" name="password" placeholder="Password" />
-                  <Button className="join-btn">Log In</Button>
+                  <Button disabled={loading} type="submit" className="join-btn">
+                    Log In
+                  </Button>
                 </Form>
                 <p>
                   Not a member yet?
