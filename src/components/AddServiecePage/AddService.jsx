@@ -1,29 +1,6 @@
 import { Row, Col, Form, Card, Button } from "react-bootstrap";
-import styled from "styled-components";
 import React, { useState } from "react";
-
-const Container = styled.div`
-  height: 100%;
-  width: 100%;
-  background: rgba(193, 193, 174, 0.09);
-  padding-bottom: 3rem;
-`;
-
-const MainContainer = styled.div`
-  width: 58rem;
-  heigh: 100%;
-  margin: 0 auto;
-  padding: 4rem 0;
-  dislpay: flex;
-  align-items: center;
-
-  .card {
-    width: 100%;
-    heigh: 100%;
-    border-radius: 10px;
-    padding: 1.5rem 1rem;
-  }
-`;
+import { Container, MainContainer, Bubbles } from "./AddService.styled"
 
 // eslint-disable-next-line arrow-body-style
 const AddService = () => {
@@ -117,13 +94,21 @@ const AddService = () => {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
-                Save
-              </Button>
+              <div className="d-flex justify-content-end mt-4">
+                <Button variant="primary" type="submit">
+                  Save
+                </Button>
+              </div>
             </Form>
           </Card.Body>
         </Card>
       </MainContainer>
+      <Bubbles>
+        <div className="uper-bigBubble" />
+        <div className="uper-smallBubble" />
+        <div className="bottom-bigBubble" />
+        <div className="bottom-smallBubble" />
+      </Bubbles>
     </Container>
   );
 };
