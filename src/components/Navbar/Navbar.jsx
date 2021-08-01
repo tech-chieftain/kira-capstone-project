@@ -1,7 +1,8 @@
+
 import React, { useState } from "react";
 import { Navbar, Nav, Container, Dropdown, FormControl } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { FaUserCircle, FaUserAlt, FaPlus } from "react-icons/fa";
+import { FaUserCircle, FaUserAlt } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -70,9 +71,6 @@ const NavBar = ({ overview, profilePicture, name }) => {
         ) : (
           <Nav className="w-75 d-flex justify-content-end">
             <Nav.Link href="/">
-              <FaPlus size="24px" className="text-white mt-1" />
-            </Nav.Link>
-            <Nav.Link href="/">
               <GrMail size="32px" className="text-white" />
             </Nav.Link>
             <Nav.Link href="/">
@@ -115,7 +113,7 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
-  overview: false,
+  overview: true,
   profilePicture: "",
   name: "",
 };
