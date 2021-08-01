@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useRef } from "react";
 import { useSpring, animated } from "react-spring";
-import { SiFacebook } from "react-icons/si";
-import { FcGoogle } from "react-icons/fc";
+import Alert from "react-bootstrap/Alert";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import firebase from "../../Firebase";
 import {
   ModalContent,
   ModalWrapper,
@@ -12,6 +14,15 @@ import {
   Button,
   CloseModalButton,
 } from "./Modal.styled";
+
+const uiConfig = {
+  signInSuccessUrl: "/",
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    "apple.com",
+  ],
+};
 
 const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
   const modalRef = useRef();
@@ -30,6 +41,22 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
     }
   };
 
+  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(
+    firebase.auth(),
+  );
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    createUserWithEmailAndPassword(formData.get("email"), formData.get("password"));
+  };
+
+  if (user) {
+    setShowLogin((show) => !show);
+    firebase.auth().currentUser.updateProfile({
+      displayName: "Jane Q. User",
+    });
+  }
   return (
     <>
       {showSignup && (
@@ -38,28 +65,25 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
             <ModalWrapper showSignup={showSignup}>
               <ModalContent>
                 <h4>Create your account</h4>
-                <Button className="fb-btn">
-                  <SiFacebook size="28px" color="white" className="mx-1" />
-                  Continue With Facebook
-                </Button>
-                <Button className="gooogle-btn">
-                  <FcGoogle size="28px" className="mx-1" /> Continue With Google
-                </Button>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
                 <div className="breake">
                   <hr />
                   <span>OR</span>
                   <hr />
                 </div>
-                <Form>
-                  <span>
-                    <input type="text" name="name" id="name" placeholder="First Name" />
-                    <input type="text" name="name" id="name" placeholder="Last Name" />
-                  </span>
-                  <input type="text" name="name" placeholder="Your Username" />
+                {error && (
+                  <Alert className="mx-2 w-75" variant="danger">
+                    {error.message}
+                  </Alert>
+                )}
+                <Form onSubmit={handleSignUp}>
+                  <input type="text" name="displayName" placeholder="Display Name" />
                   <input type="email" name="email" placeholder="Email" />
                   <input type="password" name="password" placeholder="Password" />
                   <input type="password" name="ConfirmPassword" placeholder="Confirm Password" />
-                  <Button className="join-btn">Continue</Button>
+                  <Button disabled={loading} type="submit" className="join-btn">
+                    Continue
+                  </Button>
                 </Form>
                 <p>
                   Already have an account?
