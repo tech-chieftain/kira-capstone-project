@@ -1,8 +1,7 @@
-
 import React, { useState } from "react";
 import { Navbar, Nav, Container, Dropdown, FormControl } from "react-bootstrap";
 import PropTypes from "prop-types";
-import { FaUserCircle, FaUserAlt } from "react-icons/fa";
+import { FaUserCircle, FaUserAlt, FaPlus } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -71,6 +70,9 @@ const NavBar = ({ overview, profilePicture, name }) => {
         ) : (
           <Nav className="w-75 d-flex justify-content-end">
             <Nav.Link href="/">
+              <FaPlus size="25px" className="text-white mt-1" />
+            </Nav.Link>
+            <Nav.Link href="/">
               <GrMail size="32px" className="text-white" />
             </Nav.Link>
             <Nav.Link href="/">
@@ -92,10 +94,12 @@ const NavBar = ({ overview, profilePicture, name }) => {
                   <span className="mx-3 text-muted">{name}</span>
                 </Dropdown.Item>
                 <Dropdown.Item href="/">
-                  <MdSettings size="20px" /> <span className="mx-3 text-muted">Settings</span>
+                  <MdSettings size="20px" />
+                  <span className="mx-3 text-muted">Settings</span>
                 </Dropdown.Item>
                 <Dropdown.Item href="/">
-                  <FiLogOut size="20px" /> <span className="mx-3 text-muted">Log Out</span>
+                  <FiLogOut size="20px" />
+                  <span className="mx-3 text-muted">Log Out</span>
                 </Dropdown.Item>
               </Dropdown.Menu>
             </DropDown>
