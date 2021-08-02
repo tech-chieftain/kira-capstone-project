@@ -13,7 +13,7 @@ import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
 
 // eslint-disable-next-line arrow-body-style
-const NavBar = ({ overview, profilePicture, name }) => {
+const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -97,9 +97,9 @@ const NavBar = ({ overview, profilePicture, name }) => {
                   <MdSettings size="20px" />
                   <span className="mx-3 text-muted">Settings</span>
                 </Dropdown.Item>
-                <Dropdown.Item href="/">
+                <Dropdown.Item onClick={handleLogOut}>
                   <FiLogOut size="20px" />
-                  <span className="mx-3 text-muted">Log Out</span>
+                    <span className="mx-3 text-muted">Log Out</span>
                 </Dropdown.Item>
               </Dropdown.Menu>
             </DropDown>
@@ -114,6 +114,7 @@ NavBar.propTypes = {
   overview: PropTypes.bool,
   profilePicture: PropTypes.string,
   name: PropTypes.string,
+  handleLogOut: PropTypes.func,
 };
 
 NavBar.defaultProps = {
