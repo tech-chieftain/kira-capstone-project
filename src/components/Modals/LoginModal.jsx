@@ -51,8 +51,6 @@ const LoginModal = ({ showLogin, setShowLogin, setShowSignup }) => {
     signInWithEmailAndPassword(formData.get("email"), formData.get("password"));
   };
 
-  if (user) setShowLogin((show) => !show);
-
   return (
     <>
       {showLogin && (
