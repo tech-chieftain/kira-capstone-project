@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { appWithTranslation, i18n } from "next-i18next";
 import firebase from "../Firebase";
+import { updateUserInDB } from "../Utilities/FirebaseUtilities";
 
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -18,6 +19,10 @@ function App({ Component, pageProps }) {
   }, [i18n, i18n.language]);
 
   const [user, loading] = useAuthState(firebase.auth());
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) updateUserInDB(user);
+  });
 
   return (
     <>
