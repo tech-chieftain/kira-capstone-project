@@ -6,7 +6,7 @@ import { Container, Img, StarIcon, Button } from "./Reviews.styles";
 
 const Reviews = ({ profilePic, name, rating, description, date }) => (
   <Container>
-    <Card.Body style={{ width: "43rem" }}>
+    <Card.Body style={{ width: "40rem" }}>
       <Row className="my-2">
         <Col md={1}>
           {profilePic ? <Img src={profilePic} roundedCircle fluid /> : <FaUserCircle size="30px" />}
@@ -20,18 +20,18 @@ const Reviews = ({ profilePic, name, rating, description, date }) => (
           </small>
         </Col>
       </Row>
-      <Card.Text className="mx-3">{description}</Card.Text>
+      <Card.Text className="mx-3 small">{description}</Card.Text>
       <small className="mx-3 text-muted">Published {date} ago</small>
       <Row className="mt-3 mx-1">
         <Col md={4}>
           <Button>
-            <AiOutlineLike size="20px" />
+            <AiOutlineLike size="18px" />
           </Button>
           <small>Helpful</small>
         </Col>
         <Col>
           <Button>
-            <AiOutlineDislike size="20px" />
+            <AiOutlineDislike size="18px" />
           </Button>
           <small>Not Helpful</small>
         </Col>

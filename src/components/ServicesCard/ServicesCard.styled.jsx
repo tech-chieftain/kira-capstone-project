@@ -4,6 +4,7 @@ import { Card, Image } from "react-bootstrap";
 
 export const CardBody = styled(Card.Body)`
   margin: -5px 0 -10px;
+  font-size: 14px;
 
   .username {
     margin-left: -6.5rem;
