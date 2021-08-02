@@ -26,10 +26,10 @@ export const addService = (user, title, description, images, price, etd, revisio
 export const updateUserInDB = (user, payload = {}) => {
   const { uid, email, displayName, photoURL } = user;
   const newPayload = {
-    ...payload,
     email,
     displayName,
     photoURL,
+    ...payload,
   };
   const docRef = db.collection("users").doc(uid);
 
@@ -42,6 +42,13 @@ export const updateUserInDB = (user, payload = {}) => {
 export const getUserServices = (user) => {
   db.collection("users").doc(user.uid).collection("services").get();
 };
+
+export const getUserInfo = (user) =>
+  db
+    .collection("users")
+    .doc(user.uid)
+    .get()
+    .then((doc) => console.log(doc.data()));
 
 export const getAllFreelancers = async () => {
   const freelancers = [];

@@ -1,12 +1,21 @@
 /* eslint-disable arrow-body-style */
 import { Card, Col, Row, Form, Button } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Container, MainContainer } from "./SettingsPage.styled";
+import firebase from "../../Firebase/Firebase";
+import { getUserInfo } from "../../Utilities/FirebaseUtilities";
 
 const SettingsPage = () => {
+  const [user, loading, error] = useAuthState(firebase.auth());
   const [skills, setSkills] = useState([]);
   const [education, setEducation] = useState([]);
   const [languages, setLanguages] = useState([]);
+  const [displayName, setDisplayName] = useState([]);
+
+  useEffect(() => {
+    if (user) getUserInfo(user);
+  }, [user]);
 
   const handleChange = (set) => (e) => {
     set(e.target.value.split("\n"));
@@ -14,6 +23,7 @@ const SettingsPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const data = new FormData(e.target);
   };
 
   const arrayToString = (arr) => arr.join("\n");
@@ -63,7 +73,12 @@ const SettingsPage = () => {
 
               <Form.Group className="mb-5">
                 <Form.Label>Upload your profile image</Form.Label>
-                <Form.Control type="file" id="files" name="files" class="custom-file-input" />
+                <Form.Control
+                  type="file"
+                  id="files"
+                  name="files"
+                  class="custom-file-input"
+                />
               </Form.Group>
 
               <Card.Header className="text-muted bg-white h4 my-4 header">
