@@ -20,12 +20,12 @@ export const MainContainer = styled.div`
     padding: 1.5rem 1rem;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 720px) {
     padding: 1rem 0;
     width: 38rem;
 
     .card {
-      padding: 1.5rem 1rem;
+      padding: 1rem 0;
     }
   }
 `;
@@ -91,7 +91,7 @@ export const Bubbles = styled.div`
     right: 50px;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 720px) {
     .bottom-big,
     .uper-big {
       display: none;
