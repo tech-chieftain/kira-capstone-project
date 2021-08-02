@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import Alert from "react-bootstrap/Alert";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { updateUserInDB } from "../../Utilities/FirebaseUtilities";
 import firebase from "../../Firebase";
 import {
   ModalContent,
@@ -25,6 +25,7 @@ const uiConfig = {
 };
 
 const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
+  let [error, loading] = [false, false];
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -41,22 +42,26 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
     }
   };
 
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(
-    firebase.auth(),
-  );
-
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    createUserWithEmailAndPassword(formData.get("email"), formData.get("password"));
+    try {
+      const { user } = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(formData.get("email"), formData.get("password"));
+
+      await user.updateProfile({
+        displayName: formData.get("displayName"),
+      });
+
+      await updateUserInDB();
+
+      setShowSignup((show) => !show);
+    } catch (err) {
+      error = err;
+    }
   };
 
-  if (user) {
-    setShowLogin((show) => !show);
-    firebase.auth().currentUser.updateProfile({
-      displayName: "Jane Q. User",
-    });
-  }
   return (
     <>
       {showSignup && (
@@ -80,7 +85,7 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
                   <input type="text" name="displayName" placeholder="Display Name" />
                   <input type="email" name="email" placeholder="Email" />
                   <input type="password" name="password" placeholder="Password" />
-                  <input type="password" name="ConfirmPassword" placeholder="Confirm Password" />
+                  <input type="password" name="confirmPassword" placeholder="Confirm Password" />
                   <Button disabled={loading} type="submit" className="join-btn">
                     Continue
                   </Button>

@@ -37,4 +37,19 @@ export const addService = (userID, title, description, images, price, etd, revis
 
 export const getUserServices = (userID) => {
   db.collection("users").doc(userID).collection("services").get();
+export const updateUserInDB = (user, payload = {}) => {
+  const { uid, email, displayName, photoURL } = user;
+  const newPayload = {
+    ...payload,
+    email,
+    displayName,
+    photoURL,
+  };
+  const docRef = db.collection("users").doc(uid);
+
+  docRef.get().then((doc) => {
+    if (doc.exists) return docRef.update(newPayload);
+    return docRef.set(newPayload);
+  });
+};
 };
