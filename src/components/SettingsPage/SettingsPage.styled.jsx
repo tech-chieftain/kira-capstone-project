@@ -24,7 +24,30 @@ export const MainContainer = styled.div`
     }
   }
 
-  @media (max-width: 900px) {
-    width: 40rem;
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: 'upload image';
+    display: inline-block;
+    background: #008080;
+    opacity: 0.9;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 20px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0px -90px 0 20px;
+  }
+  .custom-file-input:hover::before {
+    opacity: 1;
+  }
+
+  @media (max-width: 720px) {
+    width: 35rem;
   }
 `;

@@ -26,21 +26,31 @@ const AddService = () => {
             <Form onSubmit={handleSave}>
               <Form.Group>
                 <Form.Label>Service Title</Form.Label>
-                <Form.Control placeholder="Tile" className="mb-4" name="title" />
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Label>Service Images</Form.Label>
                 <Form.Control
-                  as="textarea"
-                  value={arrayToString(images)}
-                  onChange={handleChange(setImages)}
-                  name="images"
-                  placeholder="Add images that best shaowcase your service"
+                  placeholder="Tile"
+                  className="mb-4"
+                  name="title"
                 />
               </Form.Group>
 
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-4">
+                <Form.Label>Service Images</Form.Label>
+                <span className="small text-muted mx-3">
+                  upload images that best shaowcase your service"
+                </span>
+                <br />
+                <Form.Control
+                  type="file"
+                  id="files"
+                  name="files"
+                  value={arrayToString(images)}
+                  onChange={handleChange(setImages)}
+                  class="custom-file-input"
+                  multiple
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-4">
                 <Form.Label>Price</Form.Label>
                 <Form.Control
                   type="number"
@@ -49,7 +59,7 @@ const AddService = () => {
                 />
               </Form.Group>
 
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-4">
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                   as="textarea"
@@ -58,7 +68,7 @@ const AddService = () => {
                 />
               </Form.Group>
 
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-4">
                 <Form.Label>Details</Form.Label>
                 <Form.Control
                   as="textarea"
@@ -67,7 +77,7 @@ const AddService = () => {
                 />
               </Form.Group>
 
-              <Row className="mb-3">
+              <Row className="mb-4">
                 <Form.Group as={Col}>
                   <Form.Label>Delivery Time</Form.Label>
                   <Form.Control type="number" name="delivery" />
@@ -78,7 +88,7 @@ const AddService = () => {
                 </Form.Group>
               </Row>
 
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-4">
                 <Form.Label>Perks</Form.Label>
                 <Form.Control
                   as="textarea"

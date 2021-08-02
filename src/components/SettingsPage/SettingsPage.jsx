@@ -9,14 +9,14 @@ const SettingsPage = () => {
   const [languages, setLanguages] = useState([]);
 
   const handleChange = (set) => (e) => {
-    set(e.target.value.split(", "));
+    set(e.target.value.split("\n"));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  const arrayToString = (arr) => arr.join(", ");
+  const arrayToString = (arr) => arr.join("\n");
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center">
       <MainContainer>
@@ -31,39 +31,39 @@ const SettingsPage = () => {
               <Row className="mb-4">
                 <Form.Group as={Col}>
                   <Form.Label>First Name</Form.Label>
-                  <Form.Control placeholder="first Name" />
+                  <Form.Control placeholder="first Name" name="fname" />
                 </Form.Group>
                 <Form.Group as={Col}>
                   <Form.Label>Last Name</Form.Label>
-                  <Form.Control placeholder="last Name" />
+                  <Form.Control placeholder="last Name" name="lname" />
                 </Form.Group>
               </Row>
 
               <Row className="mb-4">
                 <Form.Group as={Col}>
                   <Form.Label>Username</Form.Label>
-                  <Form.Control placeholder="username" />
+                  <Form.Control placeholder="username" name="username" />
                 </Form.Group>
                 <Form.Group as={Col}>
                   <Form.Label>Location</Form.Label>
-                  <Form.Control placeholder="location" />
+                  <Form.Control placeholder="location" name="location" />
                 </Form.Group>
               </Row>
 
               <Row className="mb-4">
                 <Form.Group as={Col}>
                   <Form.Label>Email</Form.Label>
-                  <Form.Control placeholder="email" />
+                  <Form.Control placeholder="email" name="email" />
                 </Form.Group>
                 <Form.Group as={Col}>
                   <Form.Label>Phone number</Form.Label>
-                  <Form.Control placeholder="phone number" />
+                  <Form.Control placeholder="phone number" name="number" />
                 </Form.Group>
               </Row>
 
               <Form.Group className="mb-5">
-                <Form.Label>Change Profile Picture</Form.Label>
-                <Form.Control placeholder="profile picture link" />
+                <Form.Label>Upload your profile image</Form.Label>
+                <Form.Control type="file" id="files" name="files" class="custom-file-input" />
               </Form.Group>
 
               <Card.Header className="text-muted bg-white h4 my-4 header">
@@ -72,7 +72,7 @@ const SettingsPage = () => {
 
               <Form.Group className="mb-4">
                 <Form.Label>Jobs</Form.Label>
-                <Form.Control placeholder="add job" />
+                <Form.Control placeholder="add job" name="jobs" />
               </Form.Group>
 
               <Row className="mb-2">
