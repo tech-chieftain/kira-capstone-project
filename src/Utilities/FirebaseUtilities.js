@@ -3,21 +3,9 @@ import firebase from "../Firebase";
 
 const db = firebase.firestore();
 
-export const getFreelancers = () => {
-  const citiesRef = Firebase.firestore()
-    .collection("Freelancers")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-      });
-    });
-};
-
-export const addService = (userID, title, description, images, price, etd, revisions) => {
+export const addService = (user, title, description, images, price, etd, revisions) => {
   db.collection("users")
-    .doc(userID)
+    .doc(user.uid)
     .collection("services")
     .add({
       title,
@@ -35,8 +23,6 @@ export const addService = (userID, title, description, images, price, etd, revis
     });
 };
 
-export const getUserServices = (userID) => {
-  db.collection("users").doc(userID).collection("services").get();
 export const updateUserInDB = (user, payload = {}) => {
   const { uid, email, displayName, photoURL } = user;
   const newPayload = {
@@ -52,4 +38,36 @@ export const updateUserInDB = (user, payload = {}) => {
     return docRef.set(newPayload);
   });
 };
+
+export const getUserServices = (user) => {
+  db.collection("users").doc(user.uid).collection("services").get();
+};
+
+export const getAllFreelancers = async () => {
+  const freelancers = [];
+  const querySnapshot = await db.collection("users").where("freelancer", "==", true).get();
+  await querySnapshot.forEach((doc) => freelancers.push(doc.data()));
+
+  return freelancers;
+};
+
+export const getAllServices = async () => {
+  const services = [];
+  const querySnapshot = await db.collectionGroup("services").get();
+  await querySnapshot.forEach((doc) => services.push(doc.data()));
+  return services;
+};
+
+const uploadImage = async (file) => {
+  const fileRef = firebase.storage().ref().child(file.name);
+  await fileRef.put(file);
+  return fileRef.getDownloadURL();
+};
+
+export const updateProfilePicture = async (file, user) => {
+  const photoURL = await uploadImage(file);
+  await user.updateProfile({
+    photoURL,
+  });
+  return updateUserInDB(user);
 };

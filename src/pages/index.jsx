@@ -1,29 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import {
+  getAllFreelancers,
+  getAllServices,
+  updateProfilePicture,
+} from "../Utilities/FirebaseUtilities";
 import firebase from "../Firebase";
 
-// Configure FirebaseUI.
-const uiConfig = {
-  // Redirect to / after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: "/",
-  // We will display GitHub as auth providers.
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-  ],
-};
-
 function Homepage() {
-  // This controls the direction of the page for RTL languages
-  const { t } = useTranslation("common");
-
+  const [user, loading, error] = useAuthState(firebase.auth());
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    updateProfilePicture(data.get("file"), user);
+  };
   return (
     <>
-      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+      {user && `Hello ${user.displayName}! email: ${user.email}`}{" "}
+      <button type="button" onClick={getAllFreelancers}>
+        get users
+      </button>
+      <button type="button" onClick={getAllServices}>
+        get services
+      </button>
+      <form onSubmit={handleSubmit}>
+        <input type="file" name="file" />
+        <input type="submit" />
+      </form>
     </>
   );
 }
