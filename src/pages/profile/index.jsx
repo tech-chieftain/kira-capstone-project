@@ -1,6 +1,11 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ProfilePage from "../../components/ProfilePage/ProfilePage";
 
-const profile = () => <div />;
+const profile = () => (
+  <div>
+    <ProfilePage />
+  </div>
+);
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
