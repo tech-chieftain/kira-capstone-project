@@ -23,25 +23,9 @@ function Homepage() {
     updateProfilePicture(data.get("file"), user);
   };
   return (
-<<<<<<< HEAD
     <div>
       <LargeProfileCard />
     </div>
-=======
-    <>
-      {user && `Hello ${user.displayName}! email: ${user.email}`}{" "}
-      <button type="button" onClick={getAllFreelancers}>
-        get users
-      </button>
-      <button type="button" onClick={getAllServices}>
-        get services
-      </button>
-      <form onSubmit={handleSubmit}>
-        <input type="file" name="file" />
-        <input type="submit" />
-      </form>
-    </>
->>>>>>> 6f07216eb0524b71d7ba1e0b40526c9c0c470c0b
   );
 }
 

@@ -10,6 +10,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 import Pagination from "../../components/Pagination/Pagination";
 import LargeProfileCard from "../../components/LargeProfileCard/LargeProfileCard";
+import { getAllServices } from "../../Utilities/FirebaseUtilities";
 
 const Freelancers = ({ query, data }) => {
   const pageCount = 10;
@@ -55,7 +56,9 @@ export const getServerSideProps = async (context) => {
   // const res = await fetch("<YOUR_API>");
   // const data = await res.json();
 
-  const data = []; // delete this when you fetch the data from API like above
+  const data = await getAllServices(); // delete this when you fetch the data from API like above
+
+  console.log(data);
 
   // some data filtering here maybe
 
