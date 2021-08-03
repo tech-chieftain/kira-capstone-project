@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Navbar correctly 1`] = `
+<div>
+  <p>
+    This is an example of a component
+  </p>
+  <button
+    className="btn btn-primary"
+    disabled={false}
+    type="button"
+  >
+    Example of Antd button
+  </button>
+  <h1
+    className="Navbarstyled__Header-sc-ua2yiz-0 bAMbba"
+  >
+    WELCOME
+  </h1>
+</div>
+`;

@@ -1,5 +1,5 @@
 import Firebase from "../Firebase";
-import Servicediscription from "src/components/Servicediscription/Servicediscription";
+
 // Add the functions used in firebase here.
 
 export const getFreelancers=()=>{

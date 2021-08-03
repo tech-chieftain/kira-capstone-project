@@ -5,7 +5,7 @@ export const FooterContainer = styled.footer`
   padding-top: 2rem;
   color: white;
   position: absolute;
-  right:0;
+  // bottom:0;
   width: 100%;
 `;
 
