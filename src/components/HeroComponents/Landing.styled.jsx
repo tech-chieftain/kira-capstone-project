@@ -4,18 +4,18 @@ import { Form, Button } from "react-bootstrap";
 export const Background = styled.div`
   background: #008080;
   width: 100%;
-  height: 41rem;
+  height: 35rem;
   display: flex;
   align-items: end;
   justify-content: flex-end;
 
   .img {
-    margin-top: 3.6rem;
+    margin-top: -2.5rem;
   }
 `;
 
 export const Container = styled.div`
-  margin: -18rem -19rem 0 0;
+  margin: -20rem -19rem 0 0;
 
   .freelance {
     color: white;

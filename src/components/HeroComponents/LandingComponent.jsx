@@ -19,7 +19,7 @@ const LandingHero = ({ search }) => (
             </InputGroup.Text>
             <FormControl
               type="search"
-              placeholder="Find Service"
+              placeholder="Find Service..."
               aria-label="Search"
               className="input"
               onChange=""
