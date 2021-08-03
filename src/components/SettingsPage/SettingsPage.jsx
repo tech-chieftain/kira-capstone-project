@@ -4,29 +4,37 @@ import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Container, MainContainer } from "./SettingsPage.styled";
 import firebase from "../../Firebase/Firebase";
-import { getUserInfo } from "../../Utilities/FirebaseUtilities";
+import { getUserInfo, updateUserInDB, uploadImage } from "../../Utilities/FirebaseUtilities";
 
 const SettingsPage = () => {
-  const [user, loading, error] = useAuthState(firebase.auth());
-  const [skills, setSkills] = useState([]);
-  const [education, setEducation] = useState([]);
-  const [languages, setLanguages] = useState([]);
-  const [displayName, setDisplayName] = useState([]);
+  const [user] = useAuthState(firebase.auth());
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    if (user) getUserInfo(user);
+    if (user) {
+      getUserInfo(user).then((data) => setUserData(data));
+    }
   }, [user]);
 
-  const handleChange = (set) => (e) => {
-    set(e.target.value.split("\n"));
+  const handleChange = ({ target: { name, value } }) => {
+    setUserData({ ...userData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const parseAndHandleChange = ({ target: { name, value } }) => {
+    setUserData({ ...userData, [name]: value.split("\n") });
+  };
+
+  const handleImgUpload = async ({ target: { files } }) => {
+    if (files[0]) setUserData({ ...userData, photoURL: await uploadImage(files[0]) });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
+    updateUserInDB(user, userData);
+    await user.updateProfile(userData);
   };
 
-  const arrayToString = (arr) => arr.join("\n");
+  const arrayToString = (arr) => arr && arr.join("\n");
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center">
       <MainContainer>
@@ -40,34 +48,57 @@ const SettingsPage = () => {
 
               <Row className="mb-4">
                 <Form.Group as={Col}>
-                  <Form.Label>First Name</Form.Label>
-                  <Form.Control placeholder="first Name" name="fname" />
-                </Form.Group>
-                <Form.Group as={Col}>
-                  <Form.Label>Last Name</Form.Label>
-                  <Form.Control placeholder="last Name" name="lname" />
-                </Form.Group>
-              </Row>
-
-              <Row className="mb-4">
-                <Form.Group as={Col}>
-                  <Form.Label>Username</Form.Label>
-                  <Form.Control placeholder="username" name="username" />
+                  <Form.Label>Display Name</Form.Label>
+                  <Form.Control
+                    placeholder="Display Name"
+                    name="displayName"
+                    value={userData.displayName}
+                    onChange={handleChange}
+                  />
                 </Form.Group>
                 <Form.Group as={Col}>
                   <Form.Label>Location</Form.Label>
-                  <Form.Control placeholder="location" name="location" />
+                  <Form.Control
+                    placeholder="location"
+                    name="location"
+                    value={userData.location}
+                    onChange={handleChange}
+                  />
                 </Form.Group>
               </Row>
 
               <Row className="mb-4">
                 <Form.Group as={Col}>
                   <Form.Label>Email</Form.Label>
-                  <Form.Control placeholder="email" name="email" />
+                  <Form.Control
+                    placeholder="email"
+                    name="email"
+                    value={userData.email}
+                    onChange={handleChange}
+                  />
                 </Form.Group>
                 <Form.Group as={Col}>
                   <Form.Label>Phone number</Form.Label>
-                  <Form.Control placeholder="phone number" name="number" />
+                  <Form.Control
+                    placeholder="Phone Number"
+                    name="phone"
+                    value={userData.phone}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+              </Row>
+
+              <Row className="mb-4">
+                <Form.Group as={Col}>
+                  <Form.Label>About</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    placeholder="About"
+                    name="about"
+                    value={userData.about}
+                    onChange={handleChange}
+                    style={{ height: "100px" }}
+                  />
                 </Form.Group>
               </Row>
 
@@ -75,9 +106,10 @@ const SettingsPage = () => {
                 <Form.Label>Upload your profile image</Form.Label>
                 <Form.Control
                   type="file"
-                  id="files"
-                  name="files"
-                  class="custom-file-input"
+                  name="photoURL"
+                  accept="image/png, image/jpeg"
+                  onChange={handleImgUpload}
+                  className="custom-file-input"
                 />
               </Form.Group>
 
@@ -86,8 +118,13 @@ const SettingsPage = () => {
               </Card.Header>
 
               <Form.Group className="mb-4">
-                <Form.Label>Jobs</Form.Label>
-                <Form.Control placeholder="add job" name="jobs" />
+                <Form.Label>Job Title</Form.Label>
+                <Form.Control
+                  placeholder="Job Title"
+                  name="job"
+                  value={userData.Job}
+                  onChange={handleChange}
+                />
               </Form.Group>
 
               <Row className="mb-2">
@@ -95,10 +132,10 @@ const SettingsPage = () => {
                   <Form.Label>Skills</Form.Label>
                   <Form.Control
                     as="textarea"
-                    placeholder="add skills"
+                    placeholder="Skills"
                     name="skills"
-                    value={arrayToString(skills)}
-                    onChange={handleChange(setSkills)}
+                    value={arrayToString(userData.skills)}
+                    onChange={parseAndHandleChange}
                     style={{ height: "100px" }}
                   />
                 </Form.Group>
@@ -107,10 +144,10 @@ const SettingsPage = () => {
                   <Form.Label>Languages</Form.Label>
                   <Form.Control
                     as="textarea"
-                    placeholder="add language"
+                    placeholder="Languages"
                     name="languages"
-                    value={arrayToString(languages)}
-                    onChange={handleChange(setLanguages)}
+                    value={arrayToString(userData.languages)}
+                    onChange={parseAndHandleChange}
                     style={{ height: "100px" }}
                   />
                 </Form.Group>
@@ -120,10 +157,10 @@ const SettingsPage = () => {
                 <Form.Label>Education</Form.Label>
                 <Form.Control
                   as="textarea"
-                  placeholder="add education"
+                  placeholder="Education"
                   name="education"
-                  value={arrayToString(education)}
-                  onChange={handleChange(setEducation)}
+                  value={arrayToString(userData.education)}
+                  onChange={parseAndHandleChange}
                 />
               </Form.Group>
 

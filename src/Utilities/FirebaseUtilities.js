@@ -48,7 +48,7 @@ export const getUserInfo = (user) =>
     .collection("users")
     .doc(user.uid)
     .get()
-    .then((doc) => console.log(doc.data()));
+    .then((doc) => doc.data());
 
 export const getAllFreelancers = async () => {
   const freelancers = [];
@@ -65,7 +65,7 @@ export const getAllServices = async () => {
   return services;
 };
 
-const uploadImage = async (file) => {
+export const uploadImage = async (file) => {
   const fileRef = firebase.storage().ref().child(file.name);
   await fileRef.put(file);
   return fileRef.getDownloadURL();
