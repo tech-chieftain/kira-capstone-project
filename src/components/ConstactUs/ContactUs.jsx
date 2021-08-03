@@ -27,7 +27,7 @@ const ContactUs = () => (
       </Row>
       <Form.Control
         as="textarea"
-        placeholder="Leave a messsage"
+        placeholder="How can we help you?"
         name="message"
         className="message shadow"
       />
