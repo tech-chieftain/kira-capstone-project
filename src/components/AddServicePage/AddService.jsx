@@ -25,7 +25,6 @@ const AddService = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(serviceData);
     addService(user, serviceData);
   };
 
