@@ -21,14 +21,14 @@ export const MainContainer = styled.div`
 `;
 
 export const Container = styled.div`
-  margin-right: -10rem;
+  margin-right: -6.5rem;
 
   .freelance {
     color: white;
     font-size: 45px;
     font-style: italic;
     font-weight: lighter;
-    width: 40rem;
+    width: 35rem;
 
     span {
       font-weight: bolder;
