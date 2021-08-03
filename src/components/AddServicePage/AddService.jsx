@@ -3,7 +3,7 @@ import { Row, Col, Form, Card, Button } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Container, MainContainer, Bubbles } from "./AddService.styled";
 import firebase from "../../Firebase/Firebase";
-import { addService, uploadImage } from "../../Utilities/FirebaseUtilities";
+import { addService, uploadImage, updateUserInDB } from "../../Utilities/FirebaseUtilities";
 
 // eslint-disable-next-line arrow-body-style
 const AddService = () => {
@@ -26,6 +26,7 @@ const AddService = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     addService(user, serviceData);
+    updateUserInDB(user, { freelancer: true });
   };
 
   const arrayToString = (arr) => arr && arr.join("\n");

@@ -18,12 +18,13 @@ function App({ Component, pageProps }) {
     document.dir = i18n.dir();
   }, [i18n, i18n.language]);
 
-  const [user, loading] = useAuthState(firebase.auth());
+  const [user, loading, error] = useAuthState(firebase.auth());
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) updateUserInDB(user);
   });
 
+  console.log("user", user, loading, error);
   return (
     <>
       <Head>
