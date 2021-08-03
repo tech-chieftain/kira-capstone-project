@@ -25,7 +25,7 @@ export const LoginBtn = styled(Button)`
 `;
 
 export const Img = styled(Image)`
-  margin: -8px 0;
+  margin: -8px 0 0 -40px;
 `;
 
 export const ProfileImg = styled(Image)`
