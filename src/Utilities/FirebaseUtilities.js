@@ -3,24 +3,8 @@ import firebase from "../Firebase";
 
 const db = firebase.firestore();
 
-export const addService = (user, title, description, images, price, etd, revisions) => {
-  db.collection("users")
-    .doc(user.uid)
-    .collection("services")
-    .add({
-      title,
-      description,
-      images,
-      price,
-      etd,
-      revisions,
-    })
-    .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-    });
+export const addService = (user, payload) => {
+  db.collection("users").doc(user.uid).collection("services").add(payload);
 };
 
 export const updateUserInDB = (user, payload = {}) => {
