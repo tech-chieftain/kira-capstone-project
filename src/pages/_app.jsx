@@ -9,7 +9,7 @@ import { updateUserInDB } from "../Utilities/FirebaseUtilities";
 import "bootstrap/dist/css/bootstrap.css";
 
 import "../styles/scss/global.scss";
-import PricePage from "../components/Service_Pricing_information/Pricepage"
+import Pricepage from "../components/Service_Pricing_information/Pricepage"
 
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {
@@ -22,10 +22,12 @@ function App({ Component, pageProps }) {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) updateUserInDB(user);
   });
-
+ 
   return (
     <>
-      <PricePage /> 
+      <Pricepage  price={" "} description={" "} duration={" "} revisions ={" "}  data={[" "," "," "]}  /> 
+      
+
     </>
   );
 }

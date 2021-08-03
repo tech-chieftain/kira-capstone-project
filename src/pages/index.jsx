@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
   getAllFreelancers,
@@ -38,7 +39,11 @@ function Homepage() {
 export const getStaticProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale, ["common"])),
+    
+    
   },
+  
 });
+  
 
 export default Homepage;

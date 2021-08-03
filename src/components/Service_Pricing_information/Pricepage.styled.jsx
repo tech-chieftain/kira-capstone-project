@@ -11,17 +11,19 @@ export const Container = styled.div`
 export const ModalBubbles = styled.div`
   margin: 10px 25px;
 
+
+  .text {
+    margin: 1px -9px;
+  }
   .price {
-    margin: 1px 190px;
+    margin: 1px 220px;
   }
 `;
 
 export const MainContainer = styled.div`
 margin: 40px 10px;
 
-  .price {
-    margin: 1px 190px;
-  }
+  
 `;
 
 export const Button = styled.button`
@@ -31,7 +33,7 @@ export const Button = styled.button`
   color: white;
   text-align: center;
   text-decoration: none;
-  margin: 40px 30px;
+  margin: 48px 30px;
   transition-duration: 0.4s;
   cursor: pointer;
   border: 1px solid #008080;
