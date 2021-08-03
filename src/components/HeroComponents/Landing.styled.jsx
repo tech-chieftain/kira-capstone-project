@@ -10,7 +10,7 @@ export const Background = styled.div`
   justify-content: flex-end;
 
   .img {
-    margin: 3.5rem 0 0 0;
+    margin-top: 3.6rem;
   }
 `;
 
