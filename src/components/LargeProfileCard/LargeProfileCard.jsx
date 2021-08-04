@@ -8,26 +8,17 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
-import { FaUserCircle, FaStar } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 
-const LargeProfileCard = ({
-  username,
-  profilePicture,
-  name,
-  job,
-  location,
-  about,
-  tags,
-  topRated,
-}) => (
-  <Card className="shadow" style={{ width: "18rem" }}>
+const LargeProfileCard = ({ uid, photoURL, displayName, job, location, about, skills }) => (
+  <Card className="shadow">
     <Card.Body>
       <Row className="align-items-center">
         <Col xs={4}>
-          <Link href="/user/[]" as={`/user/${username}`}>
+          <Link href="/user/[]" as={`/user/${uid}`}>
             <a>
-              {profilePicture ? (
-                <Image src={profilePicture} alt="" roundedCircle fluid />
+              {photoURL ? (
+                <Image src={photoURL} alt="" roundedCircle fluid />
               ) : (
                 <div className="d-flex justify-content-end">
                   <FaUserCircle size="4em" />
@@ -37,12 +28,12 @@ const LargeProfileCard = ({
           </Link>
         </Col>
         <Col>
-          <Link href="/user/[]" as={`/user/${username}`}>
+          <Link href="/user/[]" as={`/user/${uid}`}>
             <a className="text-decoration-none text-reset">
-              <Card.Title className="text-primary">{name}</Card.Title>
+              <Card.Title className="text-primary">{displayName}</Card.Title>
             </a>
           </Link>
-          <Link href="/services_search?q=[]" as={`/services_search?q=${job}`}>
+          <Link href="/freelancers_search?q=[]" as={`/freelancers_search?q=${job}`}>
             <a className="text-decoration-none text-reset">
               <Card.Subtitle>{job}</Card.Subtitle>
             </a>
@@ -57,8 +48,8 @@ const LargeProfileCard = ({
       </Row>
       <Row>
         <Col>
-          {tags.map((tag) => (
-            <Link href="/services_search?q=[]" as={`/services_search?q=${tag}`}>
+          {skills.slice(0, 5).map((tag) => (
+            <Link href="/freelancers_search?q=[]" as={`/freelancers_search?q=${tag}`}>
               <a className="text-decoration-none text-reset">
                 <Button variant="outline-primary me-2 mb-2">{tag}</Button>
               </a>
@@ -67,37 +58,27 @@ const LargeProfileCard = ({
         </Col>
       </Row>
       <hr />
-      <Row>
-        <Col className="text-end fluid">
-          {topRated && (
-            <Card.Text className="d-flex">
-              <FaStar size="1rem" className="align-self-center m-1" /> Top Rated
-            </Card.Text>
-          )}
-        </Col>
-      </Row>
+      <Row />
     </Card.Body>
   </Card>
 );
 
 LargeProfileCard.propTypes = {
-  username: PropTypes.string.isRequired,
-  profilePicture: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  uid: PropTypes.string.isRequired,
+  photoURL: PropTypes.string,
+  displayName: PropTypes.string.isRequired,
   job: PropTypes.string,
   location: PropTypes.string,
   about: PropTypes.string,
-  tags: PropTypes.array,
-  topRated: PropTypes.bool,
+  skills: PropTypes.array,
 };
 
 LargeProfileCard.defaultProps = {
-  profilePicture: "",
+  photoURL: "",
   job: "",
   location: "",
   about: "",
-  tags: [],
-  topRated: false,
+  skills: [],
 };
 
 export default LargeProfileCard;
