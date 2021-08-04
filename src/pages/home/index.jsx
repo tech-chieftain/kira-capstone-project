@@ -12,7 +12,8 @@ import TestimonyCard from "../../components/TestimonyCard/TestimonyCard";
 const index = () => (
   <div>
     <LandingComponent />
-    <Container className="my-4">
+    <Container className="my-5">
+      <h1 className="muted mx-3">Popular professional services</h1>
       <CustomCarousel
         items={FPFreelancers.map((freelancer) => (
           <FPCard {...freelancer} overlay />
