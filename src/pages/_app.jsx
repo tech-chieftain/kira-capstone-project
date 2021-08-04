@@ -14,9 +14,9 @@ import NavBar from "../components/Navbar/Navbar";
 
 // eslint-disable-next-line react/prop-types
 function App({ Component, pageProps }) {
-  useEffect(() => {
-    document.dir = i18n.dir();
-  }, [i18n, i18n.language]);
+  // useEffect(() => {
+  //   document.dir = i18n.dir();
+  // }, [i18n, i18n.language]);
 
   const [user, loading, error] = useAuthState(firebase.auth());
 
