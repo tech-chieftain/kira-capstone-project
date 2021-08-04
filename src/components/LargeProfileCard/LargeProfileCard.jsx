@@ -15,7 +15,7 @@ const LargeProfileCard = ({ uid, photoURL, displayName, job, location, about, sk
     <Card.Body>
       <Row className="align-items-center">
         <Col xs={4}>
-          <Link href="/user/[]" as={`/user/${uid}`}>
+          <Link href="/profile/[]" as={`/profile/${uid}`}>
             <a>
               {photoURL ? (
                 <Image src={photoURL} alt="" roundedCircle fluid />
@@ -28,7 +28,7 @@ const LargeProfileCard = ({ uid, photoURL, displayName, job, location, about, sk
           </Link>
         </Col>
         <Col>
-          <Link href="/user/[]" as={`/user/${uid}`}>
+          <Link href="/profile/[]" as={`/profile/${uid}`}>
             <a className="text-decoration-none text-reset">
               <Card.Title className="text-primary">{displayName}</Card.Title>
             </a>
