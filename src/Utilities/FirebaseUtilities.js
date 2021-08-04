@@ -51,18 +51,6 @@ export const getUserProfile = async (uid) => {
   const services = getUserServices({ uid });
   return Promise.all([personal, services]);
 };
-// db
-//   .collection("users")
-//   .doc(uid)
-//   .get()
-//   .then((doc) => doc.data());
-
-export const getUserInfo = (user) =>
-  db
-    .collection("users")
-    .doc(user.uid)
-    .get()
-    .then((doc) => doc.data());
 
 export const getAllFreelancers = async () => {
   const freelancers = [];
