@@ -27,7 +27,6 @@ const Freelancers = ({ query, results }) => {
       return this.limit;
     },
   });
-  console.log(pageInfo.pageCount);
   const handlePageClick = (selectedPage) =>
     setPageInfo((prev) => ({ ...prev, start: prev.end, end: prev.limit * selectedPage }));
 
@@ -40,13 +39,6 @@ const Freelancers = ({ query, results }) => {
         <Row className="mb-3">
           <Col>
             <h3>Results for "{query}"</h3>
-          </Col>
-          <Col className="d-flex justify-content-end">
-            <DropdownButton title="Sort by">
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-            </DropdownButton>
           </Col>
         </Row>
         <Row xs={1} sm={2} md={3} lg={4} xxl={5} className="g-4">
