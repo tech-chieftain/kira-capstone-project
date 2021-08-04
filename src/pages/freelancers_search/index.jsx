@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import { useAuthState } from "react-firebase-hooks/auth";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -9,17 +9,27 @@ import Col from "react-bootstrap/Col";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import * as JsSearch from "js-search";
-import firebase from "../../Firebase";
 
 import Pagination from "../../components/Pagination/Pagination";
 import LargeProfileCard from "../../components/LargeProfileCard/LargeProfileCard";
 import { getAllFreelancers } from "../../Utilities/FirebaseUtilities";
 
 const Freelancers = ({ query, results }) => {
-  const [user, loading, error] = useAuthState(firebase.auth());
-  console.log(results);
-  const pageCount = 10;
-  const handlePageClick = (selectedPage) => "";
+  const [pageInfo, setPageInfo] = useState({
+    limit: 6,
+    get pageCount() {
+      return results.length > this.limit ? Math.ceil(results.length / this.limit) : 0;
+    },
+    get start() {
+      return this.end - this.limit;
+    },
+    get end() {
+      return this.limit;
+    },
+  });
+  console.log(pageInfo.pageCount);
+  const handlePageClick = (selectedPage) =>
+    setPageInfo((prev) => ({ ...prev, start: prev.end, end: prev.limit * selectedPage }));
 
   return (
     <>
@@ -41,15 +51,17 @@ const Freelancers = ({ query, results }) => {
         </Row>
         <Row xs={1} sm={2} md={3} lg={4} xxl={5} className="g-4">
           {results &&
-            results.map((freelancer) => (
+            results.slice(pageInfo.start, pageInfo.end).map((freelancer) => (
               <Col>
                 <LargeProfileCard {...freelancer} />
               </Col>
             ))}
         </Row>
-        <Row className="mt-5">
-          <Pagination pageCount={pageCount} handlePageClick={handlePageClick} />
-        </Row>
+        {!!pageInfo.pageCount && (
+          <Row className="mt-5">
+            <Pagination pageCount={pageInfo.pageCount} handlePageClick={handlePageClick} />
+          </Row>
+        )}
       </Container>
     </>
   );
