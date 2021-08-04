@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import ServicesCard from "../ServicesCard/ServicesCard";
 import { ProfileData } from "../MockData";
 import ReviewsData from "../Reviews/ReviewsData";
@@ -17,31 +18,28 @@ const Container = styled.div`
   }
 `;
 
-const ServieceCardData = () => (
+const ServieceCardData = ({ services }) => (
   <Container className="shadow">
     <div className="serviece-cards">
-      {ProfileData.map((data) => (
-        <span className="m-3">
-          <ServicesCard
-            person={data.person}
-            name={data.name}
-            rating={data.rating}
-            description={data.service}
-            profilePic={data.profilePic}
-            photo={data.photo}
-            width={data.width}
-            price={data.price}
-          />
-        </span>
-      ))}
-      <div className="mx-3 my-5">
-        <h4 className="mx-3">Reviews</h4>
-        <div>
-          <ReviewsData />
-        </div>
-      </div>
+      {services &&
+        services.map((service) => (
+          <span className="m-3">
+            <ServicesCard
+              name={service.name}
+              title={service.title}
+              description={service.description}
+              photo={service.images[0]}
+              width={15}
+              price={service.price}
+            />
+          </span>
+        ))}
     </div>
   </Container>
 );
+
+ServieceCardData.propTypes = {
+  services: PropTypes.array,
+};
 
 export default ServieceCardData;

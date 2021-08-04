@@ -4,7 +4,17 @@ import { Card, Col, Row } from "react-bootstrap";
 import { FaHeart, FaUserCircle } from "react-icons/fa";
 import { StarIcon, Button, CardBody, Img } from "./ServicesCard.styled";
 
-const ServicesCard = ({ person, width, photo, profilePic, description, rating, price, name }) => {
+const ServicesCard = ({
+  person,
+  width,
+  photo,
+  profilePic,
+  title,
+  description,
+  rating,
+  price,
+  name,
+}) => {
   const [favorate, setFavorate] = useState(false);
 
   const favorated = () => {
@@ -29,15 +39,10 @@ const ServicesCard = ({ person, width, photo, profilePic, description, rating, p
             </Col>
           </Row>
         )}
+        <Card.Text>{title}</Card.Text>
         <Card.Text>{description}</Card.Text>
-        <small className="text-warning d-flex align-items-center">
-          <StarIcon /> {rating}
-        </small>
       </CardBody>
       <Card.Footer className="bg-white d-flex align-items-center justify-content-between">
-        <Button onClick={favorated} style={{ color: favorate ? "red" : "grey" }}>
-          <FaHeart />
-        </Button>
         <small className="text-muted">
           STARTING AT <span className="h6">${price}</span>
         </small>
@@ -53,6 +58,7 @@ ServicesCard.propTypes = {
   rating: PropTypes.number,
   photo: PropTypes.string,
   description: PropTypes.string,
+  title: PropTypes.string,
   name: PropTypes.string,
   profilePic: PropTypes.string,
 };
