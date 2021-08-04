@@ -38,7 +38,11 @@ const LargeProfileCard = ({ uid, photoURL, displayName, job, location, about, sk
               <Card.Subtitle>{job}</Card.Subtitle>
             </a>
           </Link>
-          <Card.Text className="fw-light">{location}</Card.Text>
+          <Link href={`/freelancers_search?q=${location}`}>
+            <a className="text-decoration-none text-reset">
+              <Card.Text className="fw-light">{location}</Card.Text>
+            </a>
+          </Link>
         </Col>
       </Row>
       <Row>
