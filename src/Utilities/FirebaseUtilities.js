@@ -23,8 +23,20 @@ export const updateUserInDB = (user, payload = {}) => {
   });
 };
 
-export const getUserServices = (user) => {
-  db.collection("users").doc(user.uid).collection("services").get();
+export const getUserServices = async (user) => {
+  const services = [];
+  await db
+    .collection("users")
+    .doc(user.uid)
+    .collection("services")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        services.push({ id: doc.id, ...doc.data() });
+      });
+    });
+
+  return services;
 };
 
 export const getUserInfo = (user) =>
@@ -33,6 +45,12 @@ export const getUserInfo = (user) =>
     .doc(user.uid)
     .get()
     .then((doc) => doc.data());
+
+export const getUserProfile = async (uid) => {
+  const personal = getUserInfo({ uid });
+  const services = getUserServices({ uid });
+  return Promise.all([personal, services]);
+};
 
 export const getAllFreelancers = async () => {
   const freelancers = [];

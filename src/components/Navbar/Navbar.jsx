@@ -8,12 +8,16 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { IoSearch } from "react-icons/io5";
 import { MdSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Link from "next/link";
 import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown, SearchForm } from "./Navbar.styled";
 import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
+import firebase from "../../Firebase";
 
 // eslint-disable-next-line arrow-body-style
 const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
+  const [user, loading, error] = useAuthState(firebase.auth());
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -87,7 +91,9 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
               <Dropdown.Menu>
                 <Dropdown.Item href="/profile">
                   {profilePicture ? (
-                    <ProfileImg src={profilePicture} roundedCircle fluid />
+                    <Link href="/profile/[uid]" as={`/profile/${user.uid}`}>
+                      <ProfileImg src={profilePicture} roundedCircle fluid />
+                    </Link>
                   ) : (
                     <FaUserCircle size="28px" />
                   )}
