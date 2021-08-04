@@ -28,7 +28,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
   return (
     <Navbar bg="primary">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/home">
           <Img
             src="/NavbarLogo.png"
             width="104px"
@@ -69,7 +69,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
           </Nav>
         ) : (
           <Nav className="w-75 d-flex justify-content-end">
-            <Nav.Link href="/">
+            <Nav.Link href="/add_serviece">
               <FaPlus size="25px" className="text-white mt-1" />
             </Nav.Link>
             <Nav.Link href="/">
@@ -93,13 +93,13 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
                   )}
                   <span className="mx-3 text-muted">{name}</span>
                 </Dropdown.Item>
-                <Dropdown.Item href="/">
+                <Dropdown.Item href="/settings">
                   <MdSettings size="20px" />
                   <span className="mx-3 text-muted">Settings</span>
                 </Dropdown.Item>
                 <Dropdown.Item onClick={handleLogOut}>
                   <FiLogOut size="20px" />
-                    <span className="mx-3 text-muted">Log Out</span>
+                  <span className="mx-3 text-muted">Log Out</span>
                 </Dropdown.Item>
               </Dropdown.Menu>
             </DropDown>
@@ -115,12 +115,6 @@ NavBar.propTypes = {
   profilePicture: PropTypes.string,
   name: PropTypes.string,
   handleLogOut: PropTypes.func,
-};
-
-NavBar.defaultProps = {
-  overview: true,
-  profilePicture: "",
-  name: "",
 };
 
 export default NavBar;

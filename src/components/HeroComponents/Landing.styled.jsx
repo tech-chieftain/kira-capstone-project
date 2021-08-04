@@ -10,7 +10,7 @@ export const Background = styled.div`
   justify-content: flex-end;
 
   .img {
-    margin-top: -2.5rem;
+    margin-top: -2.4rem;
   }
 `;
 
@@ -31,6 +31,7 @@ export const Container = styled.div`
 `;
 
 export const SearchForm = styled(Form)`
+  border-radius: 0 10px 10px 0;
   position: relative;
   width: 517px;
   height: 60px;
@@ -40,7 +41,7 @@ export const SearchForm = styled(Form)`
     border: none;
     box-shadow: none;
     webkit-box-shadow: none;
-    font-size: 22px;
+    font-size: 20px;
 
     &:focus {
       color: grey;

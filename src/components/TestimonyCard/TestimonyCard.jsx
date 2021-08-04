@@ -9,7 +9,7 @@ import Rating from "react-rating";
 import { FaStar, FaRegStar, FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const TestimonyCard = ({ imgSrc, quote, rating, color, name, job }) => (
-  <Card>
+  <Card className="border-0">
     <Row>
       <Col>
         <Card.Img variant="top" src={imgSrc} />
@@ -58,7 +58,7 @@ TestimonyCard.propTypes = {
 };
 
 TestimonyCard.defaultProps = {
-  imgSrc: "https://picsum.photos/900/700",
+  imgSrc: "https://picsum.photos/700/300",
   quote: "",
   rating: 0,
   color: "#008080",

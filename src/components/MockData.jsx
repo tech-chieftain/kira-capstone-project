@@ -105,3 +105,59 @@ export const ReviewData = [
     width: 40,
   },
 ];
+
+export const FPFreelancers = [
+  {
+    title: "Copywriter",
+    subtitle: "Build your brand",
+    imgSrc: "/CopyWriting.png",
+  },
+  {
+    title: "Wordpress",
+    subtitle: "Customzie your site",
+    imgSrc: "Wordpress.png",
+  },
+  {
+    title: "Voice Over",
+    subtitle: "Share your message",
+    imgSrc: "/VoiceOver.png",
+  },
+  {
+    title: "Video Explainer",
+    subtitle: "Engage your audience",
+    imgSrc: "/Video.png",
+  },
+  {
+    title: "Photographer",
+    subtitle: "Capture your moments",
+    imgSrc: "/Lands.png",
+  },
+];
+
+export const FPbusinesses = [
+  {
+    title: "John Doe",
+    subtitle: "Web Developer",
+    imgSrc: "/Branding.png",
+  },
+  {
+    title: "John Doe",
+    subtitle: "Web Developer",
+    imgSrc: "Wordpress.png",
+  },
+  {
+    title: "John Doe",
+    subtitle: "Web Developer",
+    imgSrc: "/Rectangle13.png",
+  },
+  {
+    title: "John Doe",
+    subtitle: "Engage your audience",
+    imgSrc: "/Rectangle15.png",
+  },
+  {
+    title: "hotographer",
+    subtitle: "Capture your moments",
+    imgSrc: "/SocialMedia.png",
+  },
+];
