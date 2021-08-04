@@ -29,4 +29,6 @@ h6 {
   font-family: "Roboto Condensed", $font-family-sans-serif;
 }
 
+$card-height: 100%;
+
 @import "/node_modules/bootstrap/scss/bootstrap.scss";
