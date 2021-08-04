@@ -46,7 +46,7 @@ export const getUserServices = (user) => {
 export const getAllFreelancers = async () => {
   const freelancers = [];
   const querySnapshot = await db.collection("users").where("freelancer", "==", true).get();
-  await querySnapshot.forEach((doc) => freelancers.push(doc.data()));
+  await querySnapshot.forEach((doc) => freelancers.push({ uid: doc.id, ...doc.data() }));
 
   return freelancers;
 };
