@@ -33,7 +33,7 @@ const LargeProfileCard = ({ uid, photoURL, displayName, job, location, about, sk
               <Card.Title className="text-primary">{displayName}</Card.Title>
             </a>
           </Link>
-          <Link href="/freelancers_search?q=[]" as={`/freelancers_search?q=${job}`}>
+          <Link href={`/freelancers_search?q=${job}`}>
             <a className="text-decoration-none text-reset">
               <Card.Subtitle>{job}</Card.Subtitle>
             </a>
@@ -49,7 +49,7 @@ const LargeProfileCard = ({ uid, photoURL, displayName, job, location, about, sk
       <Row>
         <Col>
           {skills.slice(0, 5).map((tag) => (
-            <Link href="/freelancers_search?q=[]" as={`/freelancers_search?q=${tag}`}>
+            <Link href={`/freelancers_search?q=${tag}`}>
               <a className="text-decoration-none text-reset">
                 <Button variant="outline-primary me-2 mb-2">{tag}</Button>
               </a>
@@ -57,8 +57,6 @@ const LargeProfileCard = ({ uid, photoURL, displayName, job, location, about, sk
           ))}
         </Col>
       </Row>
-      <hr />
-      <Row />
     </Card.Body>
   </Card>
 );

@@ -8,15 +8,16 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import * as JsSearch from "js-search";
 import firebase from "../../Firebase";
 
 import Pagination from "../../components/Pagination/Pagination";
 import LargeProfileCard from "../../components/LargeProfileCard/LargeProfileCard";
 import { getAllFreelancers } from "../../Utilities/FirebaseUtilities";
 
-const Freelancers = ({ query, freelancers }) => {
+const Freelancers = ({ query, results }) => {
   const [user, loading, error] = useAuthState(firebase.auth());
-  console.log(freelancers);
+  console.log(results);
   const pageCount = 10;
   const handlePageClick = (selectedPage) => "";
 
@@ -39,8 +40,8 @@ const Freelancers = ({ query, freelancers }) => {
           </Col>
         </Row>
         <Row xs={1} sm={2} md={3} lg={4} xxl={5} className="g-4">
-          {freelancers &&
-            freelancers.map((freelancer) => (
+          {results &&
+            results.map((freelancer) => (
               <Col>
                 <LargeProfileCard {...freelancer} />
               </Col>
@@ -56,23 +57,28 @@ const Freelancers = ({ query, freelancers }) => {
 
 Freelancers.propTypes = {
   query: PropTypes.string,
-  freelancers: PropTypes.array,
+  results: PropTypes.array,
 };
 
 export const getServerSideProps = async (context) => {
-  // const res = await fetch("<YOUR_API>");
-  // const freelancers = await res.json();
+  const freelancers = await getAllFreelancers();
 
-  const freelancers = await getAllFreelancers(); // delete this when you fetch the data from API like above
+  const query = context.query.q;
+  let results = [];
 
-  // some data filtering here maybe
+  if (query) {
+    const search = new JsSearch.Search("uid");
+    Object.keys(freelancers[0]).forEach((key) => search.addIndex(key));
+    search.addDocuments(freelancers);
+    results = search.search(query);
+  }
 
   return {
     props: {
-      freelancers,
-      query: context.query.q,
+      results,
+      query,
       ...(await serverSideTranslations(context.locale, ["common"])),
-    }, // will be passed to the page component as props
+    },
   };
 };
 
