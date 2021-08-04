@@ -32,7 +32,7 @@ const Container = styled.div`
   width: 100%;
   height: 434px;
   background: #fff;
-  margin: 5rem 0;
+  margin: 3rem 0;
 
   .logo {
     margin: -5rem 9rem 0 0;
