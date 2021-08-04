@@ -91,7 +91,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
               <Dropdown.Menu>
                 <Dropdown.Item href="/profile">
                   {profilePicture ? (
-                    <Link href="/profile/[uid]" as={`/profile/${user.uid}`}>
+                    <Link href={`/profile/${user.uid}`}>
                       <ProfileImg src={profilePicture} roundedCircle fluid />
                     </Link>
                   ) : (
