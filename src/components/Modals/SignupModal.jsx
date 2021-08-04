@@ -54,7 +54,7 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
         displayName: formData.get("displayName"),
       });
 
-      await updateUserInDB();
+      await updateUserInDB(user);
 
       setShowSignup((show) => !show);
     } catch (err) {

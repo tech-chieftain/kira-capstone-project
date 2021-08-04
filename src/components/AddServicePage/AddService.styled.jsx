@@ -20,6 +20,29 @@ export const MainContainer = styled.div`
     padding: 1.5rem 1rem;
   }
 
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: "upload image";
+    display: inline-block;
+    background: #008080;
+    opacity: 0.9;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 20px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 10px -90px 0 0;
+  }
+  .custom-file-input:hover::before {
+    opacity: 1;
+  }
+
   @media (max-width: 720px) {
     padding: 1rem 0;
     width: 38rem;

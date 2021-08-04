@@ -1,7 +1,7 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import SettingsPage from "../../components/SettingsPage/SettingsPage";
+import AddService from "../../components/AddServicePage/AddService";
 
-const settings = () => <SettingsPage />;
+const addService = () => <AddService />;
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
@@ -9,4 +9,4 @@ export const getStaticProps = async ({ locale }) => ({
   },
 });
 
-export default settings;
+export default addService;
