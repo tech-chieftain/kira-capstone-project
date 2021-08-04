@@ -28,7 +28,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
   return (
     <Navbar bg="primary">
       <Container>
-        <Navbar.Brand href="/home">
+        <Navbar.Brand href="/">
           <Img
             src="/NavbarLogo.png"
             width="104px"
@@ -69,7 +69,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
           </Nav>
         ) : (
           <Nav className="w-75 d-flex justify-content-end">
-            <Nav.Link href="/add_serviece">
+            <Nav.Link href="/add_service">
               <FaPlus size="25px" className="text-white mt-1" />
             </Nav.Link>
             <Nav.Link href="/">
@@ -85,7 +85,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="/">
+                <Dropdown.Item href="/profile">
                   {profilePicture ? (
                     <ProfileImg src={profilePicture} roundedCircle fluid />
                   ) : (
