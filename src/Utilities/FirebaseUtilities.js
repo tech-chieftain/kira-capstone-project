@@ -3,33 +3,17 @@ import firebase from "../Firebase";
 
 const db = firebase.firestore();
 
-export const addService = (user, title, description, images, price, etd, revisions) => {
-  db.collection("users")
-    .doc(user.uid)
-    .collection("services")
-    .add({
-      title,
-      description,
-      images,
-      price,
-      etd,
-      revisions,
-    })
-    .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-    });
+export const addService = (user, payload) => {
+  db.collection("users").doc(user.uid).collection("services").add(payload);
 };
 
 export const updateUserInDB = (user, payload = {}) => {
   const { uid, email, displayName, photoURL } = user;
   const newPayload = {
-    ...payload,
     email,
     displayName,
     photoURL,
+    ...payload,
   };
   const docRef = db.collection("users").doc(uid);
 
@@ -73,6 +57,13 @@ export const getUserProfile = async (uid) => {
 //   .get()
 //   .then((doc) => doc.data());
 
+export const getUserInfo = (user) =>
+  db
+    .collection("users")
+    .doc(user.uid)
+    .get()
+    .then((doc) => doc.data());
+
 export const getAllFreelancers = async () => {
   const freelancers = [];
   const querySnapshot = await db.collection("users").where("freelancer", "==", true).get();
@@ -88,7 +79,7 @@ export const getAllServices = async () => {
   return services;
 };
 
-const uploadImage = async (file) => {
+export const uploadImage = async (file) => {
   const fileRef = firebase.storage().ref().child(file.name);
   await fileRef.put(file);
   return fileRef.getDownloadURL();

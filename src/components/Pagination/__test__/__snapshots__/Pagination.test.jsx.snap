@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Pagination 1`] = `
+<nav>
+  <ul
+    className="pagination justify-content-center"
+  >
+    <li
+      className="page-item disabled"
+    >
+      <a
+        aria-disabled="true"
+        aria-label="Previous page"
+        className="page-link"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        rel="prev"
+        role="button"
+        tabIndex="0"
+      >
+        Previous
+      </a>
+    </li>
+    <li
+      className="page-item active"
+    >
+      <a
+        aria-current="page"
+        aria-label="Page 1 is your current page"
+        className="page-link"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        1
+      </a>
+    </li>
+    <li
+      className="page-item"
+    >
+      <a
+        aria-current={null}
+        aria-label="Page 2"
+        className="page-link"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        2
+      </a>
+    </li>
+    <li
+      className="page-item"
+    >
+      <a
+        aria-current={null}
+        aria-label="Page 3"
+        className="page-link"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        3
+      </a>
+    </li>
+    <li
+      className="page-item"
+    >
+      <a
+        className="page-link"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        ...
+      </a>
+    </li>
+    <li
+      className="page-item"
+    >
+      <a
+        aria-current={null}
+        aria-label="Page 10"
+        className="page-link"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex="0"
+      >
+        10
+      </a>
+    </li>
+    <li
+      className="page-item"
+    >
+      <a
+        aria-disabled="false"
+        aria-label="Next page"
+        className="page-link"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        rel="next"
+        role="button"
+        tabIndex="0"
+      >
+        Next
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
