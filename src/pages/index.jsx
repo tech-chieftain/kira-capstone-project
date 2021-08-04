@@ -3,6 +3,9 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { useAuthState } from "react-firebase-hooks/auth";
+import LargeProfileCard from "../components/LargeProfileCard/LargeProfileCard";
+// import { Navbar } from "@components/Navbar/Navbar";
+
 import {
   getAllFreelancers,
   getAllServices,
@@ -18,19 +21,9 @@ function Homepage() {
     updateProfilePicture(data.get("file"), user);
   };
   return (
-    <>
-      {user && `Hello ${user.displayName}! email: ${user.email}`}{" "}
-      <button type="button" onClick={getAllFreelancers}>
-        get users
-      </button>
-      <button type="button" onClick={getAllServices}>
-        get services
-      </button>
-      <form onSubmit={handleSubmit}>
-        <input type="file" name="file" />
-        <input type="submit" />
-      </form>
-    </>
+    <div>
+      <LargeProfileCard />
+    </div>
   );
 }
 
