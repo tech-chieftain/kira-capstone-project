@@ -1,7 +1,7 @@
-import ServiceHeader from "./ServiceHeader";
+import Header from "./ServiceHeader";
 
-const HeaderList = () => {
-  const Headers = [
+const HeaderData = () => {
+  const headers = [
     {
       nameOfPerson: "",
       reviews: "",
@@ -13,18 +13,18 @@ const HeaderList = () => {
   ];
   return (
     <>
-      {Headers.map((Header) => (
-        <Headers
-          serviceName={Header.serviceName}
-          reviews={Header.reviews}
-          rating={Header.rating}
-          profilePic={Header.profilePic}
-          queue={Header.queue}
-          nameOfPerson={Header.nameOfPerson}
+      {headers.map((header) => (
+        <Header
+          serviceName={header.serviceName}
+          reviews={header.reviews}
+          rating={header.rating}
+          profilePic={header.profilePic}
+          queue={header.queue}
+          nameOfPerson={header.nameOfPerson}
         />
       ))}
     </>
   );
 };
 
-export default HeaderList;
+export default HeaderData;

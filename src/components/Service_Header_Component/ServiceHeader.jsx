@@ -7,7 +7,7 @@ import { Container, Img, MainContainer } from "./Header.styled";
 
 const Header = ({ profilePic, serviceName, rating, reviews, queue, nameOfPerson }) => (
   <Container>
-    <Card.Body style={{ width: "43rem" }}>
+    <Card.Body style={{ width: "49rem" }}>
       <Row className="my-2">
         <Card.Title className="title">{serviceName}</Card.Title>
         <Col md={1} className="pic">
