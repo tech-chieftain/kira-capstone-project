@@ -19,13 +19,17 @@ export const LoginBtn = styled(Button)`
   border: none;
   margin-right: 75px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     margin-right: 20px;
   }
 `;
 
 export const Img = styled(Image)`
-  margin: -8px 0 0 -40px;
+  margin: -8px 0 0 -30px;
+
+  @media (max-width: 768px) {
+    margin: 0;
+  }
 `;
 
 export const ProfileImg = styled(Image)`
@@ -40,6 +44,10 @@ export const DropDown = styled(Dropdown)`
     box-shadow: none;
     webkit-box-shadow: none;
     margin: 3px auto 0;
+
+    @media (max-width: 768px) {
+      margin-left: -8.5px;
+    }
   }
 `;
 
@@ -68,11 +76,11 @@ export const SearchForm = styled(Form)`
     margin-right: -5px;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     margin: 0;
 
     .input {
-      width: 150px;
+      width: 220px;
       border-bottom: 1px solid white;
       border-radius: 0;
       background: #008080;

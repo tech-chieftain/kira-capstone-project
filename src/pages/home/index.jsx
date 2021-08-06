@@ -24,8 +24,8 @@ const index = () => (
     <Container>
       <h1 className="muted m-3">What other businesses are using</h1>
       <CustomCarousel
-        items={FPbusinesses.map((data) => (
-          <FPCard {...data} />
+        items={FPbusinesses.map((business) => (
+          <FPCard {...business} />
         ))}
         slides={4}
       />

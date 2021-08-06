@@ -20,8 +20,6 @@ export const Background = styled.div`
   width: 100%;
   height: 434px;
   background: #fff;
-  display: flex;
-  justify-content: flex-end;
   margin-top: 5rem;
 
   .img {
