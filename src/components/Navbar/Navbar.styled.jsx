@@ -80,13 +80,18 @@ export const SearchForm = styled(Form)`
     margin: 0;
 
     .input {
-      width: 220px;
+      width: 200px;
       border-bottom: 1px solid white;
       border-radius: 0;
       background: #008080;
+      color: #fff;
+
+      &:focus {
+        color: #fff;
+      }
 
       ::placeholder {
-        color: white;
+        color: #fff;
       }
     }
 
@@ -95,6 +100,7 @@ export const SearchForm = styled(Form)`
       border-radius: 0;
       background: #008080;
       color: white;
+      margin-left: -60px;
     }
   }
 `;

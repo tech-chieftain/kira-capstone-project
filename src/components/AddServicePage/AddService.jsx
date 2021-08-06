@@ -98,28 +98,24 @@ const AddService = () => {
               </Form.Group>
 
               <Row>
-                <Col className="mb-4" sm>
-                  <Form.Group>
-                    <Form.Label>Delivery Time</Form.Label>
-                    <Form.Control
-                      type="number"
-                      name="etd"
-                      value={serviceData.etd}
-                      onChange={handleChange}
-                    />
-                  </Form.Group>
-                </Col>
-                <Col className="mb-4" sm>
-                  <Form.Group>
-                    <Form.Label>Number Of Revisions</Form.Label>
-                    <Form.Control
-                      type="number"
-                      name="revisions"
-                      value={serviceData.revisions}
-                      onChange={handleChange}
-                    />
-                  </Form.Group>
-                </Col>
+                <Form.Group as={Col} className="mb-4" sm>
+                  <Form.Label>Delivery Time</Form.Label>
+                  <Form.Control
+                    type="number"
+                    name="etd"
+                    value={serviceData.etd}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+                <Form.Group as={Col} className="mb-4" sm>
+                  <Form.Label>Number Of Revisions</Form.Label>
+                  <Form.Control
+                    type="number"
+                    name="revisions"
+                    value={serviceData.revisions}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
               </Row>
 
               <Form.Group className="mb-4">

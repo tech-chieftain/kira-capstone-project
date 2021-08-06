@@ -60,7 +60,7 @@ export const Bubbles = styled.div`
     border-radius: 50%;
     background: rgba(0, 103, 103, 0.7);
     position: absolute;
-    top: 64px;
+    top: 70px;
     left: -150px;
   }
 
