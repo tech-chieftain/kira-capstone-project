@@ -19,7 +19,7 @@ export const LoginBtn = styled(Button)`
   border: none;
   margin-right: 75px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
     margin-right: 20px;
   }
 `;
@@ -27,7 +27,7 @@ export const LoginBtn = styled(Button)`
 export const Img = styled(Image)`
   margin: -8px 0 0 -30px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
     margin: 0;
   }
 `;
@@ -76,7 +76,7 @@ export const SearchForm = styled(Form)`
     margin-right: -5px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
     margin: 0;
 
     .input {

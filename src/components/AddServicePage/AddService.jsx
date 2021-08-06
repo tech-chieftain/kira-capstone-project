@@ -51,10 +51,8 @@ const AddService = () => {
 
               <Form.Group className="mb-4">
                 <Form.Label>Service Images</Form.Label>
-                <span className="small text-muted mx-3">
-                  upload images that best shaowcase your service"
-                </span>
-                <br />
+                <p className="small text-muted">upload images that best shaowcase your service"</p>
+
                 <Form.Control
                   type="file"
                   id="files"
@@ -99,25 +97,29 @@ const AddService = () => {
                 />
               </Form.Group>
 
-              <Row className="mb-4">
-                <Form.Group as={Col}>
-                  <Form.Label>Delivery Time</Form.Label>
-                  <Form.Control
-                    type="number"
-                    name="etd"
-                    value={serviceData.etd}
-                    onChange={handleChange}
-                  />
-                </Form.Group>
-                <Form.Group as={Col}>
-                  <Form.Label>Number Of Revisions</Form.Label>
-                  <Form.Control
-                    type="number"
-                    name="revisions"
-                    value={serviceData.revisions}
-                    onChange={handleChange}
-                  />
-                </Form.Group>
+              <Row>
+                <Col className="mb-4" sm>
+                  <Form.Group>
+                    <Form.Label>Delivery Time</Form.Label>
+                    <Form.Control
+                      type="number"
+                      name="etd"
+                      value={serviceData.etd}
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col className="mb-4" sm>
+                  <Form.Group>
+                    <Form.Label>Number Of Revisions</Form.Label>
+                    <Form.Control
+                      type="number"
+                      name="revisions"
+                      value={serviceData.revisions}
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                </Col>
               </Row>
 
               <Form.Group className="mb-4">
