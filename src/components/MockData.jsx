@@ -136,28 +136,47 @@ export const FPFreelancers = [
 
 export const FPbusinesses = [
   {
-    title: "John Doe",
+    title: "Annie",
     subtitle: "Web Developer",
     imgSrc: "/Branding.png",
   },
   {
-    title: "John Doe",
-    subtitle: "Web Developer",
+    title: "Pushi",
+    subtitle: "Translator",
     imgSrc: "Wordpress.png",
   },
   {
-    title: "John Doe",
-    subtitle: "Web Developer",
+    title: "Yoda",
+    subtitle: "UX/UI Designer",
     imgSrc: "/Rectangle13.png",
   },
   {
-    title: "John Doe",
-    subtitle: "Engage your audience",
+    title: "Mushi",
+    subtitle: "Photographer",
     imgSrc: "/Rectangle15.png",
   },
   {
-    title: "hotographer",
-    subtitle: "Capture your moments",
+    title: "JoJo",
+    subtitle: "Full time cat",
     imgSrc: "/SocialMedia.png",
+  },
+];
+
+export const TestimonyData = [
+  {
+    name: "Annie",
+    job: "Web Developer",
+    quote:
+      "When you want to create a business bigger than yourself, you need a lot of help. That’s what Kira provides.",
+  },
+  {
+    name: "Pushi",
+    job: "Web Developer/ full time cat",
+    quote: "Working with Kira is like belly rubs i never get tired of it.",
+  },
+  {
+    name: "Yoda",
+    job: "translator",
+    quote: "Writing CSS is like writing a poim; no-one understands it.",
   },
 ];

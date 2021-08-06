@@ -1,17 +1,15 @@
 import PropTypes from "prop-types";
-
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
 import Rating from "react-rating";
-
-import { FaStar, FaRegStar, FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import { VscStarFull, VscStarEmpty } from "react-icons/vsc";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 const TestimonyCard = ({ imgSrc, quote, rating, color, name, job }) => (
-  <Card className="border-0">
-    <Row>
-      <Col>
+  <Card className="shadow w-100 d-flex justify-content-start">
+    <Row className="p-0 m-0">
+      <Col className="p-0 m-0">
         <Card.Img variant="top" src={imgSrc} />
       </Col>
       <Col className="align-self-center">
@@ -34,8 +32,8 @@ const TestimonyCard = ({ imgSrc, quote, rating, color, name, job }) => (
                 <Rating
                   readonly
                   initialRating={rating}
-                  emptySymbol={<FaRegStar />}
-                  fullSymbol={<FaStar />}
+                  emptySymbol={<VscStarEmpty size="28px" />}
+                  fullSymbol={<VscStarFull size="28px" />}
                   fractions={2}
                 />
               </div>
@@ -60,7 +58,7 @@ TestimonyCard.propTypes = {
 TestimonyCard.defaultProps = {
   imgSrc: "https://picsum.photos/700/300",
   quote: "",
-  rating: 0,
+  rating: 4,
   color: "#008080",
   name: "",
   job: "",
