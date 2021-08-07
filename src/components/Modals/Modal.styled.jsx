@@ -32,9 +32,9 @@ const ModalContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  line-height: 1.9;
+  line-height: 1.5;
   color: #141414;
-  padding: 2.5rem 0;
+  padding: 2.3rem 0;
 
   h4 {
     color: #008080;
@@ -53,7 +53,7 @@ const ModalContent = styled.div`
 
   hr {
     height: 1.5px;
-    width: 151px;
+    width: 145px;
     margin: 0 15px;
   }
 
