@@ -51,10 +51,8 @@ const AddService = () => {
 
               <Form.Group className="mb-4">
                 <Form.Label>Service Images</Form.Label>
-                <span className="small text-muted mx-3">
-                  upload images that best shaowcase your service"
-                </span>
-                <br />
+                <p className="small text-muted">upload images that best shaowcase your service"</p>
+
                 <Form.Control
                   type="file"
                   id="files"
@@ -99,8 +97,8 @@ const AddService = () => {
                 />
               </Form.Group>
 
-              <Row className="mb-4">
-                <Form.Group as={Col}>
+              <Row>
+                <Form.Group as={Col} className="mb-4" sm>
                   <Form.Label>Delivery Time</Form.Label>
                   <Form.Control
                     type="number"
@@ -109,7 +107,7 @@ const AddService = () => {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group as={Col}>
+                <Form.Group as={Col} className="mb-4" sm>
                   <Form.Label>Number Of Revisions</Form.Label>
                   <Form.Control
                     type="number"

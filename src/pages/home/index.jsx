@@ -1,11 +1,10 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Container } from "react-bootstrap";
-import styled from "styled-components";
 import LandingComponent from "../../components/HeroComponents/LandingComponent";
 import HomeComponent from "../../components/HeroComponents/HomeComponent";
 import LogoSection from "../../components/HeroComponents/LogoSection";
 import CustomCarousel from "../../components/CustomCarousel/CustomCarousel";
-import { FPFreelancers, FPbusinesses } from "../../components/MockData";
+import { FPFreelancers, FPbusinesses, TestimonyData } from "../../components/MockData";
 import FPCard from "../../components/FPCard/FPCard";
 import TestimonyCard from "../../components/TestimonyCard/TestimonyCard";
 
@@ -13,38 +12,29 @@ const index = () => (
   <div>
     <LandingComponent />
     <Container className="my-5">
-      <h1 className="muted mx-3">Popular professional services</h1>
+      <h1 className="muted m-3">Popular professional services</h1>
       <CustomCarousel
         items={FPFreelancers.map((freelancer) => (
           <FPCard {...freelancer} overlay />
         ))}
         slides={4}
+        smSlides={2}
       />
     </Container>
     <HomeComponent />
-    {/* <Container>
+    <Container>
+      <h1 className="muted m-3">What other businesses are using</h1>
       <CustomCarousel
-        items={FPbusinesses.map((businesses) => (
-          <FPCard {...businesses} />
+        items={FPbusinesses.map((business) => (
+          <FPCard {...business} />
         ))}
         slides={4}
+        smSlides={2}
       />
-    </Container> */}
-    <Container>
+    </Container>
+    <Container className="my-5">
       <CustomCarousel
-        items={[
-          {
-            name: "Annie",
-            job: "Web Developer",
-            quote:
-              "When you want to create a business bigger than yourself, you need a lot of help. That’s what Kira provides.",
-          },
-          {
-            name: "Pushi",
-            job: "Web Developer/ full time cat",
-            quote: "Working with Kira is like belly rubs i never get tired of it.",
-          },
-        ].map((review) => (
+        items={TestimonyData.map((review) => (
           <TestimonyCard {...review} />
         ))}
       />

@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "./SliderArrow";
 
-const CustomCarousel = ({ thumbnail, items, slides }) => {
+const CustomCarousel = ({ thumbnail, items, slides, smSlides }) => {
   const settings = {
     className: "slider",
     dots: thumbnail,
@@ -15,6 +15,18 @@ const CustomCarousel = ({ thumbnail, items, slides }) => {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: smSlides,
+          slidesToScroll: 1,
+          nextArrow: false,
+          prevArrow: false,
+        },
+      },
+    ],
   };
 
   if (thumbnail) settings.customPaging = (i) => <a>{items[i]}</a>;
@@ -70,12 +82,14 @@ CustomCarousel.propTypes = {
   thumbnail: PropTypes.bool,
   items: PropTypes.array,
   slides: PropTypes.number,
+  smSlides: PropTypes.number,
 };
 
 CustomCarousel.defaultProps = {
   thumbnail: false,
   items: [],
   slides: 1,
+  smSlides: 1,
 };
 
 export default CustomCarousel;

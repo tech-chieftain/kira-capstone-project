@@ -4,12 +4,10 @@ import { Image } from "react-bootstrap";
 const HomeComponent = () => (
   <Background>
     <MainContainer className="d-flex flex-row justify-content-end align-items-center">
-      <div className="container">
-        <div className="service">
-          <p>
-            Find the services needed to get your business <span>growing</span>
-          </p>
-        </div>
+      <div className="service">
+        <p>
+          Find the services needed to get your business <span>growing</span>
+        </p>
       </div>
       <div className="img">
         <Image src="/image2.png" alt="" />
@@ -22,12 +20,15 @@ export const Background = styled.div`
   width: 100%;
   height: 434px;
   background: #fff;
-  display: flex;
-  justify-content: flex-end;
-  margin: 5rem 0;
+  margin-top: 5rem;
 
   .img {
     margin-top: -49px;
+  }
+
+  @media (max-width: 576px) {
+    marging: 0;
+    height: 376px;
   }
 `;
 
@@ -36,11 +37,8 @@ export const MainContainer = styled.div`
   width: 100%;
   height: 376px;
 
-  .container {
-    margin-right: -53rem;
-  }
-
   .service {
+    margin-right: -6rem;
     color: white;
     font-size: 45px;
     font-style: italic;
@@ -49,6 +47,20 @@ export const MainContainer = styled.div`
 
     span {
       font-weight: bolder;
+    }
+  }
+
+  @media (max-width: 576px) {
+    height: 300px;
+
+    .img {
+      display: none;
+    }
+
+    .service {
+      font-size: 35px;
+      width: 28rem;
+      margin: 0 auto;
     }
   }
 `;

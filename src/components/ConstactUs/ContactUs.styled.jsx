@@ -13,10 +13,6 @@ const Container = styled.div`
 
   .form {
     width: 55%;
-
-    @media (max-width: 720px) {
-      width: 75%;
-    }
   }
 
   .label {
@@ -34,6 +30,33 @@ const Container = styled.div`
 
     &::placeholder {
       font-size: 18px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 1rem;
+
+    .form {
+      width: 75%;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 1rem 0;
+    }
+
+    .label {
+      &::placeholder {
+        font-size: 15px;
+      }
+    }
+
+    .message {
+      height: 12rem;
+
+      &::placeholder {
+        font-size: 15px;
+      }
     }
   }
 `;
