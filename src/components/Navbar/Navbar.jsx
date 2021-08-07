@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Container, Dropdown, FormControl } from "react-bootstrap";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { FaUserCircle, FaUserAlt, FaPlus } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
-import InputGroup from "react-bootstrap/InputGroup";
-import { IoSearch } from "react-icons/io5";
 import { MdSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-import Searchbox from "src/components/Navbar/Searchbox";
-import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown, SearchForm } from "./Navbar.styled";
+import Searchbox from "./Searchbox";
+import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown } from "./Navbar.styled";
 import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
 
