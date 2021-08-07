@@ -6,19 +6,19 @@ const ContactUs = () => (
     <h1>Contact us</h1>
     <Form className="form">
       <Row xs={1} md={3}>
-        <Col className="mb-md-5 mb-sm-3">
+        <Col className="mb-4">
           <Form.Group>
             <Form.Label>Fullname</Form.Label>
             <Form.Control className="label shadow" name="fullname" placeholder="Full name" />
           </Form.Group>
         </Col>
-        <Col className="mb-md-5 mb-sm-3">
+        <Col className="mb-4">
           <Form.Group>
             <Form.Label>Email</Form.Label>
             <Form.Control className="label shadow" name="email" type="email" placeholder="Email" />
           </Form.Group>
         </Col>
-        <Col className="mb-md-5 mb-sm-5">
+        <Col className="mb-5">
           <Form.Group>
             <Form.Label>Phone number</Form.Label>
             <Form.Control className="label shadow" name="number" type="tel" placeholder="Phone" />

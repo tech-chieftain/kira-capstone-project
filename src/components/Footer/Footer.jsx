@@ -32,7 +32,7 @@ const Footer = () => {
     <FooterContainer>
       <MainContainer>
         <Container>
-          <Row md={2} xs={1}>
+          <Row md={2} xs={2}>
             <Col lg={3}>
               <h5>{t("Catagories")}</h5>
               <ul className="list-unstyled ">

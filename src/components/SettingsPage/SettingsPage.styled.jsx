@@ -28,7 +28,7 @@ export const MainContainer = styled.div`
     visibility: hidden;
   }
   .custom-file-input::before {
-    content: 'upload image';
+    content: "upload image";
     display: inline-block;
     background: #008080;
     opacity: 0.9;
@@ -47,7 +47,16 @@ export const MainContainer = styled.div`
     opacity: 1;
   }
 
-  @media (max-width: 720px) {
-    width: 35rem;
+  @media (max-width: 576px) {
+    padding: 1rem 0;
+    width: 28rem;
+
+    .card {
+      padding: 1rem 0;
+
+      .header {
+        margin: -10px 0 0 0;
+      }
+    }
   }
 `;

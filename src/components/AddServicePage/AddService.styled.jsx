@@ -43,9 +43,9 @@ export const MainContainer = styled.div`
     opacity: 1;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 576px) {
     padding: 1rem 0;
-    width: 38rem;
+    width: 28rem;
 
     .card {
       padding: 1rem 0;
@@ -60,7 +60,7 @@ export const Bubbles = styled.div`
     border-radius: 50%;
     background: rgba(0, 103, 103, 0.7);
     position: absolute;
-    top: 64px;
+    top: 70px;
     left: -150px;
   }
 
@@ -114,14 +114,13 @@ export const Bubbles = styled.div`
     right: 50px;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 576px) {
     .bottom-big,
     .uper-big {
       display: none;
     }
 
     .bottom-small {
-      bottom: -10px;
       left: 5px;
     }
   }

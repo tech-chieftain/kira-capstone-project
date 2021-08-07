@@ -46,8 +46,8 @@ const SettingsPage = () => {
                 Personal Information
               </Card.Header>
 
-              <Row className="mb-4">
-                <Form.Group as={Col}>
+              <Row>
+                <Form.Group as={Col} className="mb-4" sm>
                   <Form.Label>Display Name</Form.Label>
                   <Form.Control
                     placeholder="Display Name"
@@ -56,7 +56,7 @@ const SettingsPage = () => {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group as={Col}>
+                <Form.Group as={Col} className="mb-4" sm>
                   <Form.Label>Location</Form.Label>
                   <Form.Control
                     placeholder="location"
@@ -67,8 +67,8 @@ const SettingsPage = () => {
                 </Form.Group>
               </Row>
 
-              <Row className="mb-4">
-                <Form.Group as={Col}>
+              <Row>
+                <Form.Group as={Col} className="mb-4" sm>
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     placeholder="email"
@@ -77,7 +77,7 @@ const SettingsPage = () => {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group as={Col}>
+                <Form.Group as={Col} className="mb-4" sm>
                   <Form.Label>Phone number</Form.Label>
                   <Form.Control
                     placeholder="Phone Number"
@@ -88,8 +88,8 @@ const SettingsPage = () => {
                 </Form.Group>
               </Row>
 
-              <Row className="mb-4">
-                <Form.Group as={Col}>
+              <Row>
+                <Form.Group as={Col} className="mb-4" sm>
                   <Form.Label>About</Form.Label>
                   <Form.Control
                     as="textarea"
@@ -127,8 +127,8 @@ const SettingsPage = () => {
                 />
               </Form.Group>
 
-              <Row className="mb-2">
-                <Form.Group as={Col}>
+              <Row>
+                <Form.Group as={Col} className="mb-4" sm>
                   <Form.Label>Skills</Form.Label>
                   <Form.Control
                     as="textarea"
@@ -140,7 +140,7 @@ const SettingsPage = () => {
                   />
                 </Form.Group>
 
-                <Form.Group as={Col} className="mb-4">
+                <Form.Group as={Col} className="mb-4" sm>
                   <Form.Label>Languages</Form.Label>
                   <Form.Control
                     as="textarea"
