@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Servicehead = styled.div`
+export const ServiceHead = styled.div`
 padding-top:20px;
 padding-right:100px
 background-color:white;
@@ -11,7 +11,7 @@ ul{
 ul li {
     display: inline;
     padding: 10px;
-    
+
 }
 ul li span{
     text-decoration:none;
