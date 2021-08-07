@@ -12,6 +12,16 @@ export const Background = styled.div`
   .img {
     margin-top: -2.4rem;
   }
+
+  @media (max-width: 576px) {
+    height: 20rem;
+    justify-content: center;
+    align-items: center;
+
+    .img {
+      display: none;
+    }
+  }
 `;
 
 export const Container = styled.div`
@@ -26,6 +36,15 @@ export const Container = styled.div`
 
     span {
       font-weight: bolder;
+    }
+  }
+
+  @media (max-width: 576px) {
+    margin: 0 auto;
+
+    .freelance {
+      font-size: 35px;
+      width: 30rem;
     }
   }
 `;
@@ -59,6 +78,11 @@ export const SearchForm = styled(Form)`
     color: grey;
     margin-right: -5px;
   }
+
+  @media (max-width: 576px) {
+    width: 390px;
+    height: 50px;
+  }
 `;
 
 export const Btn = styled(Button)`
@@ -68,4 +92,8 @@ export const Btn = styled(Button)`
   background: rgba(128, 191, 191, 1);
   border-radius: 0 10px 10px 0;
   cursor: pointer;
+
+  @media (max-width: 576px) {
+    padding: 0 15px;
+  }
 `;

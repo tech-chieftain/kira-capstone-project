@@ -166,8 +166,7 @@ export const TestimonyData = [
   {
     name: "Annie",
     job: "Web Developer",
-    quote:
-      "When you want to create a business bigger than yourself, you need a lot of help. That’s what Kira provides.",
+    quote: "When you want to create a business bigger than yourself, you need a lot of help.",
   },
   {
     name: "Pushi",

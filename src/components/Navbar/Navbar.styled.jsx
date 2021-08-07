@@ -18,10 +18,6 @@ export const LoginBtn = styled(Button)`
   border-radius: 5px;
   border: none;
   margin-right: 75px;
-
-  @media (max-width: 576px) {
-    margin-right: 20px;
-  }
 `;
 
 export const Img = styled(Image)`

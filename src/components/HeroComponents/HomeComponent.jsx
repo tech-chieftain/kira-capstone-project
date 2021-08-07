@@ -25,15 +25,17 @@ export const Background = styled.div`
   .img {
     margin-top: -49px;
   }
+
+  @media (max-width: 576px) {
+    marging: 0;
+    height: 376px;
+  }
 `;
 
 export const MainContainer = styled.div`
   background: #008080;
   width: 100%;
   height: 376px;
-
-  .container {
-  }
 
   .service {
     margin-right: -6rem;
@@ -45,6 +47,20 @@ export const MainContainer = styled.div`
 
     span {
       font-weight: bolder;
+    }
+  }
+
+  @media (max-width: 576px) {
+    height: 300px;
+
+    .img {
+      display: none;
+    }
+
+    .service {
+      font-size: 35px;
+      width: 28rem;
+      margin: 0 auto;
     }
   }
 `;

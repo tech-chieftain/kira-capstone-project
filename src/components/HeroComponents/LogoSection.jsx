@@ -13,7 +13,7 @@ const LogoSection = () => (
           <Btn>Try Kira Logo Services</Btn>
         </Link>
       </div>
-      <div>
+      <div className="img">
         <div className="mx-5">
           <Image src="/image3.png" alt="" />
           <Image src="/image4.png" alt="" />
@@ -36,8 +36,21 @@ const Container = styled.div`
 
   .logo {
     margin: -5rem 9rem 0 0;
+
     h3 {
       font-weight: lighter;
+    }
+  }
+
+  @media (max-width: 576px) {
+    height: 200px;
+
+    .img {
+      display: none;
+    }
+
+    .logo {
+      margin: 0 auto;
     }
   }
 `;

@@ -12,12 +12,13 @@ const index = () => (
   <div>
     <LandingComponent />
     <Container className="my-5">
-      <h1 className="muted mx-3">Popular professional services</h1>
+      <h1 className="muted m-3">Popular professional services</h1>
       <CustomCarousel
         items={FPFreelancers.map((freelancer) => (
           <FPCard {...freelancer} overlay />
         ))}
         slides={4}
+        smSlides={2}
       />
     </Container>
     <HomeComponent />
@@ -28,6 +29,7 @@ const index = () => (
           <FPCard {...business} />
         ))}
         slides={4}
+        smSlides={2}
       />
     </Container>
     <Container className="my-5">

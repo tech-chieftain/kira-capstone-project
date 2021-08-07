@@ -7,7 +7,7 @@ import SmallProfileCard from "../SmallProfileCard/SmallProfileCard";
 const FPCard = ({ overlay, imgSrc, title, subtitle, profilePicture }) => {
   if (overlay)
     return (
-      <Container className="text-white container border-0 ">
+      <Container className="text-white container border-0">
         <Card.Img variant="top" src={imgSrc} alt="" className="img-container" />
         <Card.ImgOverlay className="mx-2">
           <Card.Subtitle>{subtitle}</Card.Subtitle>
@@ -46,9 +46,8 @@ FPCard.defaultProps = {
 const Container = styled(Card)`
   height: 415px;
   width: 292px;
-  border: none:
   padding: 0;
-  margin: 20px 5px;
+  border-radius: 0;
 
   .img-container {
     height: 415px;
@@ -61,11 +60,16 @@ const Container = styled(Card)`
     font-size: 26px;
   }
 
+  @media (max-width: 576px) {
+    padding: 0 10px;
+  }
 `;
 
 const Main = styled(Card)`
   height: 390px;
   width: 300px;
+  padding: 0;
+  border-radius: 0;
 
   .body {
     margin-left: -3px;
@@ -75,6 +79,11 @@ const Main = styled(Card)`
     height: 300px;
     width: 300px;
     object-fit: cover;
+  }
+
+  @media (max-width: 576px) {
+    border: 0;
+    padding: 0 10px;
   }
 `;
 
