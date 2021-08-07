@@ -12,7 +12,7 @@ import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
 
 // eslint-disable-next-line arrow-body-style
-const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
+const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -27,7 +27,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
   return (
     <Navbar bg="primary" collapseOnSelect expand="sm" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <Img
             src="/NavbarLogo.png"
             width="104px"
@@ -73,7 +73,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="/">
+                <Dropdown.Item href={`/profile/${uid}`}>
                   {profilePicture ? (
                     <ProfileImg src={profilePicture} roundedCircle fluid />
                   ) : (
@@ -81,7 +81,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
                   )}
                   <span className="mx-3 text-muted">{name}</span>
                 </Dropdown.Item>
-                <Dropdown.Item href="/">
+                <Dropdown.Item href="/settings">
                   <MdSettings size="20px" />
                   <span className="mx-3 text-muted">Settings</span>
                 </Dropdown.Item>
@@ -102,11 +102,12 @@ NavBar.propTypes = {
   overview: PropTypes.bool,
   profilePicture: PropTypes.string,
   name: PropTypes.string,
+  uid: PropTypes.string,
   handleLogOut: PropTypes.func,
 };
 
 NavBar.defaultProps = {
-  overview: true,
+  overview: false,
   profilePicture: "",
   name: "",
 };
