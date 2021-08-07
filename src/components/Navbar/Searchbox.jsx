@@ -15,12 +15,10 @@ const Searchbox = () => {
   const setdropdowntrue = () => {
     setSearchForFreelancers(true);
     setSearchPlacehilder("Search For freelancers");
-    console.log(searchForFreelancers);
   };
   const setdropdownfalse = () => {
     setSearchForFreelancers(false);
     setSearchPlacehilder("Search For Services");
-    console.log(searchForFreelancers);
   };
   const router = useRouter();
   const handleSubmit = (e) => {
