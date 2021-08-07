@@ -10,6 +10,7 @@ import { MdSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown, SearchForm } from "./Navbar.styled";
 import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
@@ -28,6 +29,8 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
   const openSignupModal = () => {
     setShowSignup((show) => !show);
   };
+
+  const { t } = useTranslation("navbar");
 
   return (
     <Navbar bg="primary" collapseOnSelect expand="sm" variant="dark">

@@ -1,0 +1,18 @@
+{
+    "home": {
+        "find": "نایابترین خزمەتگوزاری",
+        "freelance": "سەربەست",
+        "service": "بدۆزەرەوە بۆ پیشەکەت ",
+        "findService": "...گەران بەدوای خزمەتگوزاری",
+        "search" : "گەران",
+
+        "popularServices": "بەناوبانگترین خزمەتگوزاریە پرۆفیشناڵەکان",
+        "FServicesNeeded": "خزمەتگوزاری پێویست بدۆزەرەوە تاکو پیشەکەت",
+        "growing": "گەشەبکات",
+        "otherBusinessesUsing": "ف",
+
+        "makeLogo": "گ",
+        "designLogo": "ل",
+        "tryKiraLogo": ""
+    }
+}

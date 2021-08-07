@@ -4,6 +4,7 @@ import { useSpring, animated } from "react-spring";
 import Alert from "react-bootstrap/Alert";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useTranslation } from "next-i18next";
 import firebase from "../../Firebase";
 import {
   ModalContent,
@@ -51,6 +52,8 @@ const LoginModal = ({ showLogin, setShowLogin, setShowSignup }) => {
     signInWithEmailAndPassword(formData.get("email"), formData.get("password"));
   };
 
+  const { t } = useTranslation("navbar");
+
   return (
     <>
       {showLogin && (
@@ -58,11 +61,11 @@ const LoginModal = ({ showLogin, setShowLogin, setShowSignup }) => {
           <animated.div style={animation}>
             <ModalWrapper showLogin={showLogin}>
               <ModalContent>
-                <h4>Login to kira</h4>
+                <h4>{t("navbar.loginToKira")} </h4>
                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
                 <div className="breake">
                   <hr />
-                  <span>OR</span>
+                  <span>{t("navbar.or")}</span>
                   <hr />
                 </div>
                 {error && (

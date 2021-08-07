@@ -1,32 +1,38 @@
+/* eslint-disable arrow-body-style */
 import React from "react";
 import { Image, Button } from "react-bootstrap";
 import styled from "styled-components";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
-const LogoSection = () => (
-  <div>
-    <Container className="d-flex flex-row justify-content-end align-items-center">
-      <div className="logo">
-        <h1>Make an incredible logo</h1>
-        <h3>Design your logo by top talents</h3>
-        <Link href="/">
-          <Btn>Try Kira Logo Services</Btn>
-        </Link>
-      </div>
-      <div className="img">
-        <div className="mx-5">
-          <Image src="/image3.png" alt="" />
-          <Image src="/image4.png" alt="" />
-          <Image src="/image5.png" alt="" />
+const LogoSection = () => {
+  const { t } = useTranslation("home");
+
+  return (
+    <div>
+      <Container className="d-flex flex-row justify-content-end align-items-center">
+        <div className="logo">
+          <h1>{t("home.makeLogo")}</h1>
+          <h3>{t("home.designLogo")}</h3>
+          <Link href="/">
+            <Btn>{t("home.tryKiraLogo")} </Btn>
+          </Link>
         </div>
-        <div className="d-flex justify-content-center">
-          <Image src="/image7.png" alt="" />
-          <Image src="/image6.png" alt="" />
+        <div className="img">
+          <div className="mx-5">
+            <Image src="/image3.png" alt="" />
+            <Image src="/image4.png" alt="" />
+            <Image src="/image5.png" alt="" />
+          </div>
+          <div className="d-flex justify-content-center">
+            <Image src="/image7.png" alt="" />
+            <Image src="/image6.png" alt="" />
+          </div>
         </div>
-      </div>
-    </Container>
-  </div>
-);
+      </Container>
+    </div>
+  );
+};
 
 const Container = styled.div`
   width: 100%;
