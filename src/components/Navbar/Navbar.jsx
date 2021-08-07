@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Container, Dropdown, FormControl } from "react-bootstrap";
+import DropdownButton from 'react-bootstrap/DropdownButton'
 import PropTypes from "prop-types";
 import { FaUserCircle, FaUserAlt, FaPlus } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
@@ -8,19 +9,17 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { IoSearch } from "react-icons/io5";
 import { MdSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-import { useAuthState } from "react-firebase-hooks/auth";
-import Link from "next/link";
 import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown, SearchForm } from "./Navbar.styled";
 import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
-import firebase from "../../Firebase";
+import Searchbox from "src/components/Navbar/Searchbox";
 
 // eslint-disable-next-line arrow-body-style
 const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
-  const [user, loading, error] = useAuthState(firebase.auth());
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
-
+ 
+  
   const openLoginModal = () => {
     setShowLogin((show) => !show);
   };
@@ -32,7 +31,10 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
   return (
     <Navbar bg="primary">
       <Container>
-        <Navbar.Brand href="/">
+    
+
+
+        <Navbar.Brand href="#home">
           <Img
             src="/NavbarLogo.png"
             width="104px"
@@ -42,19 +44,10 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
           />
         </Navbar.Brand>
 
-        <SearchForm className="d-flex md-shadow mx-2">
-          <InputGroup.Text id="basic-addon1">
-            <IoSearch size="25px" />
-          </InputGroup.Text>
-          <FormControl
-            type="search"
-            placeholder="Find Services..."
-            aria-label="Search"
-            className="input"
-            onChange=""
-          />
-        </SearchForm>
+       
+        <Searchbox />
 
+        
         {overview ? (
           <Nav className="w-100 d-flex justify-content-end">
             <LoginBtn onClick={openLoginModal}> Log In </LoginBtn>
@@ -73,7 +66,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
           </Nav>
         ) : (
           <Nav className="w-75 d-flex justify-content-end">
-            <Nav.Link href="/add_service">
+            <Nav.Link href="/">
               <FaPlus size="25px" className="text-white mt-1" />
             </Nav.Link>
             <Nav.Link href="/">
@@ -87,25 +80,29 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
               <Dropdown.Toggle className="dropdown-basic">
                 <FaUserAlt size="25px" className="text-white" />
               </Dropdown.Toggle>
+              
+
+
+
+
+
 
               <Dropdown.Menu>
-                <Dropdown.Item href="/profile">
+                <Dropdown.Item href="/">
                   {profilePicture ? (
-                    <Link href={`/profile/${user.uid}`}>
-                      <ProfileImg src={profilePicture} roundedCircle fluid />
-                    </Link>
+                    <ProfileImg src={profilePicture} roundedCircle fluid />
                   ) : (
                     <FaUserCircle size="28px" />
                   )}
                   <span className="mx-3 text-muted">{name}</span>
                 </Dropdown.Item>
-                <Dropdown.Item href="/settings">
+                <Dropdown.Item href="/">
                   <MdSettings size="20px" />
                   <span className="mx-3 text-muted">Settings</span>
                 </Dropdown.Item>
                 <Dropdown.Item onClick={handleLogOut}>
                   <FiLogOut size="20px" />
-                  <span className="mx-3 text-muted">Log Out</span>
+                    <span className="mx-3 text-muted">Log Out</span>
                 </Dropdown.Item>
               </Dropdown.Menu>
             </DropDown>
@@ -123,4 +120,11 @@ NavBar.propTypes = {
   handleLogOut: PropTypes.func,
 };
 
+NavBar.defaultProps = {
+  overview: true,
+  profilePicture: "",
+  name: "",
+};
+
 export default NavBar;
+
