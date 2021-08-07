@@ -74,14 +74,14 @@ const LoginModal = ({ showLogin, setShowLogin, setShowSignup }) => {
                   </Alert>
                 )}
                 <Form onSubmit={handleLogin}>
-                  <input type="text" name="email" placeholder="Your Username" />
-                  <input type="password" name="password" placeholder="Password" />
+                  <input type="text" name="email" placeholder={t("navbar.username")} />
+                  <input type="password" name="password" placeholder={t("navbar.password")} />
                   <Button disabled={loading} type="submit" className="join-btn">
-                    Log In
+                    {t("navbar.login")}
                   </Button>
                 </Form>
                 <p>
-                  Not a member yet?
+                  {t("navbar.notMember")}
                   <button
                     type="button"
                     onClick={() => {
@@ -89,7 +89,7 @@ const LoginModal = ({ showLogin, setShowLogin, setShowSignup }) => {
                       setShowLogin((show) => !show);
                     }}
                   >
-                    Join now
+                    {t("navbar.joinNow")}
                   </button>
                 </p>
               </ModalContent>
