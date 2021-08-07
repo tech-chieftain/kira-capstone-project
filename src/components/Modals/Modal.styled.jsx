@@ -70,26 +70,19 @@ const ModalContent = styled.div`
     border: none;
     out-line: none;
   }
+  
+  @media (max-width: 576px) {
+    line-height: 1.1;
+    padding: 1.6rem 0;
+    margin-top: 3rem;
 
-  .gooogle-btn {
-    width: 225px;
-    height: 55px;
-    background: #fff;
-    color: #000;
-    border: none;
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    font-size: 14px;
-  }
-
-  .fb-btn {
-    width: 225px;
-    height: 55px;
-    background: #065fd4;
-    color: #fff;
-    font-size: 14px;
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  }
+      hr {
+        width: 120px;
+      }
+      h4 {
+        margin-bottom: 0;
+      }
+    }
 `;
 
 const Button = styled.button`
@@ -198,6 +191,10 @@ const ModalBubbles = styled.div`
     position: absolute;
     bottom: -50px;
     right: -10px;
+  }
+
+  @media (max-width: 576px) {
+    display: none;
   }
 `;
 
