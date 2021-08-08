@@ -5,7 +5,7 @@ import { FcCheckmark } from "react-icons/fc";
 import { VscRefresh } from "react-icons/vsc";
 
 const PricePage = ({ price, perks, duration, revisions, description }) => (
-  <Card className="w-75 mx-auto mt-5 p-4" style={{ height: "auto" }}>
+  <Card className="mx-auto my-5 p-4" style={{ height: "auto", maxWidth: "25rem" }}>
     <Card.Body>
       <Card.Title className="mb-5">
         <h2>Price</h2>
