@@ -1,0 +1,28 @@
+{
+  "footer": {
+    "English": "ئینگلیزی",
+    "Arabic": "عەرەبی",
+    "Kurdish": "کوردی",
+
+    "catagories": "لقەکان",
+    "design": "گرافیک و دیزاین",
+    "translation": "نووسین و وەرگێران",
+    "animation": "ڤیدیۆ و ئەنیمەیشن",
+    "tech": "بەرنامەسازی و تەکنەلۆژیا",
+    "audio": "میوزیک و دەنگەکان",
+    "business": "بازرگانی",
+
+    "community": "کۆمەڵگا",
+    "events": "بۆنەکان",
+    "Blog": "بڵۆگ",
+    "Forum": "کۆڕ",
+
+    "Support": "یارمەتیدان",
+    "conditions": "Terms and Conditions",
+    "cookies": "Privacy and cookies",
+    "Accessability": "Accessability",
+
+    "kira": "Kira",
+    "copyRight": "All Rights Reserved"
+  }
+}

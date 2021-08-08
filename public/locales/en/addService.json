@@ -1,5 +1,20 @@
 {
     "addService": {
-        "buildService": "Build Your Service"
+        "buildService": "Build Your Service",
+        "serviceTitle": "Service Title",
+        "title": "Title",
+        "ServiceImage": "Service Images",
+        "image": "upload images that best shaowcase your service",
+        "price": "Price",
+        "setPrice": "Set a price for your service",
+        "description": "Description",
+        "describeService": "Briefly describe your service",
+        "details": "Details",
+        "serviceDetails": "Describe your service with details",
+        "deliveryTime": "Delivery Time",
+        "revisions": "Number Of Revisions",
+        "perks": "Perks",
+        "intresting": "Make your service more intresting",
+        "save": "Save"
     }
 }

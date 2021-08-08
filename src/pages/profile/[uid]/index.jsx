@@ -53,7 +53,7 @@ export const getStaticProps = async (context) => {
     props: {
       user: userData[0],
       services: userData[1],
-      ...(await serverSideTranslations(context.locale, ["common"])),
+      ...(await serverSideTranslations(context.locale, ["common", "profile", "card"])),
     },
   };
 };

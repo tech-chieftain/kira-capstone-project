@@ -2,6 +2,7 @@ import { useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import PropTypes from "prop-types";
+import { useTranslation } from "next-i18next";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -30,6 +31,8 @@ const Freelancers = ({ query, results }) => {
   const handlePageClick = (selectedPage) =>
     setPageInfo((prev) => ({ ...prev, start: prev.end, end: prev.limit * selectedPage }));
 
+  const { t } = useTranslation("search");
+
   return (
     <>
       <Head>
@@ -38,7 +41,9 @@ const Freelancers = ({ query, results }) => {
       <Container className="my-5">
         <Row className="mb-3">
           <Col>
-            <h3>Results for "{query}"</h3>
+            <h3>
+              {t("search.results")} "{query}"
+            </h3>
           </Col>
         </Row>
         <Row xs={1} sm={2} md={3} lg={4} xxl={5} className="g-4">
@@ -51,7 +56,10 @@ const Freelancers = ({ query, results }) => {
         </Row>
         {!!pageInfo.pageCount && (
           <Row className="mt-5">
-            <Pagination pageCount={pageInfo.pageCount} handlePageClick={handlePageClick} />
+            <Pagination
+              pageCount={pageInfo.pageCount}
+              handlePageClick={handlePageClick}
+            />
           </Row>
         )}
       </Container>
@@ -81,7 +89,7 @@ export const getServerSideProps = async (context) => {
     props: {
       results,
       query,
-      ...(await serverSideTranslations(context.locale, ["common"])),
+      ...(await serverSideTranslations(context.locale, ["common", "search"])),
     },
   };
 };

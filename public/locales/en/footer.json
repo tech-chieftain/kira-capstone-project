@@ -1,0 +1,27 @@
+{
+    "footer": {
+        "English": "English",
+        "Arabic": "Arabic",
+        "Kurdish": "Kurdish",
+
+        "catagories": "Categories",
+        "design": "Graphics & Design",
+        "translation": "Writing & Translation",
+        "tech": "Programming & Technology",
+        "audio": "Music & Audio",
+        "business": "Business",
+
+        "community": "Community",
+        "events": "Events",
+        "Blog": "Blog",
+        "Forum": "Forum",
+
+        "Support": "Support",
+        "conditions": "Terms and Conditions",
+        "cookies": "Privacy and cookies",
+        "Accessability": "Accessability",
+
+        "kira": "Kira",
+        "copyRight": "All Rights Reserved"
+    }
+}

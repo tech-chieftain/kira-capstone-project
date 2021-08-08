@@ -14,19 +14,19 @@ import { FooterContainer, MainContainer } from "./Footer.styled";
 
 // eslint-disable-next-line arrow-body-style
 const Footer = () => {
+  const { t } = useTranslation("footer");
+
   const [languages, setLanguages] = useState({
     arrayOfLanguage: ["English", "Arabic", "Kurdish"],
     chosenLanguage: "English",
   });
 
-  const { t } = useTranslation();
-
   const links = {
     catagories: [
-      "Graphics & Design",
+      "footer.design",
       "Digital Marketing",
       "Writing & Translation",
-      "Writing & Translation",
+      "Video & Animation",
       "Programming & Tech",
       "Music & Audio",
       "Business",
@@ -35,11 +35,9 @@ const Footer = () => {
     Supports: ["Terms and Conditions", "Privacy and cookies", "Accessability"],
   };
 
-  const { asPath } = useRouter();
-  const router = useRouter();
+  const { pathname, query, asPath } = useRouter();
 
   const changeLanguage = (language) => {
-    console.log(language);
     if (language === "English") {
       return "en";
     }
@@ -57,7 +55,7 @@ const Footer = () => {
         <Container>
           <Row md={2} xs={2}>
             <Col lg={3}>
-              <h5>{t("Catagories")}</h5>
+              <h5>{t("footer.catagories")}</h5>
               <ul className="list-unstyled ">
                 {links.catagories.map((catagorie) => (
                   <li>
@@ -69,7 +67,7 @@ const Footer = () => {
               </ul>
             </Col>
             <Col lg={2}>
-              <h5>{t("Community")}</h5>
+              <h5>{t("footer.community")}</h5>
               <ul className="list-unstyled">
                 {links.Communities.map((Community) => (
                   <li>
@@ -81,7 +79,7 @@ const Footer = () => {
               </ul>
             </Col>
             <Col lg={3}>
-              <h5>{t("Support")} </h5>
+              <h5>{t("footer.support")} </h5>
               <ul className="list-unstyled">
                 {links.Supports.map((Support) => (
                   <li>
@@ -133,7 +131,8 @@ const Footer = () => {
         </div>
         <div className="border-top border-white py-3">
           <p className="text-center small align-self-center">
-            Kira &copy;{new Date().getFullYear()} All Rights Reserved
+            {t("footer.Kira")} &copy;{new Date().getFullYear()}
+            {t("footer.copyRight")}
           </p>
           <div className="dropdown-container d-flex justify-content-md-end">
             <Dropdown>
@@ -148,9 +147,10 @@ const Footer = () => {
                 {languages.arrayOfLanguage
                   .filter((language) => language !== languages.chosenLanguage)
                   .map((language) => (
-                    <Link href="/" locale={changeLanguage(language)}>
+                    <Link href={{ pathname, query }} as={asPath} locale={changeLanguage(language)}>
                       <Dropdown.Item
                         className="dropdown-item"
+                        href={asPath}
                         onClick={() => {
                           setLanguages({
                             ...languages,

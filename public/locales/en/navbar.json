@@ -2,12 +2,13 @@
   "navbar": {
     "login": "Log In",
     "join": "Join",
+    "findService": "Find Services...",
     "settings": "Settings",
     "logout": "Log Out",
 
     "loginToKira": "Login to kira",
     "or": "OR",
-    "username": "Your Username",
+    "username": "Username",
     "password": "Password",
     "notMember": "Not a member yet?",
     "joinNow": "Join now",

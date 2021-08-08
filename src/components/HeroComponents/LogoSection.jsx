@@ -14,7 +14,7 @@ const LogoSection = () => {
         <div className="logo">
           <h1>{t("home.makeLogo")}</h1>
           <h3>{t("home.designLogo")}</h3>
-          <Link href="/">
+          <Link href="/services_search?q=logo">
             <Btn>{t("home.tryKiraLogo")} </Btn>
           </Link>
         </div>
@@ -40,8 +40,9 @@ const Container = styled.div`
   background: #fff;
   margin: 3rem 0;
 
-  .logo {
-    margin: -5rem 9rem 0 0;
+  .img {
+    margin-left: 2rem;
+  }
 
     h3 {
       font-weight: lighter;
