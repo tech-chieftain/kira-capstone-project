@@ -12,46 +12,48 @@ import CustomCarousel from "../../../components/CustomCarousel/CustomCarousel";
 import ServiceHeaderProfile from "../../../components/ServiceHeaderProfile/ServiceHeaderProfile";
 
 const Service = ({ service, user }) => (
-  <Row xs={1} md={2}>
-    <Col>
-      <Container>
-        <ServiceHeader />
-      </Container>
-      <Container id="overview" className="mb-5">
-        <ServiceHeaderProfile
-          serviceName={service.title}
-          profilePic={user.photoURL}
-          nameOfPerson={user.displayName}
-        />
-        <Container className="mb-5">
-          <CustomCarousel
-            thumbnail
-            items={service.images && service.images.map((image) => <img src={image} alt="" />)}
+  <Container>
+    <Row xs={1} md={2}>
+      <Col>
+        <Container>
+          <ServiceHeader />
+        </Container>
+        <Container id="overview" className="mb-5">
+          <ServiceHeaderProfile
+            serviceName={service.title}
+            profilePic={user.photoURL}
+            nameOfPerson={user.displayName}
+          />
+          <Container className="border border-3" style={{ height: "500px", marginBottom: "8rem" }}>
+            <CustomCarousel
+              thumbnail
+              items={service.images && service.images.map((image) => <img src={image} alt="" />)}
+            />
+          </Container>
+        </Container>
+        <Container id="description" className="mt-5">
+          <ServiceDescription description={service.details} />
+        </Container>
+        <Container id="seller">
+          <ServiceSeller
+            Name={user.displayName}
+            Location={user.location}
+            Description={user.about}
+            ProfilePic={user.photoURL}
           />
         </Container>
-      </Container>
-      <Container id="description" className="mt-5">
-        <ServiceDescription description={service.details} />
-      </Container>
-      <Container id="seller">
-        <ServiceSeller
-          Name={user.displayName}
-          Location={user.location}
-          Description={user.about}
-          ProfilePic={user.photoURL}
+      </Col>
+      <Col>
+        <ServicePricingInformation
+          price={service.price}
+          perks={service.perks}
+          duration={service.etd}
+          revisions={service.revisions}
+          description={service.description}
         />
-      </Container>
-    </Col>
-    <Col>
-      <ServicePricingInformation
-        price={service.price}
-        perks={service.perks}
-        duration={service.etd}
-        revisions={service.revisions}
-        description={service.description}
-      />
-    </Col>
-  </Row>
+      </Col>
+    </Row>
+  </Container>
 );
 
 Service.propTypes = {
