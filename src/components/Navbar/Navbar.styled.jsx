@@ -22,7 +22,6 @@ export const LoginBtn = styled(Button)`
 
 export const Img = styled(Image)`
   margin: -8px 0 0 -30px;
-
   @media (max-width: 576px) {
     margin: 0;
   }
@@ -40,7 +39,6 @@ export const DropDown = styled(Dropdown)`
     box-shadow: none;
     webkit-box-shadow: none;
     margin: 3px auto 0;
-
     @media (max-width: 768px) {
       margin-left: -8.5px;
     }
@@ -49,7 +47,6 @@ export const DropDown = styled(Dropdown)`
 
 export const SearchForm = styled(Form)`
   margin-top: 3px;
-
   .input {
     border-radius: 0 5px 5px 0;
     margin-left: -10px;
@@ -58,12 +55,10 @@ export const SearchForm = styled(Form)`
     webkit-box-shadow: none;
     width: 390px;
     height: 40px;
-
     &:focus {
       color: grey;
     }
   }
-
   #basic-addon1 {
     background: white;
     border-radius: 5px 0 0 5px;
@@ -71,26 +66,21 @@ export const SearchForm = styled(Form)`
     color: grey;
     margin-right: -5px;
   }
-
   @media (max-width: 576px) {
     margin: 0;
-
     .input {
       width: 200px;
       border-bottom: 1px solid white;
       border-radius: 0;
       background: #008080;
       color: #fff;
-
       &:focus {
         color: #fff;
       }
-
       ::placeholder {
         color: #fff;
       }
     }
-
     #basic-addon1 {
       border-bottom: 1px solid white;
       border-radius: 0;

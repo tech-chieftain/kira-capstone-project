@@ -1,24 +1,19 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Container, Dropdown, FormControl } from "react-bootstrap";
+import { Navbar, Nav, Container, Dropdown } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { FaUserCircle, FaUserAlt, FaPlus } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
-import InputGroup from "react-bootstrap/InputGroup";
-import { IoSearch } from "react-icons/io5";
 import { MdSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-import { useAuthState } from "react-firebase-hooks/auth";
-import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown, SearchForm } from "./Navbar.styled";
+import Searchbox from "./Searchbox";
+import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown } from "./Navbar.styled";
 import LoginModal from "../Modals/LoginModal";
 import SignupModal from "../Modals/SignupModal";
-import firebase from "../../Firebase";
 
 // eslint-disable-next-line arrow-body-style
-const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
-  const [user, loading, error] = useAuthState(firebase.auth());
+const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -45,18 +40,8 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
           />
         </Navbar.Brand>
 
-        <SearchForm className="d-flex md-shadow mx-md-2">
-          <InputGroup.Text id="basic-addon1">
-            <IoSearch size="25px" />
-          </InputGroup.Text>
-          <FormControl
-            type="search"
-            placeholder={t("navbar.findService")}
-            aria-label="Search"
-            className="input"
-            onChange=""
-          />
-        </SearchForm>
+        <Searchbox />
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           {overview ? (
@@ -93,16 +78,15 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="/profile">
+                  <Dropdown.Item href={`/profile/${uid}`}>
                     {profilePicture ? (
-                      <Link href={`/profile/${user.uid}`}>
-                        <ProfileImg src={profilePicture} roundedCircle fluid />
-                      </Link>
+                      <ProfileImg src={profilePicture} roundedCircle fluid />
                     ) : (
                       <FaUserCircle size="28px" />
                     )}
                     <span className="mx-3 text-muted">{name}</span>
                   </Dropdown.Item>
+
                   <Dropdown.Item href="/settings">
                     <MdSettings size="20px" />
                     <span className="mx-3 text-muted">{t("navbar.settings")}</span>
@@ -125,7 +109,14 @@ NavBar.propTypes = {
   overview: PropTypes.bool,
   profilePicture: PropTypes.string,
   name: PropTypes.string,
+  uid: PropTypes.string,
   handleLogOut: PropTypes.func,
+};
+
+NavBar.defaultProps = {
+  overview: false,
+  profilePicture: "",
+  name: "",
 };
 
 export default NavBar;

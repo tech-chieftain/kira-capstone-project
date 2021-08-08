@@ -126,7 +126,7 @@ const SettingsPage = () => {
                 <Form.Control
                   placeholder={t("settings.job")}
                   name="job"
-                  value={userData.Job}
+                  value={userData.job}
                   onChange={handleChange}
                 />
               </Form.Group>
