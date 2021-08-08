@@ -36,7 +36,7 @@ const Freelancers = ({ query, results }) => {
   return (
     <>
       <Head>
-        <title>Freelancer Search</title>
+        <title>{t("search.freelancerSearch")} </title>
       </Head>
       <Container className="my-5">
         <Row className="mb-3">

@@ -16,6 +16,7 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
       </Row>
       <br />
       <br />
+
       <Row>
         <Styleimg>
           <div>
@@ -24,7 +25,7 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
           <Styleimg2>
             <span>{Name}</span>
             <div>
-              <Btndiv>{t("sevice.contactMe")} </Btndiv>
+              <Btndiv>{t("sevice.contactMe")}</Btndiv>
             </div>
           </Styleimg2>
         </Styleimg>
@@ -32,7 +33,7 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
       <br />
       <br />
       <Row>
-        <span>{t("service.from")}</span>
+        <span>{t("sevice.from")}</span>
         <br />
         <span>{Location}</span>
       </Row>
