@@ -10,7 +10,7 @@ import { Btndiv, Styleimg, Styleimg2 } from "./ServiceSeller.styled";
 const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
   <Card className="p-4 my-5">
     <Row>
-      <Card.Title as="h2">About The Seller</Card.Title>
+      <Card.Title as="h2">About Seller</Card.Title>
     </Row>
     <br />
     <br />
