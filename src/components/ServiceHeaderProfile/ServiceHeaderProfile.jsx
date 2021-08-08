@@ -1,11 +1,9 @@
 import PropTypes from "prop-types";
 import { FaUserCircle } from "react-icons/fa";
 import { Card, Col, Row } from "react-bootstrap";
-import Rating from "react-rating";
-import { VscStarFull, VscStarEmpty } from "react-icons/vsc";
 import { Container, Img, MainContainer } from "./HeaderProfile.styled";
 
-const Header = ({ profilePic, serviceName, rating, reviews, queue, nameOfPerson }) => (
+const Header = ({ profilePic, serviceName, nameOfPerson }) => (
   <Container>
     <Card.Body style={{ width: "49rem" }}>
       <Row className="my-2">
@@ -16,17 +14,7 @@ const Header = ({ profilePic, serviceName, rating, reviews, queue, nameOfPerson 
         <Col className="username" md={5}>
           <Col md>
             <MainContainer>
-              <Card.Title className="info">
-                {nameOfPerson} |
-                <Rating
-                  readonly
-                  initialRating={rating}
-                  emptySymbol={<VscStarEmpty size="15px" />}
-                  fullSymbol={<VscStarFull size="15px" />}
-                  fractions={2}
-                />{" "}
-                ({reviews}) | {queue} Orders in Queue
-              </Card.Title>
+              <Card.Title className="info">{nameOfPerson}</Card.Title>
             </MainContainer>
           </Col>
           <Col md />
@@ -37,11 +25,8 @@ const Header = ({ profilePic, serviceName, rating, reviews, queue, nameOfPerson 
 );
 
 Header.propTypes = {
-  reviews: PropTypes.number,
   serviceName: PropTypes.string,
   profilePic: PropTypes.string,
-  rating: PropTypes.number,
-  queue: PropTypes.number,
   nameOfPerson: PropTypes.string,
 };
 
