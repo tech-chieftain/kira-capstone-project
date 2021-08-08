@@ -62,9 +62,6 @@ export const getStaticProps = async (context) => {
   const service = await getService(context.params.uid);
   const user = await getUserInfo({ uid: service.freelancerUID });
 
-  console.log("service:", service);
-  console.log("user:", user);
-
   return {
     props: {
       service,
