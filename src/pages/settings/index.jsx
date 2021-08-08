@@ -5,7 +5,7 @@ const settings = () => <SettingsPage />;
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common", "settings"])),
+    ...(await serverSideTranslations(locale, ["common", "settings", "navbar", "footer"])),
   },
 });
 

@@ -20,7 +20,7 @@ const profile = ({ user, services }) => (
     />
     <Container>
       <div>
-        <Row md={3}>
+        <Row md={3} sm={1}>
           <Col>
             <InformationSidebar
               skills={user.skills}
@@ -53,7 +53,13 @@ export const getStaticProps = async (context) => {
     props: {
       user: userData[0],
       services: userData[1],
-      ...(await serverSideTranslations(context.locale, ["common", "profile", "card"])),
+      ...(await serverSideTranslations(context.locale, [
+        "common",
+        "profile",
+        "card",
+        "navbar",
+        "footer",
+      ])),
     },
   };
 };

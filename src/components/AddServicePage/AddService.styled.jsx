@@ -43,7 +43,7 @@ export const MainContainer = styled.div`
     opacity: 1;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     padding: 1rem 0;
     width: 28rem;
 
@@ -114,7 +114,7 @@ export const Bubbles = styled.div`
     right: 50px;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     .bottom-big,
     .uper-big {
       display: none;
@@ -122,6 +122,10 @@ export const Bubbles = styled.div`
 
     .bottom-small {
       left: 5px;
+    }
+
+    .uper-small {
+      top: 115px;
     }
   }
 `;

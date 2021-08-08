@@ -13,7 +13,7 @@ export const Background = styled.div`
     margin-top: -2.4rem;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     height: 20rem;
     justify-content: center;
     align-items: center;
@@ -39,7 +39,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     margin: 0 auto;
 
     .freelance {
@@ -79,7 +79,7 @@ export const SearchForm = styled(Form)`
     margin-right: -5px;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     width: 390px;
     height: 50px;
   }
@@ -93,7 +93,7 @@ export const Btn = styled(Button)`
   border-radius: 0 10px 10px 0;
   cursor: pointer;
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     padding: 0 15px;
   }
 `;

@@ -28,7 +28,7 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
   const { t } = useTranslation("navbar");
 
   return (
-    <Navbar bg="primary" collapseOnSelect expand="sm" variant="dark">
+    <Navbar bg="primary" collapseOnSelect expand="xl" variant="dark">
       <Container>
         <Navbar.Brand href="/">
           <Img
@@ -40,10 +40,10 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
           />
         </Navbar.Brand>
 
-        <Searchbox />
-
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
+          <Searchbox />
+
           {overview ? (
             <Nav className="w-100 d-flex justify-content-end">
               <LoginBtn onClick={openLoginModal}>{t("navbar.login")}</LoginBtn>

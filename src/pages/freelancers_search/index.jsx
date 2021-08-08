@@ -56,10 +56,7 @@ const Freelancers = ({ query, results }) => {
         </Row>
         {!!pageInfo.pageCount && (
           <Row className="mt-5">
-            <Pagination
-              pageCount={pageInfo.pageCount}
-              handlePageClick={handlePageClick}
-            />
+            <Pagination pageCount={pageInfo.pageCount} handlePageClick={handlePageClick} />
           </Row>
         )}
       </Container>
@@ -89,7 +86,7 @@ export const getServerSideProps = async (context) => {
     props: {
       results,
       query,
-      ...(await serverSideTranslations(context.locale, ["common", "search"])),
+      ...(await serverSideTranslations(context.locale, ["common", "search", "navbar", "footer"])),
     },
   };
 };

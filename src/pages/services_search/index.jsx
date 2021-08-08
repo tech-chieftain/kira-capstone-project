@@ -4,7 +4,7 @@ const services = () => <div />;
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common", "search"])),
+    ...(await serverSideTranslations(locale, ["common"])),
   },
 });
 export default services;

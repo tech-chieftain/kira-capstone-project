@@ -22,7 +22,8 @@ export const LoginBtn = styled(Button)`
 
 export const Img = styled(Image)`
   margin: -8px 0 0 -30px;
-  @media (max-width: 576px) {
+
+  @media (max-width: 1200px) {
     margin: 0;
   }
 `;
@@ -39,8 +40,9 @@ export const DropDown = styled(Dropdown)`
     box-shadow: none;
     webkit-box-shadow: none;
     margin: 3px auto 0;
-    @media (max-width: 768px) {
-      margin-left: -8.5px;
+
+    @media (max-width: 1200px) {
+      margin-left: -11px;
     }
   }
 `;
@@ -65,28 +67,5 @@ export const SearchForm = styled(Form)`
     border: none;
     color: grey;
     margin-right: -5px;
-  }
-  @media (max-width: 576px) {
-    margin: 0;
-    .input {
-      width: 200px;
-      border-bottom: 1px solid white;
-      border-radius: 0;
-      background: #008080;
-      color: #fff;
-      &:focus {
-        color: #fff;
-      }
-      ::placeholder {
-        color: #fff;
-      }
-    }
-    #basic-addon1 {
-      border-bottom: 1px solid white;
-      border-radius: 0;
-      background: #008080;
-      color: white;
-      margin-left: -60px;
-    }
   }
 `;

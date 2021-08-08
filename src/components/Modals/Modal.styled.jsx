@@ -71,7 +71,7 @@ const ModalContent = styled.div`
     out-line: none;
   }
   
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     line-height: 1.1;
     padding: 1.6rem 0;
     margin-top: 3rem;
@@ -193,7 +193,7 @@ const ModalBubbles = styled.div`
     right: -10px;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;

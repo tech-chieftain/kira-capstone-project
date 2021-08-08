@@ -1,10 +1,4 @@
-import {
-  FaTwitter,
-  FaLinkedinIn,
-  FaInstagram,
-  FaFacebookF,
-  FaGlobe,
-} from "react-icons/fa";
+import { FaTwitter, FaLinkedinIn, FaInstagram, FaFacebookF, FaGlobe } from "react-icons/fa";
 import { Container, Row, Col, Dropdown, Image } from "react-bootstrap";
 import React, { useState } from "react";
 import Link from "next/link";
@@ -15,6 +9,8 @@ import { FooterContainer, MainContainer } from "./Footer.styled";
 // eslint-disable-next-line arrow-body-style
 const Footer = () => {
   const { t } = useTranslation("footer");
+  const router = useRouter();
+  const { asPath } = useRouter();
 
   const [languages, setLanguages] = useState({
     arrayOfLanguage: ["English", "Arabic", "Kurdish"],
@@ -35,7 +31,7 @@ const Footer = () => {
     Supports: ["Terms and Conditions", "Privacy and cookies", "Accessability"],
   };
 
-  const { pathname, query, asPath } = useRouter();
+  // const { pathname, query, asPath } = useRouter();
 
   const changeLanguage = (language) => {
     if (language === "English") {
@@ -131,7 +127,7 @@ const Footer = () => {
         </div>
         <div className="border-top border-white py-3">
           <p className="text-center small align-self-center">
-            {t("footer.Kira")} &copy;{new Date().getFullYear()}
+            {t("footer.kira")} &copy;{new Date().getFullYear()}
             {t("footer.copyRight")}
           </p>
           <div className="dropdown-container d-flex justify-content-md-end">
@@ -147,20 +143,19 @@ const Footer = () => {
                 {languages.arrayOfLanguage
                   .filter((language) => language !== languages.chosenLanguage)
                   .map((language) => (
-                    <Link href={{ pathname, query }} as={asPath} locale={changeLanguage(language)}>
-                      <Dropdown.Item
-                        className="dropdown-item"
-                        href={asPath}
-                        onClick={() => {
-                          setLanguages({
-                            ...languages,
-                            chosenLanguage: language,
-                          });
-                        }}
-                      >
+                    <Dropdown.Item
+                      className="dropdown-item"
+                      onClick={() => {
+                        setLanguages({
+                          ...languages,
+                          chosenLanguage: language,
+                        });
+                      }}
+                    >
+                      <Link href={asPath} locale={changeLanguage(language)}>
                         {language}
-                      </Dropdown.Item>
-                    </Link>
+                      </Link>
+                    </Dropdown.Item>
                   ))}
               </Dropdown.Menu>
             </Dropdown>

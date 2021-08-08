@@ -32,7 +32,7 @@ export const Background = styled.div`
     margin-top: -49px;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     marging: 0;
     height: 376px;
   }
@@ -56,7 +56,7 @@ export const MainContainer = styled.div`
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     height: 300px;
 
     .img {
