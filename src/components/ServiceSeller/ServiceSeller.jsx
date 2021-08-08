@@ -1,16 +1,14 @@
-import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
-import { useState, useEffect } from "react";
-import Firebase from "../../Firebase";
-import { Btndiv, Styleimg, Styleimg2 } from "./ServiceSeller.styled";
+import { useTranslation } from "next-i18next";
+import { Styleimg, Styleimg2 } from "./Serviceseller.styled";
 
 const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
   <Card className="p-4 my-5">
     <Row>
-      <Card.Title as="h2">About Seller</Card.Title>
+      <Card.Title as="h2">{t("sevice.about")}</Card.Title>
     </Row>
     <br />
     <br />
@@ -23,23 +21,24 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
         <Styleimg2>
           <Card.Title>{Name}</Card.Title>
           <div>
-            <Button variant="outline-primary">Contact Me</Button>
+            <Button variant="outline-primary">{t("sevice.contactMe")}</Button>
           </div>
-        </Styleimg2>
-      </Styleimg>
-    </Row>
-    <br />
-    <br />
-    <Row>
-      <span>From</span>
+          </Styleimg2>
+        </Styleimg>
+      </Row>
       <br />
-      <span>{Location}</span>
-    </Row>
-    <br />
-    <br />
-    <Row>
-      <p>{Description}</p>
-    </Row>
-  </Card>
-);
+      <br />
+      <Row>
+        <span>{t("sevice.from")}</span>
+        <br />
+        <span>{Location}</span>
+      </Row>
+      <br />
+      <br />
+      <Row>
+        <p>{Description}</p>
+      </Row>
+    </Card>
+  );
+};
 export default ServiceSeller;

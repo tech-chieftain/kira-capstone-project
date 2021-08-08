@@ -26,11 +26,14 @@ function Homepage() {
     const data = new FormData(e.target);
     updateProfilePicture(data.get("file"), user);
   };
+
+  const { t } = useTranslation("home");
+
   return (
     <div>
       <LandingComponent />
       <Container className="my-5">
-        <h1 className="muted m-3">Popular professional services</h1>
+        <h1 className="muted m-3">{t("home.popularServices")}</h1>
         <CustomCarousel
           items={FPFreelancers.map((freelancer) => (
             <FPCard {...freelancer} overlay />
@@ -41,7 +44,7 @@ function Homepage() {
       </Container>
       <HomeComponent />
       <Container>
-        <h1 className="muted m-3">What other businesses are using</h1>
+        <h1 className="muted m-3">{t("home.otherBusinessesUsing")}</h1>
         <CustomCarousel
           items={FPbusinesses.map((business) => (
             <FPCard {...business} />
@@ -65,7 +68,7 @@ function Homepage() {
 // This function below should exist in everypage
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common"])),
+    ...(await serverSideTranslations(locale, ["common", "home"])),
   },
 });
 

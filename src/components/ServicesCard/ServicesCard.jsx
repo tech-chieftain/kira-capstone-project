@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Card, Col, Row } from "react-bootstrap";
+import { useTranslation } from "next-i18next";
 import { FaHeart, FaUserCircle } from "react-icons/fa";
 import { StarIcon, Button, CardBody, Img } from "./ServicesCard.styled";
 
@@ -20,6 +21,8 @@ const ServicesCard = ({
   const favorated = () => {
     setFavorate(!favorate);
   };
+
+  const { t } = useTranslation("card");
 
   return (
     <Card style={{ width: `${width}rem` }} className="shadow z-depth-5">
@@ -44,7 +47,7 @@ const ServicesCard = ({
       </CardBody>
       <Card.Footer className="bg-white d-flex align-items-center justify-content-between">
         <small className="text-muted">
-          STARTING AT <span className="h6">${price}</span>
+          {t("card.startingAt")} <span className="h6">${price}</span>
         </small>
       </Card.Footer>
     </Card>

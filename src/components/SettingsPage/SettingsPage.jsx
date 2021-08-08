@@ -2,6 +2,7 @@
 import { Card, Col, Row, Form, Button } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useTranslation } from "next-i18next";
 import { Container, MainContainer } from "./SettingsPage.styled";
 import firebase from "../../Firebase/Firebase";
 import { getUserInfo, updateUserInDB, uploadImage } from "../../Utilities/FirebaseUtilities";
@@ -35,31 +36,34 @@ const SettingsPage = () => {
   };
 
   const arrayToString = (arr) => arr && arr.join("\n");
+
+  const { t } = useTranslation("settings");
+
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center">
       <MainContainer>
-        <h2 className="text-primary m-3">Account Settings</h2>
+        <h2 className="text-primary m-3">{t("settings.settings")}</h2>
         <Card className="shadow">
           <Card.Body>
             <Form onSubmit={handleSubmit}>
               <Card.Header className="text-muted bg-white h4 mb-4 header">
-                Personal Information
+                {t("settings.personal")}
               </Card.Header>
 
               <Row>
                 <Form.Group as={Col} className="mb-4" sm>
-                  <Form.Label>Display Name</Form.Label>
+                  <Form.Label>{t("settings.name")}</Form.Label>
                   <Form.Control
-                    placeholder="Display Name"
+                    placeholder={t("settings.name")}
                     name="displayName"
                     value={userData.displayName}
                     onChange={handleChange}
                   />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-4" sm>
-                  <Form.Label>Location</Form.Label>
+                  <Form.Label>{t("settings.location")}</Form.Label>
                   <Form.Control
-                    placeholder="location"
+                    placeholder={t("settings.location")}
                     name="location"
                     value={userData.location}
                     onChange={handleChange}
@@ -69,18 +73,18 @@ const SettingsPage = () => {
 
               <Row>
                 <Form.Group as={Col} className="mb-4" sm>
-                  <Form.Label>Email</Form.Label>
+                  <Form.Label>{t("settings.email")}</Form.Label>
                   <Form.Control
-                    placeholder="email"
+                    placeholder={t("settings.email")}
                     name="email"
                     value={userData.email}
                     onChange={handleChange}
                   />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-4" sm>
-                  <Form.Label>Phone number</Form.Label>
+                  <Form.Label>{t("settings.phoneNumber")}</Form.Label>
                   <Form.Control
-                    placeholder="Phone Number"
+                    placeholder={t("settings.phoneNumber")}
                     name="phone"
                     value={userData.phone}
                     onChange={handleChange}
@@ -90,10 +94,10 @@ const SettingsPage = () => {
 
               <Row>
                 <Form.Group as={Col} className="mb-4" sm>
-                  <Form.Label>About</Form.Label>
+                  <Form.Label>{t("settings.about")}</Form.Label>
                   <Form.Control
                     as="textarea"
-                    placeholder="About"
+                    placeholder={t("settings.about")}
                     name="about"
                     value={userData.about}
                     onChange={handleChange}
@@ -103,7 +107,7 @@ const SettingsPage = () => {
               </Row>
 
               <Form.Group className="mb-5">
-                <Form.Label>Upload your profile image</Form.Label>
+                <Form.Label>{t("settings.profileImage")} </Form.Label>
                 <Form.Control
                   type="file"
                   name="photoURL"
@@ -114,13 +118,13 @@ const SettingsPage = () => {
               </Form.Group>
 
               <Card.Header className="text-muted bg-white h4 my-4 header">
-                Professional Information
+                {t("settings.professional")}
               </Card.Header>
 
               <Form.Group className="mb-4">
-                <Form.Label>Job Title</Form.Label>
+                <Form.Label>{t("settings.job")}</Form.Label>
                 <Form.Control
-                  placeholder="Job Title"
+                  placeholder={t("settings.job")}
                   name="job"
                   value={userData.job}
                   onChange={handleChange}
@@ -129,10 +133,10 @@ const SettingsPage = () => {
 
               <Row>
                 <Form.Group as={Col} className="mb-4" sm>
-                  <Form.Label>Skills</Form.Label>
+                  <Form.Label>{t("settings.skills")}</Form.Label>
                   <Form.Control
                     as="textarea"
-                    placeholder="Skills"
+                    placeholder={t("settings.skills")}
                     name="skills"
                     value={arrayToString(userData.skills)}
                     onChange={parseAndHandleChange}
@@ -141,10 +145,10 @@ const SettingsPage = () => {
                 </Form.Group>
 
                 <Form.Group as={Col} className="mb-4" sm>
-                  <Form.Label>Languages</Form.Label>
+                  <Form.Label>{t("settings.languages")}</Form.Label>
                   <Form.Control
                     as="textarea"
-                    placeholder="Languages"
+                    placeholder={t("settings.languages")}
                     name="languages"
                     value={arrayToString(userData.languages)}
                     onChange={parseAndHandleChange}
@@ -154,10 +158,10 @@ const SettingsPage = () => {
               </Row>
 
               <Form.Group className="mb-3">
-                <Form.Label>Education</Form.Label>
+                <Form.Label>{t("settings.education")}</Form.Label>
                 <Form.Control
                   as="textarea"
-                  placeholder="Education"
+                  placeholder={t("settings.education")}
                   name="education"
                   value={arrayToString(userData.education)}
                   onChange={parseAndHandleChange}
@@ -166,7 +170,7 @@ const SettingsPage = () => {
 
               <div className="d-flex justify-content-end mt-4">
                 <Button variant="primary" type="submit" className="px-5 m-2">
-                  Save
+                  {t("settings.save")}
                 </Button>
               </div>
             </Form>
