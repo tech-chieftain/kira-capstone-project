@@ -1,7 +1,7 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Serviceheader from "src/components/Serviceheader/Serviceheader";
-
+import Servicedescription from "src/components/Servicedescription/Servicedescription";
 import Container from 'react-bootstrap/Container'
 const Description = ()=>
 {
@@ -10,7 +10,7 @@ const Description = ()=>
       <Container>
       
         <Serviceheader />
-        <h5>Description component will go here</h5>
+        <Servicedescription />
       </Container>
      </>
           
