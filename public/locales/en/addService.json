@@ -3,7 +3,7 @@
         "buildService": "Build Your Service",
         "serviceTitle": "Service Title",
         "title": "Title",
-        "ServiceImage": "Service Images",
+        "imgService": "Service Images",
         "image": "upload images that best shaowcase your service",
         "price": "Price",
         "setPrice": "Set a price for your service",

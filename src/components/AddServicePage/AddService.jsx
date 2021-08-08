@@ -46,15 +46,15 @@ const AddService = () => {
                 <Form.Control
                   className="mb-4"
                   name="title"
-                  placeholder={t("addSevice.title")}
+                  placeholder={t("addService.title")}
                   value={serviceData.title}
                   onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group className="mb-4">
-                <Form.Label>{t("addServive.ServiceImage")} </Form.Label>
-                <p className="small text-muted">{t("addServive.image")}</p>
+                <Form.Label>{t("addService.imgService")}</Form.Label>
+                <p className="small text-muted">{t("addService.image")}</p>
 
                 <Form.Control
                   type="file"
@@ -74,7 +74,7 @@ const AddService = () => {
                   name="price"
                   value={serviceData.price}
                   onChange={handleChange}
-                  placeholder={t("setPrice")}
+                  placeholder={t("addService.setPrice")}
                 />
               </Form.Group>
 
