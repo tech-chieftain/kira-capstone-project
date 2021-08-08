@@ -1,4 +1,6 @@
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import { useState, useEffect } from "react";
@@ -6,9 +8,9 @@ import Firebase from "../../Firebase";
 import { Btndiv, Styleimg, Styleimg2 } from "./ServiceSeller.styled";
 
 const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
-  <Container>
+  <Card className="p-4 my-5">
     <Row>
-      <h2>About The Seller</h2>
+      <Card.Title as="h2">About The Seller</Card.Title>
     </Row>
     <br />
     <br />
@@ -19,9 +21,9 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
           <Image src={ProfilePic} roundedCircle width="80px" height="80px" />
         </div>
         <Styleimg2>
-          <span>{Name}</span>
+          <Card.Title>{Name}</Card.Title>
           <div>
-            <Btndiv>Contact Me</Btndiv>
+            <Button variant="outline-primary">Contact Me</Button>
           </div>
         </Styleimg2>
       </Styleimg>
@@ -38,6 +40,6 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
     <Row>
       <p>{Description}</p>
     </Row>
-  </Container>
+  </Card>
 );
 export default ServiceSeller;
