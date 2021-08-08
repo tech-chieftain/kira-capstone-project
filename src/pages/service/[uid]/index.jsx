@@ -24,7 +24,7 @@ const Service = ({ service, user }) => (
             profilePic={user.photoURL}
             nameOfPerson={user.displayName}
           />
-          <Container className="border border-3" style={{ height: "500px", marginBottom: "8rem" }}>
+          <Container style={{ height: "500px", marginBottom: "8rem" }}>
             <CustomCarousel
               thumbnail
               items={service.images && service.images.map((image) => <img src={image} alt="" />)}
