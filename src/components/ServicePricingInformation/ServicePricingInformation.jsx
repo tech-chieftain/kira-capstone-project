@@ -6,7 +6,7 @@ import { VscRefresh } from "react-icons/vsc";
 import { FaDollarSign } from "react-icons/fa";
 import { ModalBubbles, MainContainer, Button, Container } from "./ServicePricingInformation.styled";
 
-const PricePage = ({ price, data, duration, revisions, description }) => (
+const PricePage = ({ price, perks, duration, revisions, description }) => (
   <Container>
     <Card.Body style={{ width: "50rem" }}>
       <Row>
@@ -27,7 +27,7 @@ const PricePage = ({ price, data, duration, revisions, description }) => (
         <VscRefresh /> {revisions} Revisions
       </small>
       <MainContainer>
-        {data.map((line) => (
+        {perks.map((line) => (
           <Row>
             <small className="mx-1 text-muted">
               <FcCheckmark /> {line}
@@ -48,7 +48,7 @@ const PricePage = ({ price, data, duration, revisions, description }) => (
 );
 
 PricePage.propTypes = {
-  data: PropTypes.string,
+  perks: PropTypes.array,
   price: PropTypes.number,
   revisions: PropTypes.number,
   duration: PropTypes.number,
