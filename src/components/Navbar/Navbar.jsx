@@ -51,7 +51,7 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
           </InputGroup.Text>
           <FormControl
             type="search"
-            placeholder="Find Services..."
+            placeholder={t("navbar.findService")}
             aria-label="Search"
             className="input"
             onChange=""
@@ -61,14 +61,14 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           {overview ? (
             <Nav className="w-100 d-flex justify-content-end">
-              <LoginBtn onClick={openLoginModal}> Log In </LoginBtn>
+              <LoginBtn onClick={openLoginModal}>{t("navbar.login")}</LoginBtn>
               <LoginModal
                 showLogin={showLogin}
                 setShowLogin={setShowLogin}
                 setShowSignup={setShowSignup}
               />
 
-              <JoinBtn onClick={openSignupModal}> Join </JoinBtn>
+              <JoinBtn onClick={openSignupModal}> {t("navbar.join")} </JoinBtn>
               <SignupModal
                 showSignup={showSignup}
                 setShowSignup={setShowSignup}
@@ -105,11 +105,11 @@ const NavBar = ({ overview, profilePicture, name, handleLogOut }) => {
                   </Dropdown.Item>
                   <Dropdown.Item href="/settings">
                     <MdSettings size="20px" />
-                    <span className="mx-3 text-muted">Settings</span>
+                    <span className="mx-3 text-muted">{t("navbar.settings")}</span>
                   </Dropdown.Item>
                   <Dropdown.Item onClick={handleLogOut}>
                     <FiLogOut size="20px" />
-                    <span className="mx-3 text-muted">Log Out</span>
+                    <span className="mx-3 text-muted">{t("navbar.logout")}</span>
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </DropDown>

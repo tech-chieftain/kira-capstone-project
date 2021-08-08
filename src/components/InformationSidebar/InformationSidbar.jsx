@@ -1,42 +1,48 @@
+/* eslint-disable arrow-body-style */
 import PropTypes from "prop-types";
+import { useTranslation } from "next-i18next";
 import Container from "./InformationSidebar.styled";
 
-const InformationSidebar = ({ skills, languages, educations }) => (
-  <Container className="shadow">
-    <div className="w-75 mx-auto my-5 ">
-      <h5 className="px-3 py-2 border-bottom border-light">Skills</h5>
-      <div>
-        <ul>
-          {skills.map((skill, index) => (
-            <li key={index}>{skill}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+const InformationSidebar = ({ skills, languages, educations }) => {
+  const { t } = useTranslation("profile");
 
-    <div className="w-75 mx-auto my-5">
-      <h5 className="px-3 py-2 border-bottom border-light">Language</h5>
-      <div>
-        <ul>
-          {languages.map((lang, index) => (
-            <li key={index}>{lang}</li>
-          ))}
-        </ul>
+  return (
+    <Container className="shadow">
+      <div className="w-75 mx-auto my-5 ">
+        <h5 className="px-3 py-2 border-bottom border-light">{t("profile.skills")}</h5>
+        <div>
+          <ul>
+            {skills.map((skill, index) => (
+              <li key={index}>{skill}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div className="w-75 mx-auto my-5">
-      <h5 className="px-3 py-2 border-bottom border-light">Education</h5>
-      <div>
-        <ul>
-          {educations.map((education, index) => (
-            <li key={index}>{education}</li>
-          ))}
-        </ul>
+      <div className="w-75 mx-auto my-5">
+        <h5 className="px-3 py-2 border-bottom border-light">{t("profile.language")}</h5>
+        <div>
+          <ul>
+            {languages.map((lang, index) => (
+              <li key={index}>{lang}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
-  </Container>
-);
+
+      <div className="w-75 mx-auto my-5">
+        <h5 className="px-3 py-2 border-bottom border-light">{t("profile.education")}</h5>
+        <div>
+          <ul>
+            {educations.map((education, index) => (
+              <li key={index}>{education}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </Container>
+  );
+};
 
 InformationSidebar.propTypes = {
   skills: PropTypes.array,
