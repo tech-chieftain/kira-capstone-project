@@ -6,6 +6,7 @@ import { IoIosNotifications } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
 import { MdSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
+import { useTranslation } from "next-i18next";
 import Searchbox from "./Searchbox";
 import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown } from "./Navbar.styled";
 import LoginModal from "../Modals/LoginModal";
@@ -23,6 +24,8 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
   const openSignupModal = () => {
     setShowSignup((show) => !show);
   };
+
+  const { t } = useTranslation("navbar");
 
   return (
     <Navbar bg="primary" collapseOnSelect expand="sm" variant="dark">
@@ -43,14 +46,14 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           {overview ? (
             <Nav className="w-100 d-flex justify-content-end">
-              <LoginBtn onClick={openLoginModal}> Log In </LoginBtn>
+              <LoginBtn onClick={openLoginModal}>{t("navbar.login")}</LoginBtn>
               <LoginModal
                 showLogin={showLogin}
                 setShowLogin={setShowLogin}
                 setShowSignup={setShowSignup}
               />
 
-              <JoinBtn onClick={openSignupModal}> Join </JoinBtn>
+              <JoinBtn onClick={openSignupModal}> {t("navbar.join")} </JoinBtn>
               <SignupModal
                 showSignup={showSignup}
                 setShowSignup={setShowSignup}
@@ -86,11 +89,11 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
 
                   <Dropdown.Item href="/settings">
                     <MdSettings size="20px" />
-                    <span className="mx-3 text-muted">Settings</span>
+                    <span className="mx-3 text-muted">{t("navbar.settings")}</span>
                   </Dropdown.Item>
                   <Dropdown.Item onClick={handleLogOut}>
                     <FiLogOut size="20px" />
-                    <span className="mx-3 text-muted">Log Out</span>
+                    <span className="mx-3 text-muted">{t("navbar.logout")}</span>
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </DropDown>

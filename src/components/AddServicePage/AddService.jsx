@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Card, Button } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useTranslation } from "next-i18next";
 import { Container, MainContainer, Bubbles } from "./AddService.styled";
 import firebase from "../../Firebase/Firebase";
 import { addService, uploadImage, updateUserInDB } from "../../Utilities/FirebaseUtilities";
@@ -31,27 +32,29 @@ const AddService = () => {
 
   const arrayToString = (arr) => arr && arr.join("\n");
 
+  const { t } = useTranslation("addService");
+
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center">
       <MainContainer>
-        <h1 className="text-primary m-3">Build Your Service</h1>
+        <h1 className="text-primary m-3">{t("addService.buildService")} </h1>
         <Card className="card shadow">
           <Card.Body>
             <Form onSubmit={handleSubmit}>
               <Form.Group>
-                <Form.Label>Service Title</Form.Label>
+                <Form.Label>{t("addService.serviceTitle")} </Form.Label>
                 <Form.Control
                   className="mb-4"
                   name="title"
-                  placeholder="Title"
+                  placeholder={t("addService.title")}
                   value={serviceData.title}
                   onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group className="mb-4">
-                <Form.Label>Service Images</Form.Label>
-                <p className="small text-muted">upload images that best shaowcase your service"</p>
+                <Form.Label>{t("addService.imgService")}</Form.Label>
+                <p className="small text-muted">{t("addService.image")}</p>
 
                 <Form.Control
                   type="file"
@@ -65,33 +68,33 @@ const AddService = () => {
               </Form.Group>
 
               <Form.Group className="mb-4">
-                <Form.Label>Price</Form.Label>
+                <Form.Label>{t("addService.price")}</Form.Label>
                 <Form.Control
                   type="number"
                   name="price"
                   value={serviceData.price}
                   onChange={handleChange}
-                  placeholder="Set a price for your service"
+                  placeholder={t("addService.setPrice")}
                 />
               </Form.Group>
 
               <Form.Group className="mb-4">
-                <Form.Label>Description</Form.Label>
+                <Form.Label>{t("addService.description")}</Form.Label>
                 <Form.Control
                   as="textarea"
                   name="description"
                   value={serviceData.description}
                   onChange={handleChange}
-                  placeholder="Briefly describe your service"
+                  placeholder={t("addService.describeService")}
                 />
               </Form.Group>
 
               <Form.Group className="mb-4">
-                <Form.Label>Details</Form.Label>
+                <Form.Label>{t("addService.details")}</Form.Label>
                 <Form.Control
                   as="textarea"
                   name="details"
-                  placeholder="Describe your service with details"
+                  placeholder={t("addService.serviceDetails")}
                   value={serviceData.details}
                   onChange={handleChange}
                 />
@@ -99,7 +102,7 @@ const AddService = () => {
 
               <Row>
                 <Form.Group as={Col} className="mb-4" sm>
-                  <Form.Label>Delivery Time</Form.Label>
+                  <Form.Label>{t("addService.deliveryTime")}</Form.Label>
                   <Form.Control
                     type="number"
                     name="etd"
@@ -108,7 +111,7 @@ const AddService = () => {
                   />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-4" sm>
-                  <Form.Label>Number Of Revisions</Form.Label>
+                  <Form.Label>{t("addService.revisions")}</Form.Label>
                   <Form.Control
                     type="number"
                     name="revisions"
@@ -119,20 +122,20 @@ const AddService = () => {
               </Row>
 
               <Form.Group className="mb-4">
-                <Form.Label>Perks</Form.Label>
+                <Form.Label>{t("addService.perks")}</Form.Label>
                 <Form.Control
                   as="textarea"
                   value={arrayToString(serviceData.perks)}
                   onChange={parseAndHandleChange}
                   name="perks"
-                  placeholder="Make your service more intresting"
+                  placeholder={t("addService.intresting")}
                   style={{ height: "100px" }}
                 />
               </Form.Group>
 
               <div className="d-flex justify-content-end mt-4">
                 <Button variant="primary" type="submit" className="px-5 m-2">
-                  Save
+                  {t("addService.save")}
                 </Button>
               </div>
             </Form>

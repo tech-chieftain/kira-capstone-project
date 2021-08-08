@@ -1,43 +1,48 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
+import Firebase from "src/Firebase";
 import { useState, useEffect } from "react";
-import Firebase from "../../Firebase";
-import { Btndiv, Styleimg, Styleimg2 } from "./ServiceSeller.styled";
+import { useTranslation } from "next-i18next";
+import { Btndiv, Styleimg, Styleimg2 } from "./Serviceseller.styled";
 
-const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
-  <Container>
-    <Row>
-      <h2>About The Seller</h2>
-    </Row>
-    <br />
-    <br />
+const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
+  const { t } = useTranslation("service");
 
-    <Row>
-      <Styleimg>
-        <div>
-          <Image src={ProfilePic} roundedCircle width="80px" height="80px" />
-        </div>
-        <Styleimg2>
-          <span>{Name}</span>
-          <div>
-            <Btndiv>Contact Me</Btndiv>
-          </div>
-        </Styleimg2>
-      </Styleimg>
-    </Row>
-    <br />
-    <br />
-    <Row>
-      <span>From</span>
+  return (
+    <Container>
+      <Row>
+        <h2>{t("sevice.about")} </h2>
+      </Row>
       <br />
-      <span>{Location}</span>
-    </Row>
-    <br />
-    <br />
-    <Row>
-      <p>{Description}</p>
-    </Row>
-  </Container>
-);
+      <br />
+
+      <Row>
+        <Styleimg>
+          <div>
+            <Image src="/profilepic.jpg" roundedCircle width="80px" height="80px" />
+          </div>
+          <Styleimg2>
+            <span>{Name}</span>
+            <div>
+              <Btndiv>{t("sevice.contactMe")}</Btndiv>
+            </div>
+          </Styleimg2>
+        </Styleimg>
+      </Row>
+      <br />
+      <br />
+      <Row>
+        <span>{t("sevice.from")}</span>
+        <br />
+        <span>{Location}</span>
+      </Row>
+      <br />
+      <br />
+      <Row>
+        <p>{Description}</p>
+      </Row>
+    </Container>
+  );
+};
 export default ServiceSeller;

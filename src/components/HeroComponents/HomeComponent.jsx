@@ -1,20 +1,26 @@
 import styled from "styled-components";
 import { Image } from "react-bootstrap";
+import { useTranslation } from "next-i18next";
 
-const HomeComponent = () => (
-  <Background>
-    <MainContainer className="d-flex flex-row justify-content-end align-items-center">
-      <div className="service">
-        <p>
-          Find the services needed to get your business <span>growing</span>
-        </p>
-      </div>
-      <div className="img">
-        <Image src="/image2.png" alt="" />
-      </div>
-    </MainContainer>
-  </Background>
-);
+// eslint-disable-next-line arrow-body-style
+const HomeComponent = () => {
+  const { t } = useTranslation("home");
+
+  return (
+    <Background>
+      <MainContainer className="d-flex flex-row justify-content-end align-items-center">
+        <div className="service">
+          <p>
+            {t("home.FServicesNeeded")} <span>{t("home.growing")}</span>
+          </p>
+        </div>
+        <div className="img">
+          <Image src="/image2.png" alt="" />
+        </div>
+      </MainContainer>
+    </Background>
+  );
+};
 
 export const Background = styled.div`
   width: 100%;

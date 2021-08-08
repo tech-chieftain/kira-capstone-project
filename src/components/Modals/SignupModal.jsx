@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import Alert from "react-bootstrap/Alert";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import { useTranslation } from "next-i18next";
 import { updateUserInDB } from "../../Utilities/FirebaseUtilities";
 import firebase from "../../Firebase";
 import {
@@ -62,6 +63,8 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
     }
   };
 
+  const { t } = useTranslation("navbar");
+
   return (
     <>
       {showSignup && (
@@ -69,11 +72,11 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
           <animated.div style={animation}>
             <ModalWrapper showSignup={showSignup}>
               <ModalContent>
-                <h4>Create your account</h4>
+                <h4>{t("navbar.creatAccount")} </h4>
                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
                 <div className="breake">
                   <hr />
-                  <span>OR</span>
+                  <span>{t("navbar.or")}</span>
                   <hr />
                 </div>
                 {error && (
@@ -82,16 +85,20 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
                   </Alert>
                 )}
                 <Form onSubmit={handleSignUp}>
-                  <input type="text" name="displayName" placeholder="Display Name" />
+                  <input type="text" name="displayName" placeholder={t("navbar.displayName")} />
                   <input type="email" name="email" placeholder="Email" />
-                  <input type="password" name="password" placeholder="Password" />
-                  <input type="password" name="confirmPassword" placeholder="Confirm Password" />
+                  <input type="password" name="password" placeholder={t("navbar.password")} />
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder={t("navbar.confirmPassword")}
+                  />
                   <Button disabled={loading} type="submit" className="join-btn">
-                    Continue
+                    {t("navbar.continue")}
                   </Button>
                 </Form>
                 <p>
-                  Already have an account?
+                  {t("navbar.alreadyHaveAccount")}
                   <button
                     type="button"
                     onClick={() => {
@@ -99,7 +106,7 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
                       setShowLogin((show) => !show);
                     }}
                   >
-                    Log In
+                    {t("navbar.login")}
                   </button>
                 </p>
               </ModalContent>
