@@ -2,13 +2,11 @@
 import PropTypes from "prop-types";
 import { Row, Col } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
-import { FaUserCircle, FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa";
-import { VscLocation, VscStarFull, VscStarEmpty } from "react-icons/vsc";
-import Link from "next/link";
-import Rating from "react-rating";
+import { FaUserCircle } from "react-icons/fa";
+import { VscLocation } from "react-icons/vsc";
 import { Background, Img, MainContainer, Btn } from "./ProfileHeader.styled";
 
-const ProfileHeader = ({ profilePicture, name, profession, location, description, rating }) => {
+const ProfileHeader = ({ profilePicture, name, profession, location, description }) => {
   const { t } = useTranslation("profile");
 
   return (
@@ -31,40 +29,9 @@ const ProfileHeader = ({ profilePicture, name, profession, location, description
               <VscLocation size="32px" />
               <span>{location}</span>
             </h5>
-            <div>
-              <ul className="list-unstyled d-flex flex-row">
-                <li>
-                  <Link href="/">
-                    <a>
-                      <FaFacebookF size="24px" />
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>
-                      <FaInstagram size="24px" />
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>
-                      <FaTwitter size="24px" />
-                    </a>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+
             <h5>{description}</h5>
             <div className="d-md-flex flex-row mt-3">
-              <Rating
-                readonly
-                initialRating={rating}
-                emptySymbol={<VscStarEmpty size="36px" />}
-                fullSymbol={<VscStarFull size="36px" />}
-                fractions={2}
-              />
               <Btn>{t("profile.contactMe")}</Btn>
             </div>
           </Col>

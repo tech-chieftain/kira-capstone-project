@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import ServicesCard from "../ServicesCard/ServicesCard";
-import { ProfileData } from "../MockData";
-import ReviewsData from "../Reviews/ReviewsData";
 
 const Container = styled.div`
   width: 882px;
@@ -25,10 +23,11 @@ const ServieceCardData = ({ services }) => (
         services.map((service) => (
           <span className="m-3">
             <ServicesCard
+              uid={service.uid}
               name={service.name}
               title={service.title}
               description={service.description}
-              photo={service.images[0]}
+              photo={service.images && service.images[0]}
               width={15}
               price={service.price}
             />
