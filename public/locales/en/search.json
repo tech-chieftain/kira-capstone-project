@@ -1,6 +1,7 @@
 {
     "search": {
         "results": "Results for",
-        "freelancerSearch": "Freelancer Search"
+        "freelancerSearch": "Freelancer Search",
+        "servicesSearch": "Service Search"
     }
 }

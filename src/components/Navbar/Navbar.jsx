@@ -31,7 +31,7 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
   return (
     <Navbar bg="primary" collapseOnSelect expand="xl" variant="dark">
       <Container>
-        <Link href="./">
+        <Navbar.Brand href="./">
           <Img
             src="/NavbarLogo.png"
             width="104px"
@@ -39,7 +39,7 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
             className="d-inline-block align-top"
             alt="Nabar logo"
           />
-        </Link>
+        </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -90,11 +90,15 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
 
                   <Dropdown.Item href="./settings">
                     <MdSettings size="20px" />
-                    <span className="mx-3 text-muted">{t("navbar.settings")}</span>
+                    <span className="mx-3 text-muted">
+                      {t("navbar.settings")}
+                    </span>
                   </Dropdown.Item>
                   <Dropdown.Item onClick={handleLogOut}>
                     <FiLogOut size="20px" />
-                    <span className="mx-3 text-muted">{t("navbar.logout")}</span>
+                    <span className="mx-3 text-muted">
+                      {t("navbar.logout")}
+                    </span>
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </DropDown>

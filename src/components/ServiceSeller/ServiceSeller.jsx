@@ -1,18 +1,19 @@
-import Container from "react-bootstrap/Container";
+/* eslint-disable arrow-body-style */
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
-import Firebase from "src/Firebase";
-import { useState, useEffect } from "react";
 import { useTranslation } from "next-i18next";
-import { Btndiv, Styleimg, Styleimg2 } from "./Serviceseller.styled";
+
+import { Styleimg, Styleimg2 } from "./ServiceSeller.styled";
 
 const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
   const { t } = useTranslation("service");
 
   return (
-    <Container>
+    <Card className="p-4 my-5">
       <Row>
-        <h2>{t("sevice.about")} </h2>
+        <Card.Title as="h2">{t("service.aboutSeller")}</Card.Title>
       </Row>
       <br />
       <br />
@@ -20,12 +21,12 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
       <Row>
         <Styleimg>
           <div>
-            <Image src="/profilepic.jpg" roundedCircle width="80px" height="80px" />
+            <Image src={ProfilePic} roundedCircle width="80px" height="80px" />
           </div>
           <Styleimg2>
-            <span>{Name}</span>
+            <Card.Title>{Name}</Card.Title>
             <div>
-              <Btndiv>{t("sevice.contactMe")}</Btndiv>
+              <Button variant="outline-primary">{t("service.contactMe")}</Button>
             </div>
           </Styleimg2>
         </Styleimg>
@@ -33,7 +34,7 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
       <br />
       <br />
       <Row>
-        <span>{t("sevice.from")}</span>
+        <span>{t("service.from")}</span>
         <br />
         <span>{Location}</span>
       </Row>
@@ -42,7 +43,7 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
       <Row>
         <p>{Description}</p>
       </Row>
-    </Container>
+    </Card>
   );
 };
 export default ServiceSeller;

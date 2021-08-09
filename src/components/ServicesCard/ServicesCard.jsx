@@ -1,49 +1,66 @@
-import React, { useState } from "react";
 import PropTypes from "prop-types";
+
+import Link from "next/link";
+
 import { Card, Col, Row } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
-import { FaHeart, FaUserCircle } from "react-icons/fa";
-import { StarIcon, Button, CardBody, Img } from "./ServicesCard.styled";
+import { FaUserCircle } from "react-icons/fa";
+import { CardBody, Img } from "./ServicesCard.styled";
 
 const ServicesCard = ({
+  uid,
+  freelancerUID,
   person,
   width,
   photo,
   profilePic,
   title,
   description,
-  rating,
   price,
   name,
 }) => {
-  const [favorate, setFavorate] = useState(false);
-
-  const favorated = () => {
-    setFavorate(!favorate);
-  };
-
   const { t } = useTranslation("card");
 
   return (
     <Card style={{ width: `${width}rem` }} className="shadow z-depth-5">
-      <Card.Img variant="top" src={photo} alt="" />
+      <Link href="/service/[]" as={`/service/${uid}`}>
+        <a className="text-decoration-none text-reset">
+          <Card.Img variant="top" src={photo} alt="" />
+        </a>
+      </Link>
       <CardBody>
         {person && (
           <Row md={2} className="d-flex align-items-center mb-2">
             <Col>
-              {profilePic ? (
-                <Img src={profilePic} roundedCircle fluid />
-              ) : (
-                <FaUserCircle size="28px" className="text-secondary" />
-              )}
+              <Link href="/profile/[]" as={`/profile/${freelancerUID}`}>
+                <a>
+                  {profilePic ? (
+                    <Img src={profilePic} roundedCircle fluid />
+                  ) : (
+                    <FaUserCircle size="28px" className="text-secondary" />
+                  )}
+                </a>
+              </Link>
             </Col>
             <Col className="username">
-              <Card.Subtitle>{name}</Card.Subtitle>
+              <Link href="/profile/[]" as={`/profile/${freelancerUID}`}>
+                <a className="text-decoration-none text-reset">
+                  <Card.Subtitle>{name}</Card.Subtitle>
+                </a>
+              </Link>
             </Col>
           </Row>
         )}
-        <Card.Text>{title}</Card.Text>
-        <Card.Text>{description}</Card.Text>
+        <Link href="/service/[]" as={`/service/${uid}`}>
+          <a className="text-decoration-none text-reset">
+            <Card.Text>{title}</Card.Text>
+          </a>
+        </Link>
+        <Link href="/service/[]" as={`/service/${uid}`}>
+          <a className="text-decoration-none text-reset">
+            <Card.Text>{description}</Card.Text>
+          </a>
+        </Link>
       </CardBody>
       <Card.Footer className="bg-white d-flex align-items-center justify-content-between">
         <small className="text-muted">
@@ -55,10 +72,11 @@ const ServicesCard = ({
 };
 
 ServicesCard.propTypes = {
+  uid: PropTypes.string,
+  freelancerUID: PropTypes.string,
   person: PropTypes.bool,
   width: PropTypes.number,
   price: PropTypes.number,
-  rating: PropTypes.number,
   photo: PropTypes.string,
   description: PropTypes.string,
   title: PropTypes.string,

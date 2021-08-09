@@ -1,25 +1,21 @@
 import styled from "styled-components";
 
 export const ServiceHead = styled.div`
-padding-top:20px;
-padding-right:100px
-background-color:white;
-
-ul{
-    margin-right:20px;
-}
-ul li {
+  ul {
+    margin-top: 1rem;
+  }
+  ul li {
     display: inline;
-    padding: 10px;
-
-}
-ul li span{
-    text-decoration:none;
+    padding-right: 20px;
+  }
+  ul li a {
+    text-decoration: none;
     opacity: 0.5;
-}
-ul li span:hover {
-   opacity:1;
-   cursor:pointer;
-}
-
+    color: black;
+  }
+  ul li a:hover {
+    opacity: 1;
+    cursor: pointer;
+    color: #008080;
+  }
 `;

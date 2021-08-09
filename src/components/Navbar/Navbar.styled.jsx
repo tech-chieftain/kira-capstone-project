@@ -55,6 +55,7 @@ export const SearchForm = styled(Form)`
     border: none;
     box-shadow: none;
     webkit-box-shadow: none;
+    outline: none;
     width: 390px;
     height: 40px;
     &:focus {
