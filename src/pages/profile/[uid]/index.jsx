@@ -11,6 +11,8 @@ import { getUserProfile, getAllFreelancers } from "../../../Utilities/FirebaseUt
 const profile = ({ user, services }) => (
   <div>
     <ProfileHeader
+      email={user.email}
+      phone={user.phone}
       name={user.displayName}
       rating={ProfileData[0].rating}
       description={user.about}

@@ -37,6 +37,8 @@ const Service = ({ service, user }) => (
         </Container>
         <Container id="seller">
           <ServiceSeller
+            email={user.email}
+            phone={user.phone}
             uid={service.freelancerUID}
             Name={user.displayName}
             Location={user.location}
@@ -47,6 +49,8 @@ const Service = ({ service, user }) => (
       </Col>
       <Col>
         <ServicePricingInformation
+          email={user.email}
+          phone={user.phone}
           price={service.price}
           perks={service.perks}
           duration={service.etd}

@@ -3,7 +3,7 @@ import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
 
-const SellerContact = ({ show, setShow }) => {
+const SellerContact = ({ show, setShow, email, phone }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -25,7 +25,10 @@ const SellerContact = ({ show, setShow }) => {
         <Background onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
             <ModalWrapper show={show}>
-              <ModalContent>hsgdkygedyasiyegfaw</ModalContent>
+              <ModalContent>
+                <div>{email && email}</div>
+                <div>{phone && phone}</div>
+              </ModalContent>
               <CloseModalButton onClick={() => setShow((show) => !show)} />
             </ModalWrapper>
           </animated.div>

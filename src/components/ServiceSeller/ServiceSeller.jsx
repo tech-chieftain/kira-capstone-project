@@ -1,17 +1,19 @@
 /* eslint-disable arrow-body-style */
 import Card from "react-bootstrap/Card";
 import Link from "next/link";
+import React, { useState } from "react";
 
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import { useTranslation } from "next-i18next";
+import SellerContact from "../SellerContact/SellerContact";
 
 import { Styleimg, Styleimg2 } from "./ServiceSeller.styled";
 
-const ServiceSeller = ({ Name, Location, Description, ProfilePic, uid }) => {
+const ServiceSeller = ({ Name, Location, Description, ProfilePic, uid, email, phone }) => {
   const { t } = useTranslation("service");
-
+  const [show, setShow] = useState(false);
   return (
     <Card className="p-4 my-5">
       <Row>
@@ -34,7 +36,10 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic, uid }) => {
                   <Card.Title>{Name}</Card.Title>
                 </a>
               </Link>
-              <Button variant="outline-primary">{t("service.contactMe")}</Button>
+              <Button variant="outline-primary" onClick={() => setShow((show) => !show)}>
+                {t("service.contactMe")}
+              </Button>
+              <SellerContact show={show} setShow={setShow} email={email} phone={phone} />
             </div>
           </Styleimg2>
         </Styleimg>

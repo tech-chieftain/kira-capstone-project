@@ -6,9 +6,17 @@ import { useTranslation } from "next-i18next";
 import { FaUserCircle } from "react-icons/fa";
 import { VscLocation } from "react-icons/vsc";
 import { Background, Img, MainContainer, Btn } from "./ProfileHeader.styled";
-import SellerContact from "./SellerContact";
+import SellerContact from "../SellerContact/SellerContact";
 
-const ProfileHeader = ({ profilePicture, name, profession, location, description }) => {
+const ProfileHeader = ({
+  profilePicture,
+  name,
+  profession,
+  location,
+  description,
+  email,
+  phone,
+}) => {
   const { t } = useTranslation("profile");
   const [show, setShow] = useState(false);
 
@@ -39,15 +47,8 @@ const ProfileHeader = ({ profilePicture, name, profession, location, description
 
             <h5>{description}</h5>
             <div className="d-md-flex flex-row mt-3">
-              <Rating
-                readonly
-                initialRating={rating}
-                emptySymbol={<VscStarEmpty size="36px" />}
-                fullSymbol={<VscStarFull size="36px" />}
-                fractions={2}
-              />
               <Btn onClick={openModal}>{t("profile.contactMe")}</Btn>
-              <SellerContact show={show} setShow={setShow} />
+              <SellerContact show={show} setShow={setShow} email={email} phone={phone} />
             </div>
           </Col>
         </Row>
@@ -62,6 +63,8 @@ ProfileHeader.propTypes = {
   profession: PropTypes.string,
   location: PropTypes.string,
   description: PropTypes.string,
+  email: PropTypes.string,
+  phone: PropTypes.string,
 };
 
 export default ProfileHeader;
