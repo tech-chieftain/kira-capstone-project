@@ -1,5 +1,5 @@
 import { FaTwitter, FaLinkedinIn, FaInstagram, FaFacebookF, FaGlobe } from "react-icons/fa";
-import { Container, Row, Col, Dropdown, Image, Button } from "react-bootstrap";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
@@ -25,25 +25,6 @@ const Footer = () => {
     Communities: ["footer.events", "footer.blog", "footer.forum"],
     Supports: ["footer.conditions", "footer.cookies", "footer.accessability"],
   };
-
-  // const { pathname, query, asPath } = useRouter();
-
-  const changeLanguage = (language) => {
-    if (language === "English") {
-      return "en";
-    }
-    // if (language === "Arabic") {
-    //   return "ar";
-    // }
-    if (language === "Kurdish") {
-      return "ku";
-    }
-  };
-
-  const [languages, setLanguages] = useState({
-    arrayOfLanguage: ["English", "Kurdish"],
-    chosenLanguage: router.locale === "en" ? "English" : "Kurdish",
-  });
 
   return (
     <FooterContainer>
@@ -131,35 +112,6 @@ const Footer = () => {
             {t("footer.copyRight")}
           </p>
           <div className="dropdown-container d-flex justify-content-md-end">
-            {/* <Dropdown>
-              <Dropdown.Toggle
-                variant="Info"
-                id="dropdown-basic-button"
-                className="text-white btn-lg"
-              >
-                <FaGlobe /> {languages.chosenLanguage}
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                {languages.arrayOfLanguage
-                  .filter((language) => language !== languages.chosenLanguage)
-                  .map((language) => (
-                    <Dropdown.Item
-                      className="dropdown-item"
-                      onClick={() => {
-                        setLanguages({
-                          ...languages,
-                          chosenLanguage: language,
-                        });
-                      }}
-                    >
-                      <Link href={asPath} locale={changeLanguage(language)}>
-                        {language}
-                      </Link>
-                    </Dropdown.Item>
-                  ))}
-              </Dropdown.Menu>
-            </Dropdown> */}
-
             <Link href={asPath} locale={router.locale === "en" ? "ku" : "en"}>
               <Button className="border-0" variant="primary language">
                 <FaGlobe /> {t("footer.Language")}
