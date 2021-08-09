@@ -7,6 +7,7 @@ import { GrMail } from "react-icons/gr";
 import { MdSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 import Searchbox from "./Searchbox";
 import { LoginBtn, JoinBtn, Img, ProfileImg, DropDown } from "./Navbar.styled";
 import LoginModal from "../Modals/LoginModal";
@@ -30,7 +31,7 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
   return (
     <Navbar bg="primary" collapseOnSelect expand="xl" variant="dark">
       <Container>
-        <Navbar.Brand href="/">
+        <Link href="./">
           <Img
             src="/NavbarLogo.png"
             width="104px"
@@ -38,7 +39,7 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
             className="d-inline-block align-top"
             alt="Nabar logo"
           />
-        </Navbar.Brand>
+        </Link>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -62,13 +63,13 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
             </Nav>
           ) : (
             <Nav className="w-100 d-flex justify-content-end">
-              <Nav.Link href="/add_service">
+              <Nav.Link href="./add_service">
                 <FaPlus size="25px" className="text-white mt-1" />
               </Nav.Link>
-              <Nav.Link href="/">
+              <Nav.Link href="./">
                 <GrMail size="32px" className="text-white" />
               </Nav.Link>
-              <Nav.Link href="/">
+              <Nav.Link href="./">
                 <IoIosNotifications size="32px" className="text-white" />
               </Nav.Link>
 
@@ -78,7 +79,7 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href={`/profile/${uid}`}>
+                  <Dropdown.Item href={`./profile/${uid}`}>
                     {profilePicture ? (
                       <ProfileImg src={profilePicture} roundedCircle fluid />
                     ) : (
@@ -87,7 +88,7 @@ const NavBar = ({ overview, profilePicture, name, uid, handleLogOut }) => {
                     <span className="mx-3 text-muted">{name}</span>
                   </Dropdown.Item>
 
-                  <Dropdown.Item href="/settings">
+                  <Dropdown.Item href="./settings">
                     <MdSettings size="20px" />
                     <span className="mx-3 text-muted">{t("navbar.settings")}</span>
                   </Dropdown.Item>

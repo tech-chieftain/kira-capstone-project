@@ -1,5 +1,5 @@
 import { FaTwitter, FaLinkedinIn, FaInstagram, FaFacebookF, FaGlobe } from "react-icons/fa";
-import { Container, Row, Col, Dropdown, Image } from "react-bootstrap";
+import { Container, Row, Col, Dropdown, Image, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
@@ -12,23 +12,18 @@ const Footer = () => {
   const router = useRouter();
   const { asPath } = useRouter();
 
-  const [languages, setLanguages] = useState({
-    arrayOfLanguage: ["English", "Arabic", "Kurdish"],
-    chosenLanguage: "English",
-  });
-
   const links = {
     catagories: [
       "footer.design",
-      "Digital Marketing",
-      "Writing & Translation",
-      "Video & Animation",
-      "Programming & Tech",
-      "Music & Audio",
-      "Business",
+      "footer.marketing",
+      "footer.translation",
+      "footer.animation",
+      "footer.tech",
+      "footer.audio",
+      "footer.business",
     ],
-    Communities: ["Events", "Blog", "Forum"],
-    Supports: ["Terms and Conditions", "Privacy and cookies", "Accessability"],
+    Communities: ["footer.events", "footer.blog", "footer.forum"],
+    Supports: ["footer.conditions", "footer.cookies", "footer.accessability"],
   };
 
   // const { pathname, query, asPath } = useRouter();
@@ -37,13 +32,18 @@ const Footer = () => {
     if (language === "English") {
       return "en";
     }
-    if (language === "Arabic") {
-      return "ar";
-    }
+    // if (language === "Arabic") {
+    //   return "ar";
+    // }
     if (language === "Kurdish") {
       return "ku";
     }
   };
+
+  const [languages, setLanguages] = useState({
+    arrayOfLanguage: ["English", "Kurdish"],
+    chosenLanguage: router.locale === "en" ? "English" : "Kurdish",
+  });
 
   return (
     <FooterContainer>
@@ -56,7 +56,7 @@ const Footer = () => {
                 {links.catagories.map((catagorie) => (
                   <li>
                     <Link href="/">
-                      <a>{catagorie}</a>
+                      <a>{t(catagorie)} </a>
                     </Link>
                   </li>
                 ))}
@@ -68,7 +68,7 @@ const Footer = () => {
                 {links.Communities.map((Community) => (
                   <li>
                     <Link href="/">
-                      <a>{Community}</a>
+                      <a>{t(Community)}</a>
                     </Link>
                   </li>
                 ))}
@@ -80,7 +80,7 @@ const Footer = () => {
                 {links.Supports.map((Support) => (
                   <li>
                     <Link href="/">
-                      <a>{Support}</a>
+                      <a>{t(Support)}</a>
                     </Link>
                   </li>
                 ))}
@@ -131,7 +131,7 @@ const Footer = () => {
             {t("footer.copyRight")}
           </p>
           <div className="dropdown-container d-flex justify-content-md-end">
-            <Dropdown>
+            {/* <Dropdown>
               <Dropdown.Toggle
                 variant="Info"
                 id="dropdown-basic-button"
@@ -158,7 +158,13 @@ const Footer = () => {
                     </Dropdown.Item>
                   ))}
               </Dropdown.Menu>
-            </Dropdown>
+            </Dropdown> */}
+
+            <Link href={asPath} locale={router.locale === "en" ? "ku" : "en"}>
+              <Button className="border-0" variant="primary language">
+                <FaGlobe /> {t("footer.Language")}
+              </Button>
+            </Link>
           </div>
         </div>
       </MainContainer>

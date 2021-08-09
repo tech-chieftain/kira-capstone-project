@@ -18,6 +18,8 @@
     "email": "Email",
     "confirmPassword": "Confirm Password",
     "continue": "Continue",
-    "alreadyHaveAccount": "Already have an account?"
+    "alreadyHaveAccount": "Already have an account?",
+    "freelancers": "Freelancers",
+    "services": "Services"
   }
 }
