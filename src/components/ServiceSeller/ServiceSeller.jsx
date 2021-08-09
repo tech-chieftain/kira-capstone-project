@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import { useTranslation } from "next-i18next";
-import { Styleimg, Styleimg2 } from "./Serviceseller.styled";
+import { Styleimg, Styleimg2 } from "./ServiceSeller.styled";
 
 const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
   const { t } = useTranslation("service");
