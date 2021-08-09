@@ -1,5 +1,6 @@
 /* eslint-disable arrow-body-style */
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
 import { FaUserCircle, FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa";
@@ -7,9 +8,15 @@ import { VscLocation, VscStarFull, VscStarEmpty } from "react-icons/vsc";
 import Link from "next/link";
 import Rating from "react-rating";
 import { Background, Img, MainContainer, Btn } from "./ProfileHeader.styled";
+import SellerContact from "./SellerContact";
 
 const ProfileHeader = ({ profilePicture, name, profession, location, description, rating }) => {
   const { t } = useTranslation("profile");
+  const [show, setShow] = useState(false);
+
+  const openModal = () => {
+    setShow((show) => !show);
+  };
 
   return (
     <Background>
@@ -65,7 +72,8 @@ const ProfileHeader = ({ profilePicture, name, profession, location, description
                 fullSymbol={<VscStarFull size="36px" />}
                 fractions={2}
               />
-              <Btn>{t("profile.contactMe")}</Btn>
+              <Btn onClick={openModal}>{t("profile.contactMe")}</Btn>
+              <SellerContact show={show} setShow={setShow} />
             </div>
           </Col>
         </Row>
