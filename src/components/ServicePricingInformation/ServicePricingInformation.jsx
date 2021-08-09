@@ -1,54 +1,45 @@
 import PropTypes from "prop-types";
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { AiOutlineHistory } from "react-icons/ai";
 import { FcCheckmark } from "react-icons/fc";
 import { VscRefresh } from "react-icons/vsc";
-import { FaDollarSign } from "react-icons/fa";
-import { ModalBubbles, MainContainer, Button, Container } from "./ServicePricingInformation.styled";
 
-const PricePage = ({ price, data, duration, revisions, description }) => (
-  <Container>
-    <Card.Body style={{ width: "50rem" }}>
-      <Row>
-        <ModalBubbles>
-          <Card.Title>
-            <span className="text">Price</span>
-            <small className="mx-3 price">
-              <FaDollarSign /> {price}
-            </small>
-          </Card.Title>
-        </ModalBubbles>
-      </Row>
-      <Card.Text className="mx-3">{description}</Card.Text>
+const PricePage = ({ price, perks, duration, revisions, description }) => (
+  <Card className="mx-auto my-5 p-4" style={{ height: "auto", maxWidth: "25rem" }}>
+    <Card.Body>
+      <Card.Title className="mb-5">
+        <h2>Price</h2>
+        <div className="text-end">${price}</div>
+      </Card.Title>
+
+      <Card.Text>{description}</Card.Text>
       <small className="mx-2 text-muted">
         <AiOutlineHistory /> {duration} Day Delivery
       </small>
       <small className="mx-5 text-muted">
         <VscRefresh /> {revisions} Revisions
       </small>
-      <MainContainer>
-        {data.map((line) => (
-          <Row>
-            <small className="mx-1 text-muted">
-              <FcCheckmark /> {line}
-            </small>
-          </Row>
+      <Card.Text className="mx-1 text-muted">
+        {perks.map((line) => (
+          <div>
+            <FcCheckmark /> {line}
+          </div>
         ))}
-      </MainContainer>
-      <Col>
-        <Button>
-          Continue( <FaDollarSign /> {price} )
-        </Button>
-      </Col>
-      <Col>
-        <Button>Contact Seller</Button>
-      </Col>
+      </Card.Text>
+
+      <Button variant="outline-primary" className="w-100 mb-2">
+        Continue (${price})
+      </Button>
+
+      <Button variant="outline-primary" className="w-100">
+        Contact Seller
+      </Button>
     </Card.Body>
-  </Container>
+  </Card>
 );
 
 PricePage.propTypes = {
-  data: PropTypes.string,
+  perks: PropTypes.array,
   price: PropTypes.number,
   revisions: PropTypes.number,
   duration: PropTypes.number,

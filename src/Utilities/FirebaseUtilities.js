@@ -3,8 +3,9 @@ import firebase from "../Firebase";
 
 const db = firebase.firestore();
 
-export const addService = (user, payload) => {
-  db.collection("users").doc(user.uid).collection("services").add(payload);
+export const addService = async (user, payload) => {
+  const docRef = await db.collection("users").doc(user.uid).collection("services").doc();
+  return docRef.set({ uid: docRef.id, ...payload });
 };
 
 export const updateUserInDB = (user, payload = {}) => {
@@ -39,6 +40,20 @@ export const getUserServices = async (user) => {
   return services;
 };
 
+export const getService = async (uid) => {
+  const querySnapshot = await db.collectionGroup("services").where("uid", "==", uid).get();
+
+  const matches = [];
+  await querySnapshot.forEach((doc) =>
+    matches.push({
+      freelancerUID: doc.ref.parent.parent.id,
+      ...doc.data(),
+    }),
+  );
+
+  return matches && matches[0];
+};
+
 export const getUserInfo = (user) =>
   db
     .collection("users")
@@ -65,6 +80,13 @@ export const getAllServices = async () => {
   const querySnapshot = await db.collectionGroup("services").get();
   await querySnapshot.forEach((doc) => services.push(doc.data()));
   return services;
+};
+
+export const getAllServicesUID = async () => {
+  const uids = [];
+  const querySnapshot = await db.collectionGroup("services").get();
+  await querySnapshot.forEach((doc) => uids.push(doc.id));
+  return uids;
 };
 
 export const uploadImage = async (file) => {
