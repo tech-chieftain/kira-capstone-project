@@ -5,24 +5,26 @@ import Image from "react-bootstrap/Image";
 import { useTranslation } from "next-i18next";
 import { Styleimg, Styleimg2 } from "./Serviceseller.styled";
 
-const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
-  <Card className="p-4 my-5">
-    <Row>
-      <Card.Title as="h2">{t("sevice.about")}</Card.Title>
-    </Row>
-    <br />
-    <br />
+const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
+  const { t } = useTranslation("service");
+  return (
+    <Card className="p-4 my-5">
+      <Row>
+        <Card.Title as="h2">{t("sevice.about")}</Card.Title>
+      </Row>
+      <br />
+      <br />
 
-    <Row>
-      <Styleimg>
-        <div>
-          <Image src={ProfilePic} roundedCircle width="80px" height="80px" />
-        </div>
-        <Styleimg2>
-          <Card.Title>{Name}</Card.Title>
+      <Row>
+        <Styleimg>
           <div>
-            <Button variant="outline-primary">{t("sevice.contactMe")}</Button>
+            <Image src={ProfilePic} roundedCircle width="80px" height="80px" />
           </div>
+          <Styleimg2>
+            <Card.Title>{Name}</Card.Title>
+            <div>
+              <Button variant="outline-primary">{t("sevice.contactMe")}</Button>
+            </div>
           </Styleimg2>
         </Styleimg>
       </Row>
