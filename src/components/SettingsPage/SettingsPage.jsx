@@ -51,7 +51,7 @@ const SettingsPage = () => {
               </Card.Header>
 
               <Row>
-                <Form.Group as={Col} className="mb-4" sm>
+                <Form.Group as={Col} className="mb-4" xl>
                   <Form.Label>{t("settings.name")}</Form.Label>
                   <Form.Control
                     placeholder={t("settings.name")}
@@ -60,7 +60,7 @@ const SettingsPage = () => {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group as={Col} className="mb-4" sm>
+                <Form.Group as={Col} className="mb-4" xl>
                   <Form.Label>{t("settings.location")}</Form.Label>
                   <Form.Control
                     placeholder={t("settings.location")}
@@ -72,7 +72,7 @@ const SettingsPage = () => {
               </Row>
 
               <Row>
-                <Form.Group as={Col} className="mb-4" sm>
+                <Form.Group as={Col} className="mb-4" xl>
                   <Form.Label>{t("settings.email")}</Form.Label>
                   <Form.Control
                     placeholder={t("settings.email")}
@@ -81,7 +81,7 @@ const SettingsPage = () => {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group as={Col} className="mb-4" sm>
+                <Form.Group as={Col} className="mb-4" xl>
                   <Form.Label>{t("settings.phoneNumber")}</Form.Label>
                   <Form.Control
                     placeholder={t("settings.phoneNumber")}
@@ -93,7 +93,7 @@ const SettingsPage = () => {
               </Row>
 
               <Row>
-                <Form.Group as={Col} className="mb-4" sm>
+                <Form.Group as={Col} className="mb-4" xl>
                   <Form.Label>{t("settings.about")}</Form.Label>
                   <Form.Control
                     as="textarea"
@@ -132,7 +132,7 @@ const SettingsPage = () => {
               </Form.Group>
 
               <Row>
-                <Form.Group as={Col} className="mb-4" sm>
+                <Form.Group as={Col} className="mb-4" xl>
                   <Form.Label>{t("settings.skills")}</Form.Label>
                   <Form.Control
                     as="textarea"
@@ -144,7 +144,7 @@ const SettingsPage = () => {
                   />
                 </Form.Group>
 
-                <Form.Group as={Col} className="mb-4" sm>
+                <Form.Group as={Col} className="mb-4" xl>
                   <Form.Label>{t("settings.languages")}</Form.Label>
                   <Form.Control
                     as="textarea"

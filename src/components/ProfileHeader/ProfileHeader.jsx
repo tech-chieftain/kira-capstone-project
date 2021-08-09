@@ -3,14 +3,12 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
-import { FaUserCircle, FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa";
-import { VscLocation, VscStarFull, VscStarEmpty } from "react-icons/vsc";
-import Link from "next/link";
-import Rating from "react-rating";
+import { FaUserCircle } from "react-icons/fa";
+import { VscLocation } from "react-icons/vsc";
 import { Background, Img, MainContainer, Btn } from "./ProfileHeader.styled";
 import SellerContact from "./SellerContact";
 
-const ProfileHeader = ({ profilePicture, name, profession, location, description, rating }) => {
+const ProfileHeader = ({ profilePicture, name, profession, location, description }) => {
   const { t } = useTranslation("profile");
   const [show, setShow] = useState(false);
 
@@ -21,48 +19,24 @@ const ProfileHeader = ({ profilePicture, name, profession, location, description
   return (
     <Background>
       <MainContainer>
-        <Row sm={1}>
-          <Col lg={3} className="mt-md-4">
+        <Row md={1}>
+          <Col xl={3} className="mt-xl-4">
             {profilePicture ? (
               <Img src={profilePicture} roundedCircle fluid />
             ) : (
               <FaUserCircle size="173px" />
             )}
           </Col>
-          <Col lg={9} className="info-container mt-sm-3">
+          <Col xl={9} className="info-container mt-md-3">
             <div className="d-flex flex-row">
               <h1>{name}</h1>
-              <span className="m-lg-3 m-sm-2">({profession})</span>
+              <span className="m-xl-3 m-md-2 m-sm-2">({profession})</span>
             </div>
             <h5>
               <VscLocation size="32px" />
               <span>{location}</span>
             </h5>
-            <div>
-              <ul className="list-unstyled d-flex flex-row">
-                <li>
-                  <Link href="/">
-                    <a>
-                      <FaFacebookF size="24px" />
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>
-                      <FaInstagram size="24px" />
-                    </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <a>
-                      <FaTwitter size="24px" />
-                    </a>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+
             <h5>{description}</h5>
             <div className="d-md-flex flex-row mt-3">
               <Rating
@@ -88,7 +62,6 @@ ProfileHeader.propTypes = {
   profession: PropTypes.string,
   location: PropTypes.string,
   description: PropTypes.string,
-  rating: PropTypes.number,
 };
 
 export default ProfileHeader;

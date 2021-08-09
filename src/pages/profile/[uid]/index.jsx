@@ -14,18 +14,18 @@ const profile = ({ user, services }) => (
       name={user.displayName}
       rating={ProfileData[0].rating}
       description={user.about}
-      profilePic={user.photoURL}
+      profilePicture={user.photoURL}
       location={user.location}
       profession={user.job}
     />
     <Container>
       <div>
-        <Row md={3}>
+        <Row xl={3} md>
           <Col>
             <InformationSidebar
               skills={user.skills}
               languages={user.languages}
-              education={user.education}
+              educations={user.education}
             />
           </Col>
           <Col>
@@ -44,16 +44,28 @@ const Container = styled.div`
   padding-bottom: 3rem;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
 export const getStaticProps = async (context) => {
   const userData = await getUserProfile(context.params.uid);
 
+  console.log("userData", userData);
+
   return {
     props: {
       user: userData[0],
       services: userData[1],
-      ...(await serverSideTranslations(context.locale, ["common", "profile", "card"])),
+      ...(await serverSideTranslations(context.locale, [
+        "common",
+        "profile",
+        "card",
+        "navbar",
+        "footer",
+      ])),
     },
   };
 };

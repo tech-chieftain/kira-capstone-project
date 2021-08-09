@@ -11,7 +11,7 @@ const LogoSection = () => {
   return (
     <div>
       <Container className="d-flex flex-row justify-content-end align-items-center">
-        <div className="logo">
+        <div className="logo text-center">
           <h1>{t("home.makeLogo")}</h1>
           <h3>{t("home.designLogo")}</h3>
           <Link href="/services_search?q=logo">
@@ -49,7 +49,7 @@ const Container = styled.div`
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     height: 200px;
 
     .img {

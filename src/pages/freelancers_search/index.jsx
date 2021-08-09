@@ -3,13 +3,11 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import { useTranslation } from "next-i18next";
+import * as JsSearch from "js-search";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
-import * as JsSearch from "js-search";
 
 import Pagination from "../../components/Pagination/Pagination";
 import LargeProfileCard from "../../components/LargeProfileCard/LargeProfileCard";
@@ -56,10 +54,7 @@ const Freelancers = ({ query, results }) => {
         </Row>
         {!!pageInfo.pageCount && (
           <Row className="mt-5">
-            <Pagination
-              pageCount={pageInfo.pageCount}
-              handlePageClick={handlePageClick}
-            />
+            <Pagination pageCount={pageInfo.pageCount} handlePageClick={handlePageClick} />
           </Row>
         )}
       </Container>
@@ -89,7 +84,7 @@ export const getServerSideProps = async (context) => {
     props: {
       results,
       query,
-      ...(await serverSideTranslations(context.locale, ["common", "search"])),
+      ...(await serverSideTranslations(context.locale, ["common", "search", "navbar", "footer"])),
     },
   };
 };

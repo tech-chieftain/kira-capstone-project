@@ -44,11 +44,24 @@ export const MainContainer = styled.div`
     }
   }
 
+  // .dropdown-item, .language {
+  //   text-decoration: none;
+  //   color: #000;
+
+  //   // &:focus {
+  //   //   background-color: grey;
+  //   // }
+  // }
+
+  .language {
+    font-size: 20px;
+  }
+
   .dropdown-item:focus {
     background-color: grey;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     .social-media-section {
       margin: 0;
     }

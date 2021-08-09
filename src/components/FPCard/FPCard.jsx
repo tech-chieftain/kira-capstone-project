@@ -60,7 +60,7 @@ const Container = styled(Card)`
     font-size: 26px;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     padding: 0 10px;
   }
 `;
@@ -81,7 +81,7 @@ const Main = styled(Card)`
     object-fit: cover;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     border: 0;
     padding: 0 10px;
   }

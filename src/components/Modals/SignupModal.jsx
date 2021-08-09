@@ -86,7 +86,7 @@ const SignupModal = ({ showSignup, setShowSignup, setShowLogin }) => {
                 )}
                 <Form onSubmit={handleSignUp}>
                   <input type="text" name="displayName" placeholder={t("navbar.displayName")} />
-                  <input type="email" name="email" placeholder="Email" />
+                  <input type="email" name="email" placeholder={t("navbar.email")} />
                   <input type="password" name="password" placeholder={t("navbar.password")} />
                   <input
                     type="password"

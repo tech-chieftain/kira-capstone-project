@@ -1,11 +1,15 @@
-import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 import ReactMarkdown from "react-markdown";
+import { useTranslation } from "next-i18next";
 
-const Servicedescription = ({ description }) => (
-  <Container>
-    <h2>About services</h2>
-    <ReactMarkdown>{description}</ReactMarkdown>
-  </Container>
-);
+const ServiceDescription = ({ description }) => {
+  const { t } = useTranslation("service");
+  return (
+    <Card className="p-4 my-5">
+      <Card.Title as="h2">{t("service.aboutServices")} </Card.Title>
+      <ReactMarkdown>{description}</ReactMarkdown>
+    </Card>
+  );
+};
 
-export default Servicedescription;
+export default ServiceDescription;
