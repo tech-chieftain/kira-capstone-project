@@ -1,0 +1,18 @@
+{
+    "settings": {
+        "settings": "Account Settings",
+        "personal": "Personal Information",
+        "name": "Display Name",
+        "location": "Location",
+        "email": "Email",
+        "phoneNumber": "Phone number",
+        "about": "About",
+        "profileImage": "Upload your profile image",
+        "professional": "Professional Information",
+        "job": "Job Title",
+        "skills": "Skills",
+        "languages": "Languages",
+        "education": "Education",
+        "save": "Save"
+    }
+}

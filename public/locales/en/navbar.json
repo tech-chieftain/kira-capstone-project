@@ -1,0 +1,23 @@
+{
+  "navbar": {
+    "login": "Log In",
+    "join": "Join",
+    "findService": "Find Services...",
+    "settings": "Settings",
+    "logout": "Log Out",
+
+    "loginToKira": "Login to kira",
+    "or": "OR",
+    "username": "Username",
+    "password": "Password",
+    "notMember": "Not a member yet?",
+    "joinNow": "Join now",
+
+    "creatAccount": "Create your account",
+    "displayName": "Display Name",
+    "email": "Email",
+    "confirmPassword": "Confirm Password",
+    "continue": "Continue",
+    "alreadyHaveAccount": "Already have an account?"
+  }
+}
