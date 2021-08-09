@@ -10,7 +10,7 @@ const HomeComponent = () => {
     <Background>
       <MainContainer className="d-flex flex-row justify-content-end align-items-center">
         <div className="service">
-          <p>
+          <p className="text-center">
             {t("home.FServicesNeeded")} <span>{t("home.growing")}</span>
           </p>
         </div>
@@ -32,7 +32,7 @@ export const Background = styled.div`
     margin-top: -49px;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     marging: 0;
     height: 376px;
   }
@@ -44,19 +44,19 @@ export const MainContainer = styled.div`
   height: 376px;
 
   .service {
-    margin-right: -6rem;
+    margin-right: -5rem;
     color: white;
     font-size: 45px;
     font-style: italic;
     font-weight: lighter;
-    width: 35rem;
+    width: 36rem;
 
     span {
       font-weight: bolder;
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     height: 300px;
 
     .img {

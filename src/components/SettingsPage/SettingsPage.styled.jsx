@@ -47,7 +47,7 @@ export const MainContainer = styled.div`
     opacity: 1;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     padding: 1rem 0;
     width: 28rem;
 

@@ -99,7 +99,13 @@ export const getServerSideProps = async (context) => {
     props: {
       results,
       query,
-      ...(await serverSideTranslations(context.locale, ["common", "search", "card"])),
+      ...(await serverSideTranslations(context.locale, [
+        "common",
+        "search",
+        "card",
+        "footer",
+        "navbar",
+      ])),
     },
   };
 };

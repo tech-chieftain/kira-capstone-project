@@ -68,7 +68,7 @@ function Homepage() {
 // This function below should exist in everypage
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common", "home"])),
+    ...(await serverSideTranslations(locale, ["common", "home", "navbar", "footer"])),
   },
 });
 

@@ -2,8 +2,9 @@
   "navbar": {
     "login": "چوونەژوورەوە",
     "join": "خۆ تۆمارکردن",
-    "findService": "...گەران بەدوای خزمەتگوزاری",
-    "settings": "ێکخستنەکان",
+    "findService": "...گەران بۆ خزمەتگوزاری",
+    "findFreelancer": "...گەران بۆ فریلانسەر",
+    "settings": "ڕێکخستنەکان",
     "logout": "چوونەدەرەوە",
 
     "loginToKira": "خۆت تۆماربکە لە کیارا",
@@ -18,6 +19,8 @@
     "email": "ئیمەیل",
     "confirmPassword": "دووپاتکردنەوەی وشەی تێپەڕ",
     "continue": "بەردەوامبە",
-    "alreadyHaveAccount": "ھەژمارت ھەیە؟"
+    "alreadyHaveAccount": "ھەژمارت ھەیە؟",
+    "freelancers": "فریلانسەر",
+    "services": "خزمەتگوزاری"
   }
 }

@@ -12,18 +12,18 @@ const ProfileHeader = ({ profilePicture, name, profession, location, description
   return (
     <Background>
       <MainContainer>
-        <Row sm={1}>
-          <Col lg={3} className="mt-md-4">
+        <Row md={1}>
+          <Col xl={3} className="mt-xl-4">
             {profilePicture ? (
               <Img src={profilePicture} roundedCircle fluid />
             ) : (
               <FaUserCircle size="173px" />
             )}
           </Col>
-          <Col lg={9} className="info-container mt-sm-3">
+          <Col xl={9} className="info-container mt-md-3">
             <div className="d-flex flex-row">
               <h1>{name}</h1>
-              <span className="m-lg-3 m-sm-2">({profession})</span>
+              <span className="m-xl-3 m-md-2 m-sm-2">({profession})</span>
             </div>
             <h5>
               <VscLocation size="32px" />
@@ -31,7 +31,7 @@ const ProfileHeader = ({ profilePicture, name, profession, location, description
             </h5>
 
             <h5>{description}</h5>
-            <div className="d-md-flex flex-row mt-3">
+            <div className="d-xl-flex flex-row mt-3">
               <Btn>{t("profile.contactMe")}</Btn>
             </div>
           </Col>
@@ -47,7 +47,6 @@ ProfileHeader.propTypes = {
   profession: PropTypes.string,
   location: PropTypes.string,
   description: PropTypes.string,
-  rating: PropTypes.number,
 };
 
 export default ProfileHeader;

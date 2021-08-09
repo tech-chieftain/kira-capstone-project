@@ -8,7 +8,7 @@ const InformationSidebar = ({ skills, languages, educations }) => {
 
   return (
     <Container className="shadow">
-      <div className="w-75 mx-auto my-5 ">
+      <div className="w-75 mx-auto my-xl-5 my-md-0">
         <h5 className="px-3 py-2 border-bottom border-light">{t("profile.skills")}</h5>
         <div>
           <ul>
@@ -19,7 +19,7 @@ const InformationSidebar = ({ skills, languages, educations }) => {
         </div>
       </div>
 
-      <div className="w-75 mx-auto my-5">
+      <div className="w-75 mx-auto my-xl-5 my-md-0">
         <h5 className="px-3 py-2 border-bottom border-light">{t("profile.language")}</h5>
         <div>
           <ul>
@@ -30,7 +30,7 @@ const InformationSidebar = ({ skills, languages, educations }) => {
         </div>
       </div>
 
-      <div className="w-75 mx-auto my-5">
+      <div className="w-75 mx-auto my-xl-5 my-md-0">
         <h5 className="px-3 py-2 border-bottom border-light">{t("profile.education")}</h5>
         <div>
           <ul>
