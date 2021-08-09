@@ -16,6 +16,12 @@ const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
   }
+
+  @media (max-width: 1200px) {
+    margin: 2rem auto;
+    height: 400px;
+    width: 30rem;
+  }
 `;
 
 const ServieceCardData = ({ services }) => (

@@ -20,7 +20,7 @@ const profile = ({ user, services }) => (
     />
     <Container>
       <div>
-        <Row md={3} sm={1}>
+        <Row xl={3} md>
           <Col>
             <InformationSidebar
               skills={user.skills}
@@ -44,6 +44,11 @@ const Container = styled.div`
   padding-bottom: 3rem;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 1200px) {
+    // margin-top: 0rem;
+    flex-direction: column;
+  }
 `;
 
 export const getStaticProps = async (context) => {
