@@ -3,9 +3,17 @@ import { Card, Button } from "react-bootstrap";
 import { AiOutlineHistory } from "react-icons/ai";
 import { FcCheckmark } from "react-icons/fc";
 import { VscRefresh } from "react-icons/vsc";
+import styled from "styled-components";
+
+const Container = styled(Card)`
+  position: fixed;
+  @media (max-width: 1200px) {
+    position: static;
+  }
+`;
 
 const PricePage = ({ price, perks, duration, revisions, description }) => (
-  <Card className="mx-auto my-5 p-4" style={{ height: "auto", maxWidth: "25rem" }}>
+  <Container className="mx-auto my-5" style={{ height: "auto", maxWidth: "22rem" }}>
     <Card.Body>
       <Card.Title className="mb-5">
         <h2>Price</h2>
@@ -35,7 +43,7 @@ const PricePage = ({ price, perks, duration, revisions, description }) => (
         Contact Seller
       </Button>
     </Card.Body>
-  </Card>
+  </Container>
 );
 
 PricePage.propTypes = {
