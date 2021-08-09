@@ -4,7 +4,15 @@ import { Card, Button } from "react-bootstrap";
 import { AiOutlineHistory } from "react-icons/ai";
 import { FcCheckmark } from "react-icons/fc";
 import { VscRefresh } from "react-icons/vsc";
+import styled from "styled-components";
 import { useTranslation } from "next-i18next";
+
+const Container = styled(Card)`
+  position: fixed;
+  @media (max-width: 1200px) {
+    position: static;
+  }
+`;
 
 const PricePage = ({ price, perks, duration, revisions, description }) => {
   const { t } = useTranslation("service");

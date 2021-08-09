@@ -13,7 +13,7 @@ import ServiceHeaderProfile from "../../../components/ServiceHeaderProfile/Servi
 
 const Service = ({ service, user }) => (
   <Container>
-    <Row xs={1} md={2}>
+    <Row xs={1} xl={2}>
       <Col>
         <Container>
           <ServiceHeader />
