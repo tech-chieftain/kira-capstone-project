@@ -3,9 +3,12 @@ import firebase from "../Firebase";
 
 const db = firebase.firestore();
 
-export const addService = async (user, payload) => {
-  const docRef = await db.collection("users").doc(user.uid).collection("services").doc();
-  return docRef.set({ uid: docRef.id, ...payload });
+export const addService = (user, serviceData) => {
+  const { uid, displayName, photoURL } = user;
+  db.collection("services").add({ freelancerUID: uid, displayName, photoURL, ...serviceData });
+  db.collection("users").doc(uid).update({
+    freelancer: true,
+  });
 };
 
 export const updateUserInDB = (user, payload = {}) => {
@@ -27,13 +30,12 @@ export const updateUserInDB = (user, payload = {}) => {
 export const getUserServices = async (user) => {
   const services = [];
   await db
-    .collection("users")
-    .doc(user.uid)
     .collection("services")
+    .where("freelancerUID", "==", user.uid)
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        services.push({ id: doc.id, ...doc.data() });
+        services.push({ uid: doc.id, ...doc.data() });
       });
     });
 
@@ -41,17 +43,10 @@ export const getUserServices = async (user) => {
 };
 
 export const getService = async (uid) => {
-  const querySnapshot = await db.collectionGroup("services").where("uid", "==", uid).get();
+  const doc = await db.collection("services").doc(uid).get();
 
-  const matches = [];
-  await querySnapshot.forEach((doc) =>
-    matches.push({
-      freelancerUID: doc.ref.parent.parent.id,
-      ...doc.data(),
-    }),
-  );
-
-  return matches && matches[0];
+  if (doc.exists) return doc.data();
+  return {};
 };
 
 export const getUserInfo = (user) =>
@@ -77,14 +72,14 @@ export const getAllFreelancers = async () => {
 
 export const getAllServices = async () => {
   const services = [];
-  const querySnapshot = await db.collectionGroup("services").get();
-  await querySnapshot.forEach((doc) => services.push(doc.data()));
+  const querySnapshot = await db.collection("services").get();
+  await querySnapshot.forEach((doc) => services.push({ uid: doc.id, ...doc.data() }));
   return services;
 };
 
 export const getAllServicesUID = async () => {
   const uids = [];
-  const querySnapshot = await db.collectionGroup("services").get();
+  const querySnapshot = await db.collection("services").get();
   await querySnapshot.forEach((doc) => uids.push(doc.id));
   return uids;
 };
