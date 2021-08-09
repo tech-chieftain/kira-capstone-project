@@ -18,7 +18,7 @@ const PricePage = ({ price, perks, duration, revisions, description }) => {
   const { t } = useTranslation("service");
 
   return (
-    <Card className="mx-auto my-5 p-4" style={{ height: "auto", maxWidth: "25rem" }}>
+    <Container className="mx-auto my-5 p-4" style={{ height: "auto", maxWidth: "25rem" }}>
       <Card.Body>
         <Card.Title className="mb-5">
           <h2>{t("service.price")}</h2>
@@ -40,15 +40,11 @@ const PricePage = ({ price, perks, duration, revisions, description }) => {
           ))}
         </Card.Text>
 
-        <Button variant="outline-primary" className="w-100 mb-2">
-          {t("service.continue")} (${price})
-        </Button>
-
         <Button variant="outline-primary" className="w-100">
           {t("service.contactSeller")}
         </Button>
       </Card.Body>
-    </Card>
+    </Container>
   );
 };
 

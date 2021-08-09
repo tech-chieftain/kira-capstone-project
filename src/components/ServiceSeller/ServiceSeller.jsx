@@ -1,5 +1,7 @@
 /* eslint-disable arrow-body-style */
 import Card from "react-bootstrap/Card";
+import Link from "next/link";
+
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
@@ -7,7 +9,7 @@ import { useTranslation } from "next-i18next";
 
 import { Styleimg, Styleimg2 } from "./ServiceSeller.styled";
 
-const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
+const ServiceSeller = ({ Name, Location, Description, ProfilePic, uid }) => {
   const { t } = useTranslation("service");
 
   return (
@@ -20,12 +22,18 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => {
 
       <Row>
         <Styleimg>
-          <div>
-            <Image src={ProfilePic} roundedCircle width="80px" height="80px" />
-          </div>
+          <Link href="/profile/[]" as={`/profile/${uid}`}>
+            <a>
+              <Image src={ProfilePic} roundedCircle width="80px" height="80px" />
+            </a>
+          </Link>
           <Styleimg2>
-            <Card.Title>{Name}</Card.Title>
             <div>
+              <Link href="/profile/[]" as={`/profile/${uid}`}>
+                <a className="text-decoration-none text-reset">
+                  <Card.Title>{Name}</Card.Title>
+                </a>
+              </Link>
               <Button variant="outline-primary">{t("service.contactMe")}</Button>
             </div>
           </Styleimg2>

@@ -20,6 +20,7 @@ const Service = ({ service, user }) => (
         </Container>
         <Container id="overview" className="mb-5">
           <ServiceHeaderProfile
+            uid={service.freelancerUID}
             serviceName={service.title}
             profilePic={user.photoURL}
             nameOfPerson={user.displayName}
@@ -36,6 +37,7 @@ const Service = ({ service, user }) => (
         </Container>
         <Container id="seller">
           <ServiceSeller
+            uid={service.freelancerUID}
             Name={user.displayName}
             Location={user.location}
             Description={user.about}
