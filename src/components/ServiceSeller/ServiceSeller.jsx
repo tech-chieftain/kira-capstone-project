@@ -8,7 +8,7 @@ import { Styleimg, Styleimg2 } from "./ServiceSeller.styled";
 const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
   <Card className="p-4 my-5">
     <Row>
-      <Card.Title as="h2">"sevice.about"</Card.Title>
+      <Card.Title as="h2">About Seller</Card.Title>
     </Row>
     <br />
     <br />
@@ -21,7 +21,7 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
         <Styleimg2>
           <Card.Title>{Name}</Card.Title>
           <div>
-            <Button variant="outline-primary">"sevice.contactMe"</Button>
+            <Button variant="outline-primary">Contact Me</Button>
           </div>
         </Styleimg2>
       </Styleimg>
@@ -29,7 +29,7 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic }) => (
     <br />
     <br />
     <Row>
-      <span>sevice.from</span>
+      <span>From</span>
       <br />
       <span>{Location}</span>
     </Row>
