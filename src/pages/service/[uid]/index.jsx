@@ -20,6 +20,7 @@ const Service = ({ service, user }) => (
         </Container>
         <Container id="overview" className="mb-5">
           <ServiceHeaderProfile
+            uid={service.freelancerUID}
             serviceName={service.title}
             profilePic={user.photoURL}
             nameOfPerson={user.displayName}
@@ -36,6 +37,9 @@ const Service = ({ service, user }) => (
         </Container>
         <Container id="seller">
           <ServiceSeller
+            email={user.email}
+            phone={user.phone}
+            uid={service.freelancerUID}
             Name={user.displayName}
             Location={user.location}
             Description={user.about}
@@ -45,6 +49,8 @@ const Service = ({ service, user }) => (
       </Col>
       <Col>
         <ServicePricingInformation
+          email={user.email}
+          phone={user.phone}
           price={service.price}
           perks={service.perks}
           duration={service.etd}
@@ -68,7 +74,7 @@ export const getStaticProps = async (context) => {
     props: {
       service,
       user,
-      ...(await serverSideTranslations(context.locale, ["common"])),
+      ...(await serverSideTranslations(context.locale, ["common", "footer", "navbar", "service"])),
     },
   };
 };

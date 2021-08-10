@@ -1,8 +1,8 @@
 {
     "footer": {
-        "English": "English",
-        "Arabic": "Arabic",
-        "Kurdish": "Kurdish",
+        "english": "English",
+        "arabic": "Arabic",
+        "kurdish": "Kurdish",
         "catagories": "Categories",
         "design": "Graphics & Design",
         "translation": "Writing & Translation",
@@ -11,13 +11,16 @@
         "business": "Business",
         "community": "Community",
         "events": "Events",
-        "Blog": "Blog",
-        "Forum": "Forum",
-        "Support": "Support",
+        "blog": "Blog",
+        "forum": "Forum",
+        "support": "Support",
         "conditions": "Terms and Conditions",
         "cookies": "Privacy and cookies",
-        "Accessability": "Accessability",
+        "accessability": "Accessability",
         "kira": "Kira",
-        "copyRight": "All Rights Reserved"
+        "copyRight": "All Rights Reserved",
+        "animation": "Video & Animation",
+        "Language": "English",
+        "marketing": "Digital Marketing"
     }
 }

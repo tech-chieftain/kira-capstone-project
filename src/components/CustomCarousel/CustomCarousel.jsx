@@ -18,7 +18,7 @@ const CustomCarousel = ({ thumbnail, items, slides, smSlides }) => {
 
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 1200,
         settings: {
           slidesToShow: smSlides,
           slidesToScroll: 1,

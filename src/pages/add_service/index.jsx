@@ -5,7 +5,7 @@ const addService = () => <AddService />;
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common", "addService", "card"])),
+    ...(await serverSideTranslations(locale, ["common", "addService", "card", "navbar", "footer"])),
   },
 });
 

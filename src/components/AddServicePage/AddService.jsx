@@ -101,7 +101,7 @@ const AddService = () => {
               </Form.Group>
 
               <Row>
-                <Form.Group as={Col} className="mb-4" sm>
+                <Form.Group as={Col} className="mb-4" xl>
                   <Form.Label>{t("addService.deliveryTime")}</Form.Label>
                   <Form.Control
                     type="number"
@@ -110,7 +110,7 @@ const AddService = () => {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group as={Col} className="mb-4" sm>
+                <Form.Group as={Col} className="mb-4" xl>
                   <Form.Label>{t("addService.revisions")}</Form.Label>
                   <Form.Control
                     type="number"

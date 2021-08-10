@@ -17,6 +17,14 @@ const Container = styled.div`
     width: 194px;
     margin: 5px 0;
   }
+
+  @media (max-width: 1200px) {
+    width: 30rem;
+    height: 250px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: row;
+  }
 `;
 
 export default Container;

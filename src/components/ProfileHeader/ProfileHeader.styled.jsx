@@ -23,7 +23,7 @@ export const MainContainer = styled(Container)`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     margin: 0 auto;
   }
 `;
@@ -49,7 +49,7 @@ export const Btn = styled(Button)`
     color: white;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     margin-top: 20px;
   }
 `;

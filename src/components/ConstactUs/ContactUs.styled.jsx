@@ -33,7 +33,7 @@ const Container = styled.div`
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 1200px) {
     padding: 1rem;
 
     .form {

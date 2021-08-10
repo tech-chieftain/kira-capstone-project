@@ -1,8 +1,8 @@
 {
   "footer": {
-    "English": "ئینگلیزی",
-    "Arabic": "عەرەبی",
-    "Kurdish": "کوردی",
+    "english": "ئینگلیزی",
+    "erabic": "عەرەبی",
+    "kurdish": "کوردی",
     "catagories": "لقەکان",
     "design": "گرافیک و دیزاین",
     "translation": "نووسین و وەرگێران",
@@ -12,13 +12,15 @@
     "business": "بازرگانی",
     "community": "کۆمەڵگا",
     "events": "بۆنەکان",
-    "Blog": "بڵۆگ",
-    "Forum": "کۆڕ",
-    "Support": "یارمەتیدان",
+    "blog": "بڵۆگ",
+    "forum": "کۆڕ",
+    "support": "یارمەتیدان",
     "conditions": "مەرج و  سنورەکان",
     "cookies": "تایبەندمەندیەکان",
-    "Accessability": "توانای بەدەست گەیشتن",
+    "accessability": "توانای بەدەست گەیشتن",
     "kira": "کیرا",
-    "copyRight": "هەموو مافەکان پارێزراون"
+    "copyRight": "هەموو مافەکان پارێزراون",
+    "Language": "کوردی",
+    "marketing": "بازارکردنی ئەلیکترۆنی"
   }
 }
