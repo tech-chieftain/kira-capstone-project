@@ -6,6 +6,8 @@ it("renders LargeProfileCard with correctly", () => {
   const tree = renderer
     .create(
       <LargeProfileCard
+        displayName="John Doe"
+        uid="12345"
         username="john"
         name="John Doe"
         profilePicture="https://picsum.photos/100/100"

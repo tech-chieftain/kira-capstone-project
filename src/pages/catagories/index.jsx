@@ -1,3 +1,4 @@
+import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const catagories = () => <div />;

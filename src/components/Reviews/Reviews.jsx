@@ -1,4 +1,5 @@
 /* eslint-disable arrow-body-style */
+import React from "react";
 import PropTypes from "prop-types";
 import { FaUserCircle } from "react-icons/fa";
 import { useTranslation } from "next-i18next";

@@ -4,6 +4,7 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -15,6 +16,7 @@
     "@testing-library/user-event": "^7.1.2",
     "autoprefixer": "^9.8.6",
     "bootstrap": "^5.0.0-beta3",
+    "core-js": "^3.16.1",
     "firebase": "^8.8.1",
     "i18next": "^19.8.3",
     "i18next-browser-languagedetector": "^6.1.2",
@@ -29,12 +31,13 @@
     "react-firebase-hooks": "^3.0.4",
     "react-firebaseui": "^5.0.2",
     "react-icons": "^4.2.0",
-    "react-paginate": "^7.1.3",
     "react-markdown": "^6.0.3",
+    "react-paginate": "^7.1.3",
     "react-rating": "^2.0.5",
     "react-router-dom": "^5.2.0",
     "react-slick": "^0.28.1",
     "react-spring": "^9.2.3",
+    "regenerator-runtime": "^0.13.9",
     "sass": "^1.35.2",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.0"
@@ -46,7 +49,7 @@
     "test": "jest",
     "test:coverage": "yarn test -- --coverage --watchAll=false ",
     "eject": "yarn react-scripts eject",
-    "format": "prettier --write \"src/*.+(js|jsx|json)\" && eslint --fix",
+    "format": "eslint . --ext .js,.jsx --fix",
     "jest:watch": "jest --watch"
   },
   "eslintConfig": {
@@ -70,6 +73,7 @@
     "concurrently": "^5.3.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
