@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import React from "react";
 import Card from "react-bootstrap/Card";
 import ReactMarkdown from "react-markdown";
 import { useTranslation } from "next-i18next";

@@ -1,3 +1,4 @@
+import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import AddService from "../../components/AddServicePage/AddService";
 

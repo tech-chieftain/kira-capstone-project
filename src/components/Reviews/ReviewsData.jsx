@@ -1,3 +1,4 @@
+import React from "react";
 import Reviews from "./Reviews";
 import { ReviewData } from "../MockData";
 

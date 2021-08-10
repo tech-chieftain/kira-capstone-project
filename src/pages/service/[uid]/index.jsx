@@ -1,3 +1,4 @@
+import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

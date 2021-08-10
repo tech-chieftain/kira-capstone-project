@@ -1,3 +1,4 @@
+import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import SettingsPage from "../../components/SettingsPage/SettingsPage";
 

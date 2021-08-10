@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import PropTypes from "prop-types";
