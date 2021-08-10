@@ -3,11 +3,6 @@
 exports[`renders LargeProfileCard with correctly 1`] = `
 <div
   className="shadow card"
-  style={
-    Object {
-      "width": "18rem",
-    }
-  }
 >
   <div
     className="card-body"
@@ -19,15 +14,32 @@ exports[`renders LargeProfileCard with correctly 1`] = `
         className="col-4"
       >
         <a
-          href="/user/john"
+          href="/profile/12345"
           onClick={[Function]}
           onMouseEnter={[Function]}
         >
-          <img
-            alt=""
-            className="img-fluid rounded-circle"
-            src="https://picsum.photos/100/100"
-          />
+          <div
+            className="d-flex justify-content-end"
+          >
+            <svg
+              fill="currentColor"
+              height="4em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 496 512"
+              width="4em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"
+              />
+            </svg>
+          </div>
         </a>
       </div>
       <div
@@ -35,7 +47,7 @@ exports[`renders LargeProfileCard with correctly 1`] = `
       >
         <a
           className="text-decoration-none text-reset"
-          href="/user/john"
+          href="/profile/12345"
           onClick={[Function]}
           onMouseEnter={[Function]}
         >
@@ -47,7 +59,7 @@ exports[`renders LargeProfileCard with correctly 1`] = `
         </a>
         <a
           className="text-decoration-none text-reset"
-          href="/services_search?q=Web%20Developer"
+          href="/freelancers_search?q=Web%20Developer"
           onClick={[Function]}
           onMouseEnter={[Function]}
         >
@@ -57,11 +69,18 @@ exports[`renders LargeProfileCard with correctly 1`] = `
             Web Developer
           </div>
         </a>
-        <p
-          className="fw-light card-text"
+        <a
+          className="text-decoration-none text-reset"
+          href="/freelancers_search?q=Baghdad"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
         >
-          Baghdad
-        </p>
+          <p
+            className="fw-light card-text"
+          >
+            Baghdad
+          </p>
+        </a>
       </div>
     </div>
     <div
@@ -82,97 +101,7 @@ exports[`renders LargeProfileCard with correctly 1`] = `
     >
       <div
         className="col"
-      >
-        <a
-          className="text-decoration-none text-reset"
-          href="/services_search?q=Front-End%20Development"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-        >
-          <button
-            className="btn btn-outline-primary me-2 mb-2"
-            disabled={false}
-            type="button"
-          >
-            Front-End Development
-          </button>
-        </a>
-        <a
-          className="text-decoration-none text-reset"
-          href="/services_search?q=Website"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-        >
-          <button
-            className="btn btn-outline-primary me-2 mb-2"
-            disabled={false}
-            type="button"
-          >
-            Website
-          </button>
-        </a>
-        <a
-          className="text-decoration-none text-reset"
-          href="/services_search?q=Wordpress"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-        >
-          <button
-            className="btn btn-outline-primary me-2 mb-2"
-            disabled={false}
-            type="button"
-          >
-            Wordpress
-          </button>
-        </a>
-        <a
-          className="text-decoration-none text-reset"
-          href="/services_search?q=PWA"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
-        >
-          <button
-            className="btn btn-outline-primary me-2 mb-2"
-            disabled={false}
-            type="button"
-          >
-            PWA
-          </button>
-        </a>
-      </div>
-    </div>
-    <hr />
-    <div
-      className="row"
-    >
-      <div
-        className="text-end fluid col"
-      >
-        <p
-          className="d-flex card-text"
-        >
-          <svg
-            className="align-self-center m-1"
-            fill="currentColor"
-            height="1rem"
-            stroke="currentColor"
-            strokeWidth="0"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-            viewBox="0 0 576 512"
-            width="1rem"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
-            />
-          </svg>
-           Top Rated
-        </p>
-      </div>
+      />
     </div>
   </div>
 </div>

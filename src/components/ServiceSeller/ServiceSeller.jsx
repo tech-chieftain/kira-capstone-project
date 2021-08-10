@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable arrow-body-style */
 import Card from "react-bootstrap/Card";
 import Link from "next/link";

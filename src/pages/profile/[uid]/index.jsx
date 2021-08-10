@@ -1,3 +1,4 @@
+import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import styled from "styled-components";
 import { Row, Col } from "react-bootstrap";

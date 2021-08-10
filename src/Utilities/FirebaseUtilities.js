@@ -5,7 +5,12 @@ const db = firebase.firestore();
 
 export const addService = (user, serviceData) => {
   const { uid, displayName, photoURL } = user;
-  db.collection("services").add({ freelancerUID: uid, displayName, photoURL, ...serviceData });
+  db.collection("services").add({
+    freelancerUID: uid,
+    displayName,
+    photoURL,
+    ...serviceData,
+  });
   db.collection("users").doc(uid).update({
     freelancer: true,
   });

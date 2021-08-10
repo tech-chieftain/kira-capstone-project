@@ -7,7 +7,8 @@
         "displayName": true,
         "preprocess": false
       }
-    ]
+    ],
+    "@babel/plugin-transform-runtime"
   ],
-  "presets": ["@babel/preset-env", "@babel/preset-react","next/babel"]
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
