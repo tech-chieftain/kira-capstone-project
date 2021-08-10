@@ -27,7 +27,11 @@ const Services = ({ query, results }) => {
     },
   });
   const handlePageClick = (selectedPage) =>
-    setPageInfo((prev) => ({ ...prev, start: prev.end, end: prev.limit * selectedPage }));
+    setPageInfo((prev) => ({
+      ...prev,
+      start: prev.end,
+      end: prev.limit * selectedPage,
+    }));
 
   const { t } = useTranslation("search");
 
