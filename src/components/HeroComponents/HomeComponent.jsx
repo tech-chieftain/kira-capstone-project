@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import { Image } from "react-bootstrap";
 import { useTranslation } from "next-i18next";

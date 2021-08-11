@@ -2,77 +2,151 @@
 
 exports[`renders Navbar correctly 1`] = `
 <nav
-  className="navbar navbar-expand navbar-light bg-primary"
+  className="navbar navbar-expand-xl navbar-dark bg-primary"
 >
   <div
     className="container"
   >
     <a
       className="navbar-brand"
-      href="#home"
+      href="/"
     >
       <img
         alt="Nabar logo"
-        className="Navbarstyled__Img-sc-ua2yiz-2 iOUVHg d-inline-block align-top"
+        className="Navbarstyled__Img-sc-ua2yiz-2 kPMivA d-inline-block align-top"
         height="52px"
         src="/NavbarLogo.png"
         width="104px"
       />
     </a>
-    <form
-      className="Navbarstyled__SearchForm-sc-ua2yiz-5 fmlHTi d-flex md-shadow mx-2"
+    <button
+      aria-controls="responsive-navbar-nav"
+      aria-label="Toggle navigation"
+      className="navbar-toggler collapsed"
+      onClick={[Function]}
+      type="button"
     >
       <span
-        className="input-group-text"
-        id="basic-addon1"
-      >
-        <svg
-          fill="currentColor"
-          height="25px"
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          viewBox="0 0 512 512"
-          width="25px"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M456.69 421.39L362.6 327.3a173.81 173.81 0 0034.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 00327.3 362.6l94.09 94.09a25 25 0 0035.3-35.3zM97.92 222.72a124.8 124.8 0 11124.8 124.8 124.95 124.95 0 01-124.8-124.8z"
-          />
-        </svg>
-      </span>
-      <input
-        aria-label="Search"
-        className="input form-control"
-        onChange=""
-        placeholder="Find Services..."
-        type="search"
+        className="navbar-toggler-icon"
       />
-    </form>
+    </button>
     <div
-      className="w-100 d-flex justify-content-end navbar-nav"
-      onKeyDown={[Function]}
+      aria-expanded={null}
+      className="navbar-collapse collapse"
+      id="responsive-navbar-nav"
     >
-      <button
-        className="Navbarstyled__LoginBtn-sc-ua2yiz-1 jHLlre btn btn-primary"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
+      <form
+        className="Navbarstyled__SearchForm-sc-ua2yiz-5 fePHZH d-flex md-shadow mx-2"
+        onSubmit={[Function]}
       >
-         Log In 
-      </button>
-      <button
-        className="Navbarstyled__JoinBtn-sc-ua2yiz-0 hFOOdI btn btn-primary"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
+        <span
+          className="input-group-text"
+          id="basic-addon1"
+        >
+          <svg
+            fill="currentColor"
+            height="25px"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 512 512"
+            width="25px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M456.69 421.39L362.6 327.3a173.81 173.81 0 0034.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 00327.3 362.6l94.09 94.09a25 25 0 0035.3-35.3zM97.92 222.72a124.8 124.8 0 11124.8 124.8 124.95 124.95 0 01-124.8-124.8z"
+            />
+          </svg>
+        </span>
+        <input
+          aria-label="Search"
+          className="input"
+          onChange={[Function]}
+          placeholder="navbar.findFreelancer"
+          type="search"
+        />
+      </form>
+      <div
+        className="dropdown"
       >
-         Join 
-      </button>
+        <button
+          aria-expanded={false}
+          aria-haspopup={true}
+          className="dropdown-toggle btn btn-primary"
+          disabled={false}
+          id="dropdown-basic-button"
+          onClick={[Function]}
+          type="button"
+        />
+      </div>
+      <div
+        className="w-100 d-flex justify-content-end navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <a
+          className="nav-link"
+          data-rb-event-key="/add_service"
+          href="/add_service"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          <svg
+            className="text-white mt-1"
+            fill="currentColor"
+            height="25px"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 448 512"
+            width="25px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+            />
+          </svg>
+        </a>
+        <div
+          className="Navbarstyled__DropDown-sc-ua2yiz-4 yjALK dropdown"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-basic dropdown-toggle btn btn-primary"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <svg
+              className="text-white"
+              fill="currentColor"
+              height="25px"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="25px"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm128 32h-55.1c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16H128C57.3 320 0 377.3 0 448v16c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-16c0-70.7-57.3-128-128-128z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

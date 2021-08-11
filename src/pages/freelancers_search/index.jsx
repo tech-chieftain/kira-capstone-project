@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import PropTypes from "prop-types";
@@ -27,7 +27,11 @@ const Freelancers = ({ query, results }) => {
     },
   });
   const handlePageClick = (selectedPage) =>
-    setPageInfo((prev) => ({ ...prev, start: prev.end, end: prev.limit * selectedPage }));
+    setPageInfo((prev) => ({
+      ...prev,
+      start: prev.end,
+      end: prev.limit * selectedPage,
+    }));
 
   const { t } = useTranslation("search");
 

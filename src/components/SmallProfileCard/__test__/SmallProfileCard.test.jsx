@@ -3,7 +3,15 @@ import * as renderer from "react-test-renderer";
 import SmallProfileCard from "../SmallProfileCard";
 
 it("renders SmallProfileCard with all props provided correctly", () => {
-  const tree = renderer.create(<SmallProfileCard profilePicture="https://picsum.photos/50/50" name="Big J" job="Carpenter" />).toJSON();
+  const tree = renderer
+    .create(
+      <SmallProfileCard
+        profilePicture="https://picsum.photos/50/50"
+        name="Big J"
+        job="Carpenter"
+      />,
+    )
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
 

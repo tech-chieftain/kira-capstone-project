@@ -1,3 +1,4 @@
+import React from "react";
 import { FormControl, InputGroup, Image } from "react-bootstrap";
 import { IoSearch } from "react-icons/io5";
 import PropTypes from "prop-types";
