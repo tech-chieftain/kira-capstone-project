@@ -11,6 +11,13 @@ import SellerContact from "../SellerContact/SellerContact";
 
 const Container = styled(Card)`
   position: fixed;
+  margin: 10.5rem 3rem 0;
+  padding: 2rem;
+
+  .price {
+    margin: 5px 0 0 80px;
+  }
+
   @media (max-width: 1200px) {
     position: static;
   }
@@ -20,11 +27,11 @@ const PricePage = ({ price, perks, duration, revisions, description, email, phon
   const { t } = useTranslation("service");
   const [show, setShow] = useState(false);
   return (
-    <Container className="mx-auto my-5 p-4" style={{ height: "auto", maxWidth: "25rem" }}>
+    <Container className="shadow" style={{ height: "auto", maxWidth: "25rem" }}>
       <Card.Body>
-        <Card.Title className="mb-5">
+        <Card.Title className="mb-5 d-flex flex-row">
           <h2>{t("service.price")}</h2>
-          <div className="text-end">${price}</div>
+          <span className="price h3">${price}</span>
         </Card.Title>
 
         <Card.Text>{description}</Card.Text>

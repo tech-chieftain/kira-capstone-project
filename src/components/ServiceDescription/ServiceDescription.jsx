@@ -7,7 +7,7 @@ import { useTranslation } from "next-i18next";
 const ServiceDescription = ({ description }) => {
   const { t } = useTranslation("service");
   return (
-    <Card className="p-4 my-5">
+    <Card className="p-4 my-5 shadow">
       <Card.Title as="h2">{t("service.aboutServices")} </Card.Title>
       <ReactMarkdown>{description}</ReactMarkdown>
     </Card>

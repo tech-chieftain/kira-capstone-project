@@ -16,7 +16,7 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic, uid, email, ph
   const { t } = useTranslation("service");
   const [show, setShow] = useState(false);
   return (
-    <Card className="p-4 my-5">
+    <Card className="p-4 my-5 shadow">
       <Row>
         <Card.Title as="h2">{t("service.aboutSeller")}</Card.Title>
       </Row>
