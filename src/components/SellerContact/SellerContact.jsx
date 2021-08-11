@@ -42,11 +42,7 @@ const SellerContact = ({ show, setShow, email, phone, name }) => {
                 </h4>
                 <h4 className="mb-4">
                   Email:
-                  {email ? (
-                    <span className="mx-3">{email && email}</span>
-                  ) : (
-                    <span className="mx-3 text-muted">XXX</span>
-                  )}
+                  <span className="mx-3">{email && email}</span>
                 </h4>
               </ModalContent>
               <CloseModalButton onClick={() => setShow((show) => !show)} />
