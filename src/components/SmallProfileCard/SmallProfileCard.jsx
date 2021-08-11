@@ -4,11 +4,10 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import styled from "styled-components";
 import { FaUserCircle } from "react-icons/fa";
 
 const SmallProfileCard = ({ profilePicture, name, job }) => (
-  <Container className="border-0">
+  <Card className="border-0">
     <Row md={1}>
       <Col xs={4}>
         {profilePicture ? (
@@ -21,10 +20,10 @@ const SmallProfileCard = ({ profilePicture, name, job }) => (
       </Col>
       <Col>
         <Card.Title>{name}</Card.Title>
-        <Card.Subtitle className="subtitle">{job}</Card.Subtitle>
+        <Card.Subtitle>{job}</Card.Subtitle>
       </Col>
     </Row>
-  </Container>
+  </Card>
 );
 
 SmallProfileCard.propTypes = {
@@ -38,11 +37,5 @@ SmallProfileCard.defaultProps = {
   name: "",
   job: "",
 };
-
-const Container = styled.div`
-  .subtitle {
-    margin-top: -25px;
-  }
-`;
 
 export default SmallProfileCard;

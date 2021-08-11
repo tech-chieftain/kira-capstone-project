@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
 
-const SellerContact = ({ show, setShow, email, phone }) => {
+const SellerContact = ({ show, setShow, email, phone, name }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -27,8 +27,23 @@ const SellerContact = ({ show, setShow, email, phone }) => {
           <animated.div style={animation}>
             <ModalWrapper show={show}>
               <ModalContent>
-                <div>{email && email}</div>
-                <div>{phone && phone}</div>
+                <h3 className="mb-4 text-primary">Contact me</h3>
+                <h4 className="mb-4">
+                  Name:
+                  <span className="mx-3">{name && name}</span>
+                </h4>
+                <h4 className="mb-4">
+                  Phone Number:
+                  {phone ? (
+                    <span className="mx-3">{phone && phone}</span>
+                  ) : (
+                    <span className="mx-3 text-muted">XXX</span>
+                  )}
+                </h4>
+                <h4 className="mb-4">
+                  Email:
+                  <span className="mx-3">{email && email}</span>
+                </h4>
               </ModalContent>
               <CloseModalButton onClick={() => setShow((show) => !show)} />
             </ModalWrapper>
@@ -61,7 +76,7 @@ const ModalWrapper = styled.div`
   position: relative;
   z-index: 1;
   border-radius: 15px;
-  margin-top: -5rem;
+  margin-top: -10rem;
 `;
 
 const ModalContent = styled.div`
@@ -70,9 +85,8 @@ const ModalContent = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  line-height: 1.5;
   color: #141414;
-  padding: 2.3rem 0;
+  padding: 2rem 3rem;
 `;
 
 const CloseModalButton = styled(MdClose)`
