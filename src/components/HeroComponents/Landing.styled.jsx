@@ -71,6 +71,14 @@ export const SearchForm = styled(Form)`
     }
   }
 
+  #dropdown-basic-button {
+    background: transparent;
+    color: grey;
+    border: none;
+    padding: 0 5px;
+    box-shadow: none;
+  }
+
   #basic-addon {
     background: white;
     border-radius: 10px 0 0 10px;

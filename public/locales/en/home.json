@@ -1,18 +1,21 @@
 {
-    "home": {
-        "find": "Find the perfect ",
-        "freelance": "freelance ",
-        "service": " services for your business",
-        "findService": "Find Service...",
-        "search" : "Search",
+  "home": {
+    "find": "Find the perfect ",
+    "freelance": "freelance ",
+    "service": " services for your business",
+    "findService": "Find Service...",
+    "findFreelancer": "Find Freelancers...",
+    "search": "Search",
+    "freelancers": "Freelancers",
+    "services": "Services",
 
-        "popularServices": "Popular professional services",
-        "FServicesNeeded": "Find the services needed to get your business",
-        "growing": "growing",
-        "otherBusinessesUsing": "What other businesses are using",
+    "popularServices": "Popular professional services",
+    "FServicesNeeded": "Find the services needed to get your business",
+    "growing": "growing",
+    "otherBusinessesUsing": "What other businesses are using",
 
-        "makeLogo": "Make an incredible logo",
-        "designLogo": "Design your logo by top talents",
-        "tryKiraLogo": "Get Your Logo Designed"
-    }
+    "makeLogo": "Make an incredible logo",
+    "designLogo": "Design your logo by top talents",
+    "tryKiraLogo": "Get Your Logo Designed"
+  }
 }
