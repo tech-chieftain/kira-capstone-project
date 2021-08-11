@@ -30,6 +30,18 @@ export const updateUserInDB = (user, payload = {}) => {
     if (doc.exists) return docRef.update(newPayload);
     return docRef.set(newPayload);
   });
+
+  db.collection("services")
+    .where("freelancerUID", "==", uid)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        doc.ref.update({
+          displayName,
+          photoURL,
+        });
+      });
+    });
 };
 
 export const getUserServices = async (user) => {
