@@ -70,6 +70,7 @@ const Main = styled(Card)`
   width: 300px;
   padding: 0;
   border-radius: 0;
+  border: 0;
 
   .body {
     margin-left: -3px;
@@ -82,7 +83,6 @@ const Main = styled(Card)`
   }
 
   @media (max-width: 1200px) {
-    border: 0;
     padding: 0 10px;
   }
 `;
