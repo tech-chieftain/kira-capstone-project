@@ -115,7 +115,7 @@ export const FPFreelancers = [
   {
     title: "Wordpress",
     subtitle: "Customzie your site",
-    imgSrc: "Wordpress.png",
+    imgSrc: "/Wordpress.png",
   },
   {
     title: "Voice Over",
@@ -143,7 +143,7 @@ export const FPbusinesses = [
   {
     title: "Pushi",
     subtitle: "Translator",
-    imgSrc: "Wordpress.png",
+    imgSrc: "/Wordpress.png",
   },
   {
     title: "Yoda",
