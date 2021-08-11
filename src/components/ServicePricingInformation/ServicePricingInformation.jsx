@@ -16,7 +16,7 @@ const Container = styled(Card)`
   }
 `;
 
-const PricePage = ({ price, perks, duration, revisions, description, email, phone }) => {
+const PricePage = ({ price, perks, duration, revisions, description, email, phone, name }) => {
   const { t } = useTranslation("service");
   const [show, setShow] = useState(false);
   return (
@@ -49,7 +49,7 @@ const PricePage = ({ price, perks, duration, revisions, description, email, phon
         >
           {t("service.contactSeller")}
         </Button>
-        <SellerContact show={show} setShow={setShow} email={email} phone={phone} />
+        <SellerContact show={show} setShow={setShow} email={email} phone={phone} name={name} />
       </Card.Body>
     </Container>
   );

@@ -2,7 +2,7 @@
 
 exports[`renders SmallProfileCard with all props provided correctly 1`] = `
 <div
-  className="SmallProfileCard__Container-sc-1qlzo9m-0 jemVPV border-0"
+  className="border-0 card"
 >
   <div
     className="row row-cols-md-1"
@@ -25,7 +25,7 @@ exports[`renders SmallProfileCard with all props provided correctly 1`] = `
         Big J
       </div>
       <div
-        className="subtitle card-subtitle h6"
+        className="card-subtitle h6"
       >
         Carpenter
       </div>
@@ -36,7 +36,7 @@ exports[`renders SmallProfileCard with all props provided correctly 1`] = `
 
 exports[`renders SmallProfileCard with no props but name correctly 1`] = `
 <div
-  className="SmallProfileCard__Container-sc-1qlzo9m-0 jemVPV border-0"
+  className="border-0 card"
 >
   <div
     className="row row-cols-md-1"
@@ -74,7 +74,7 @@ exports[`renders SmallProfileCard with no props but name correctly 1`] = `
         John Doe
       </div>
       <div
-        className="subtitle card-subtitle h6"
+        className="card-subtitle h6"
       >
         
       </div>

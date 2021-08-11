@@ -40,7 +40,13 @@ const ServiceSeller = ({ Name, Location, Description, ProfilePic, uid, email, ph
               <Button variant="outline-primary" onClick={() => setShow((show) => !show)}>
                 {t("service.contactMe")}
               </Button>
-              <SellerContact show={show} setShow={setShow} email={email} phone={phone} />
+              <SellerContact
+                show={show}
+                setShow={setShow}
+                email={email}
+                phone={phone}
+                name={Name}
+              />
             </div>
           </Styleimg2>
         </Styleimg>

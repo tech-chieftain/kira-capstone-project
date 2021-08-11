@@ -57,6 +57,7 @@ const Service = ({ service, user }) => (
           duration={service.etd}
           revisions={service.revisions}
           description={service.description}
+          name={user.displayName}
         />
       </Col>
     </Row>

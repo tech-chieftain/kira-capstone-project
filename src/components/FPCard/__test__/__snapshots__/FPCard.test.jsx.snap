@@ -2,7 +2,7 @@
 
 exports[`renders FPCard with caption correctly 1`] = `
 <div
-  className="FPCard__Main-sc-1595e14-1 hKnNBQ card"
+  className="FPCard__Main-sc-1595e14-1 eKUIME card"
 >
   <div
     className="main-container"
@@ -17,7 +17,7 @@ exports[`renders FPCard with caption correctly 1`] = `
     className="body card-body"
   >
     <div
-      className="SmallProfileCard__Container-sc-1qlzo9m-0 jemVPV border-0"
+      className="border-0 card"
     >
       <div
         className="row row-cols-md-1"
@@ -55,7 +55,7 @@ exports[`renders FPCard with caption correctly 1`] = `
             
           </div>
           <div
-            className="subtitle card-subtitle h6"
+            className="card-subtitle h6"
           >
             
           </div>
@@ -68,7 +68,7 @@ exports[`renders FPCard with caption correctly 1`] = `
 
 exports[`renders FPCard with text overlay correctly 1`] = `
 <div
-  className="FPCard__Main-sc-1595e14-1 hKnNBQ card"
+  className="FPCard__Main-sc-1595e14-1 eKUIME card"
 >
   <div
     className="main-container"
@@ -83,7 +83,7 @@ exports[`renders FPCard with text overlay correctly 1`] = `
     className="body card-body"
   >
     <div
-      className="SmallProfileCard__Container-sc-1qlzo9m-0 jemVPV border-0"
+      className="border-0 card"
     >
       <div
         className="row row-cols-md-1"
@@ -121,7 +121,7 @@ exports[`renders FPCard with text overlay correctly 1`] = `
             
           </div>
           <div
-            className="subtitle card-subtitle h6"
+            className="card-subtitle h6"
           >
             
           </div>
