@@ -35,6 +35,10 @@ const Searchbox = () => {
       <SearchForm className="d-flex md-shadow mx-2" onSubmit={handleSubmit}>
         <InputGroup.Text id="basic-addon1">
           <IoSearch size="25px" />
+          <DropdownButton id="dropdown-basic-button">
+            <Dropdown.Item onClick={setdropdowntrue}>{t("navbar.freelancers")}</Dropdown.Item>
+            <Dropdown.Item onClick={setdropdownfalse}>{t("navbar.services")}</Dropdown.Item>
+          </DropdownButton>
         </InputGroup.Text>
         <input
           type="search"
@@ -44,10 +48,6 @@ const Searchbox = () => {
           onChange={handleInput}
         />
       </SearchForm>
-      <DropdownButton id="dropdown-basic-button">
-        <Dropdown.Item onClick={setdropdowntrue}>{t("navbar.freelancers")}</Dropdown.Item>
-        <Dropdown.Item onClick={setdropdownfalse}>{t("navbar.services")}</Dropdown.Item>
-      </DropdownButton>
     </>
   );
 };

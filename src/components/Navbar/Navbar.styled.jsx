@@ -56,17 +56,25 @@ export const SearchForm = styled(Form)`
     box-shadow: none;
     webkit-box-shadow: none;
     outline: none;
-    width: 390px;
+    width: 370px;
     height: 40px;
     &:focus {
       color: grey;
     }
   }
+
   #basic-addon1 {
     background: white;
     border-radius: 5px 0 0 5px;
     border: none;
     color: grey;
-    margin-right: -5px;
+  }
+
+  #dropdown-basic-button {
+    background: transparent;
+    color: grey;
+    border: none;
+    padding: 0 5px;
+    box-shadow: none;
   }
 `;

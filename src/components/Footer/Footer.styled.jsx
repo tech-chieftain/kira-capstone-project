@@ -36,29 +36,8 @@ export const MainContainer = styled.div`
     margin-top: -3.1rem;
   }
 
-  #dropdown-basic-button {
-    box-shadow: none;
-    webkit-box-shadow: none;
-    &::after {
-      display: none;
-    }
-  }
-
-  // .dropdown-item, .language {
-  //   text-decoration: none;
-  //   color: #000;
-
-  //   // &:focus {
-  //   //   background-color: grey;
-  //   // }
-  // }
-
   .language {
     font-size: 20px;
-  }
-
-  .dropdown-item:focus {
-    background-color: grey;
   }
 
   @media (max-width: 1200px) {
