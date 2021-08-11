@@ -48,7 +48,13 @@ const ProfileHeader = ({
             <h5>{description}</h5>
             <div className="d-md-flex flex-row mt-3">
               <Btn onClick={openModal}>{t("profile.contactMe")}</Btn>
-              <SellerContact show={show} setShow={setShow} email={email} phone={phone} />
+              <SellerContact
+                show={show}
+                setShow={setShow}
+                email={email}
+                phone={phone}
+                name={name}
+              />
             </div>
           </Col>
         </Row>
