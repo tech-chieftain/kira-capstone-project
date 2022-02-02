@@ -3,10 +3,69 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /services/{serviceUID} {
       allow read;
-      allow create, update: if request.auth != null;
+      allow create: if isValidServiceCreation(request);
     }
     match /users/{userUID} {
       allow read;
+    }
+
+    function isValidServiceCreation(request) {
+      let data = request.resource.data;
+      let auth = request.auth;
+      return isAuthed(auth)
+      && hasOnlyServiceFields(data)
+      && hasValidServiceFields(data)
+      && isServiceProvider(data, auth);
+    }
+    
+    function isServiceProvider(data, auth) {
+      return data.provider.uid == auth.uid
+        && get(/databases/$(database)/documents/users/$(data.provider.uid))
+          .data.diff(data.provider).unchangedKeys()
+          .hasAll(['displayName', 'photoURL'])
+    }
+    
+    function hasValidServiceFields(data) {
+      return 
+        isValidString(data.title, 60)
+        && isValidString(data.description, 280)
+        && isValidString(data.details, 5000)
+        && isValidString(data.etd, 60)
+        && isValidString(data.provider.displayName, 60)
+        && data.provider.displayName is string
+        && data.provider.uid is string
+        && data.provider.photoURL is string
+        && data.price is number && data.price >= 0
+        && data.revisions is number && data.revisions >= 0
+        && data.images is list
+        && data.tags is list
+        && data.provider is map;
+    }
+
+    function isValidString(str, limit) {
+      return str is string && str == str.trim() && str.size() <= limit;
+    }
+
+    function hasOnlyServiceFields(data) {
+      return data.keys().hasOnly([
+            'title',
+            'description',
+            'details',
+            'price',
+            'etd',
+            'revisions',
+            'images',
+            'tags',
+						'provider',
+          ]) && data.provider.keys().hasOnly([
+            'displayName',
+            'photoURL',
+            'uid',
+          ]);
+    }
+
+    function isAuthed(auth) {
+      return auth != null;
     }
   }
 }
