@@ -8,6 +8,7 @@ service cloud.firestore {
     }
     match /users/{userUID} {
       allow read;
+      allow update: if isValidUserUpdate(request, resource);
     }
 
     function isValidServiceUpdate(request, resource) {
@@ -28,6 +29,33 @@ service cloud.firestore {
       && hasOnlyServiceFields(data)
       && hasValidServiceFields(data)
       && isServiceProvider(data, auth);
+    }
+
+    function isValidUserUpdate(request, resource) {
+      let inData = request.resource.data;
+      let srcData = resource.data;
+
+      let isUser = request.auth.uid == resource.id;
+      
+      return isUser
+        && hasAllowedUserUpdateFields(inData, srcData)
+        && hasValidUserUpdateFields(request)
+        && hasWeekPassedSinceUserUpdate(inData, srcData)
+    }
+
+    function hasWeekPassedSinceUserUpdate(inData, srcData) {
+      return duration.abs(inData.changedAt - srcData.get('changedAt', timestamp.value(0))) 
+          > duration.value(1, 'w');
+    }
+
+    function hasValidUserUpdateFields(request) {
+      return isValidString(request.resource.data.displayName, 50) 
+        && request.resource.data.changedAt == request.time;
+    }
+
+    function hasAllowedUserUpdateFields(inData, srcData) {
+      return inData.diff(srcData).removedKeys().size() == 0
+      && inData.diff(srcData).affectedKeys().hasOnly(['displayName', 'changedAt']);
     }
 
     function hasChangedOnlyServiceFields(inData, srcData) {

@@ -239,5 +239,100 @@ describe("firestore security rules", () => {
       });
     });
 
+    describe("users collection", () => {
+      let changedUserData;
+      beforeEach(
+        () =>
+          (changedUserData = {
+            displayName: "New Name",
+            changedAt: serverTimestamp(),
+          })
+      );
+
+      test("allow reads", async () => {
+        const otherUser = doc(unauth, "users/otherUser");
+        expect(await assertSucceeds(getDoc(otherUser)));
+      });
+
+      test("deny deletes", async () => {
+        expect(await assertFails(deleteDoc(userRef)));
+      });
+
+      test("deny creates", async () => {
+        const ref = doc(auth, "users/newUser");
+        expect(await assertFails(setDoc(userRef, {})));
+      });
+
+      test("allow updates to displayName for authed users", async () => {
+        expect(await assertSucceeds(updateDoc(userRef, changedUserData)));
+      });
+
+      test("deny updates to displayName without a timestamp", async () => {
+        expect(
+          await assertFails(updateDoc(userRef, { displayName: "no time" }))
+        );
+      });
+
+      test("deny updates to any other field", async () => {
+        expect(
+          await assertFails(updateDoc(userRef, { isServiceProvider: false }))
+        );
+      });
+
+      test("deny updates for unauthed users", async () => {
+        expect(
+          await assertFails(
+            updateDoc(doc(unauth, "users", uid), { displayName: "New Name" })
+          )
+        );
+      });
+
+      test("deny users from updating another user's displayName", async () => {
+        const otherUser = doc(auth, "users/otherUser");
+        expect(await assertFails(updateDoc(otherUser, changedUserData)));
+      });
+
+      test("deny updates with invalid displayName", async () => {
+        expect(
+          await assertFails(
+            updateDoc(userRef, { ...changedUserData, displayName: 5 })
+          )
+        );
+        expect(
+          await assertFails(
+            updateDoc(userRef, {
+              ...changedUserData,
+              displayName: "#".repeat(51),
+            })
+          )
+        );
+        expect(
+          await assertFails(
+            updateDoc(userRef, {
+              ...changedUserData,
+              displayName: "  untrimmed  ",
+            })
+          )
+        );
+      });
+
+      test("deny updates with spoofed timestamp", async () => {
+        const timestamp = new Timestamp(1643839322); //2022/2/2 22:22
+        const wrongData = { ...changedUserData, changedAt: timestamp };
+        expect(await assertFails(updateDoc(userRef, wrongData)));
+      });
+
+      test("deny updates too frequently", async () => {
+        updateDoc(userRef, changedUserData);
+        expect(
+          await assertFails(
+            updateDoc(userRef, {
+              ...changedUserData,
+              displayName: "Another New Name",
+            })
+          )
+        );
+      });
+    });
   });
 });
