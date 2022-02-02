@@ -4,9 +4,21 @@ service cloud.firestore {
     match /services/{serviceUID} {
       allow read;
       allow create: if isValidServiceCreation(request);
+      allow update: if isValidServiceUpdate(request, resource);
     }
     match /users/{userUID} {
       allow read;
+    }
+
+    function isValidServiceUpdate(request, resource) {
+      let inData = request.resource.data;
+      let srcData = resource.data;
+
+      let isProvider =  srcData.provider.uid == request.auth.uid;
+
+      return isProvider
+        && hasChangedOnlyServiceFields(inData, srcData)
+        && hasValidServiceFields(inData);
     }
 
     function isValidServiceCreation(request) {
@@ -16,6 +28,12 @@ service cloud.firestore {
       && hasOnlyServiceFields(data)
       && hasValidServiceFields(data)
       && isServiceProvider(data, auth);
+    }
+
+    function hasChangedOnlyServiceFields(inData, srcData) {
+      return inData.diff(srcData).addedKeys().size() == 0
+        && inData.diff(srcData).removedKeys().size() == 0
+        && inData.provider.diff(srcData.provider).affectedKeys().size() == 0;
     }
     
     function isServiceProvider(data, auth) {

@@ -13,6 +13,7 @@ const {
   serverTimestamp,
   updateDoc,
   deleteDoc,
+  deleteField,
   Timestamp,
 } = require("firebase/firestore");
 const { addUserAdmin, addServiceAdmin, getRandomKey } = require("./helpers");
@@ -175,3 +176,68 @@ describe("firestore security rules", () => {
       });
     });
 
+    describe("updating services", () => {
+      test("allow updating service for authed user", async () => {
+        expect(
+          await assertSucceeds(
+            updateDoc(serviceRef, { description: "new desc" })
+          )
+        );
+      });
+
+      test("deny updating services for unauthed users", async () => {
+        expect(
+          await assertFails(updateDoc(doc(unauth, "services", "service"), {}))
+        );
+      });
+
+      test("deny updating another user's service", async () => {
+        await addUserAdmin(testEnv, userData, "otherUser");
+        const otherService = {
+          ...serviceData,
+          provider: { ...serviceData.provider, uid: "otherUser" },
+        };
+        await addServiceAdmin(testEnv, otherService, "newServiceID");
+        const otherServiceRef = doc(auth, "services", "newServiceID");
+
+        expect(
+          await assertFails(
+            updateDoc(otherServiceRef, { description: "new desc" })
+          )
+        );
+      });
+
+      test("deny updating with additional fields", async () => {
+        expect(await assertFails(updateDoc(serviceRef, { newField: "" })));
+        expect(
+          await assertFails(updateDoc(serviceRef, { "provider.newField": "" }))
+        );
+      });
+
+      test("deny updating provider info", async () => {
+        expect(
+          await assertFails(
+            updateDoc(serviceRef, { "provider.displayName": "New Name" })
+          )
+        );
+
+        expect(
+          await assertFails(
+            updateDoc(serviceRef, { "provider.uid": deleteField() })
+          )
+        );
+      });
+
+      test("deny updating with deletion of a field", async () => {
+        expect(
+          await assertFails(updateDoc(serviceRef, { details: deleteField() }))
+        );
+      });
+
+      test("deny updating with wrong logic and limits", async () => {
+        expect(await assertFails(updateDoc(serviceRef, { price: -1 })));
+      });
+    });
+
+  });
+});
