@@ -107,68 +107,71 @@ describe("firestore security rules", () => {
       expect(await assertFails(deleteDoc(serviceRef)));
     });
 
-    test("allow creating service for authed users", async () => {
-      expect(await assertSucceeds(addDoc(services, serviceData)));
+    describe("creating service", () => {
+      test("allow creating service for authed users", async () => {
+        expect(await assertSucceeds(addDoc(services, serviceData)));
+      });
+
+      test("deny creating service for unauthed users", async () => {
+        const services = collection(unauth, "services");
+        expect(await assertFails(addDoc(services, serviceData)));
+      });
+
+      test("deny creating service with missing fields", async () => {
+        expect(await assertFails(addDoc(services, {})));
+      });
+
+      test("deny creating with null fields", async () => {
+        const randomKey = getRandomKey(serviceData);
+        const serviceWithNull = { ...serviceData, [randomKey]: null };
+        expect(await assertFails(addDoc(services, serviceWithNull)));
+
+        const randomProviderKey = getRandomKey(serviceData.provider);
+        const serviceProviderWithNull = {
+          ...serviceData,
+          provider: { ...serviceData.provider, [randomProviderKey]: null },
+        };
+        expect(await assertFails(addDoc(services, serviceProviderWithNull)));
+      });
+
+      test("deny wrong logic and datatypes", async () => {
+        let wrongData = { ...serviceData, user: "not map" };
+        expect(await assertFails(addDoc(services, wrongData)));
+
+        wrongData = { ...serviceData, displayName: "#".repeat(51) };
+        expect(await assertFails(addDoc(services, wrongData)));
+
+        wrongData = { ...serviceData, description: "  not trimmed" };
+        expect(await assertFails(addDoc(services, wrongData)));
+
+        wrongData = { ...serviceData, tags: 42 };
+        expect(await assertFails(addDoc(services, wrongData)));
+
+        wrongData = { ...serviceData, price: -10 };
+        expect(await assertFails(addDoc(services, wrongData)));
+      });
+
+      test("deny create with spoofed provider", async () => {
+        let wrongData = {
+          ...serviceData,
+          provider: { ...serviceData.provider, displayName: "some other name" },
+        };
+        expect(await assertFails(addDoc(services, wrongData)));
+
+        wrongData = {
+          ...serviceData,
+          provider: { ...serviceData.provider, uid: "someOtherUID" },
+        };
+        expect(await assertFails(addDoc(services, wrongData)));
+
+        wrongData = {
+          ...serviceData,
+          provider: {
+            ...serviceData.provider,
+            photoURL: "https://picsum.photos/100",
+          },
+        };
+        expect(await assertFails(addDoc(services, wrongData)));
+      });
     });
 
-    test("deny creating service for unauthed users", async () => {
-      const services = collection(unauth, "services");
-      expect(await assertFails(addDoc(services, serviceData)));
-    });
-
-    test("deny creating service with missing fields", async () => {
-      expect(await assertFails(addDoc(services, {})));
-    });
-
-    test("deny creating with null fields", async () => {
-      const randomKey = getRandomKey(serviceData);
-      const serviceWithNull = { ...serviceData, [randomKey]: null };
-      expect(await assertFails(addDoc(services, serviceWithNull)));
-
-      const randomProviderKey = getRandomKey(serviceData.provider);
-      const serviceProviderWithNull = {
-        ...serviceData,
-        provider: { ...serviceData.provider, [randomProviderKey]: null },
-      };
-      expect(await assertFails(addDoc(services, serviceProviderWithNull)));
-    });
-
-    test("deny wrong logic and datatypes", async () => {
-      let wrongData = { ...serviceData, user: "not map" };
-      expect(await assertFails(addDoc(services, wrongData)));
-
-      wrongData = { ...serviceData, displayName: "#".repeat(51) };
-      expect(await assertFails(addDoc(services, wrongData)));
-
-      wrongData = { ...serviceData, description: "  not trimmed" };
-      expect(await assertFails(addDoc(services, wrongData)));
-
-      wrongData = { ...serviceData, tags: 42 };
-      expect(await assertFails(addDoc(services, wrongData)));
-
-      wrongData = { ...serviceData, price: -10 };
-      expect(await assertFails(addDoc(services, wrongData)));
-    });
-
-    test("deny create with spoofed provider", async () => {
-      let wrongData = {
-        ...serviceData,
-        provider: { ...serviceData.provider, displayName: "some other name" },
-      };
-      expect(await assertFails(addDoc(services, wrongData)));
-
-      wrongData = {
-        ...serviceData,
-        provider: { ...serviceData.provider, uid: "someOtherUID" },
-      };
-      expect(await assertFails(addDoc(services, wrongData)));
-
-      wrongData = {
-        ...serviceData,
-        provider: {
-          ...serviceData.provider,
-          photoURL: "https://picsum.photos/100",
-        },
-      };
-      expect(await assertFails(addDoc(services, wrongData)));
-    });
