@@ -21,7 +21,7 @@ const { addUserAdmin, addServiceAdmin, getRandomKey } = require("./helpers");
 let testEnv;
 
 const envConfig = {
-  projectId: "fireship-firebase-basics-d77c5",
+  projectId: "kira-freelancer-app",
   firestore: {
     host: "localhost",
     port: 8080,
