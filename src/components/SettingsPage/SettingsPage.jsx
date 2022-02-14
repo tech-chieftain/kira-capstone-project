@@ -1,14 +1,13 @@
 /* eslint-disable arrow-body-style */
 import { Card, Col, Row, Form, Button } from "react-bootstrap";
-import React, { useState, useEffect } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
+import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "next-i18next";
 import { Container, MainContainer } from "./SettingsPage.styled";
-import firebase from "../../Firebase/Firebase";
-import { getUserInfo, updateUserInDB, uploadImage } from "../../Utilities/FirebaseUtilities";
+import { getUserInfo, updateUserInDB, uploadImage } from "../../firebase/utilities";
+import userContext from "src/context/context";
 
 const SettingsPage = () => {
-  const [user] = useAuthState(firebase.auth());
+  const user = useContext(userContext);
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
@@ -111,7 +110,7 @@ const SettingsPage = () => {
                 <Form.Control
                   type="file"
                   name="photoURL"
-                  accept="image/png, image/jpeg"
+                  accept="image/png, image/jpeg, image/webp"
                   onChange={handleImgUpload}
                   className="custom-file-input"
                 />
@@ -125,8 +124,8 @@ const SettingsPage = () => {
                 <Form.Label>{t("settings.job")}</Form.Label>
                 <Form.Control
                   placeholder={t("settings.job")}
-                  name="job"
-                  value={userData.job}
+                  name="title"
+                  value={userData.title}
                   onChange={handleChange}
                 />
               </Form.Group>
@@ -143,18 +142,6 @@ const SettingsPage = () => {
                     style={{ height: "100px" }}
                   />
                 </Form.Group>
-
-                <Form.Group as={Col} className="mb-4" xl>
-                  <Form.Label>{t("settings.languages")}</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    placeholder={t("settings.languages")}
-                    name="languages"
-                    value={arrayToString(userData.languages)}
-                    onChange={parseAndHandleChange}
-                    style={{ height: "100px" }}
-                  />
-                </Form.Group>
               </Row>
 
               <Form.Group className="mb-3">
@@ -162,8 +149,8 @@ const SettingsPage = () => {
                 <Form.Control
                   as="textarea"
                   placeholder={t("settings.education")}
-                  name="education"
-                  value={arrayToString(userData.education)}
+                  name="qualifications"
+                  value={arrayToString(userData.qualifications)}
                   onChange={parseAndHandleChange}
                 />
               </Form.Group>

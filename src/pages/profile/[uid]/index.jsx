@@ -7,7 +7,7 @@ import InformationSidebar from "../../../components/InformationSidebar/Informati
 import ServieceCardData from "../../../components/ServiecCardData/ServieceCardData";
 import { ProfileData } from "../../../components/MockData";
 
-import { getUserProfile, getAllFreelancers } from "../../../Utilities/FirebaseUtilities";
+import { getUserProfile, getAllProviders } from "../../../firebase/utilities";
 
 const profile = ({ user, services }) => (
   <div>
@@ -19,7 +19,7 @@ const profile = ({ user, services }) => (
       description={user.about}
       profilePicture={user.photoURL}
       location={user.location}
-      profession={user.job}
+      profession={user.title}
     />
     <Container>
       <div>
@@ -27,8 +27,8 @@ const profile = ({ user, services }) => (
           <Col>
             <InformationSidebar
               skills={user.skills}
-              languages={user.languages}
-              educations={user.education}
+              languages={[]}
+              educations={user.qualifications}
             />
           </Col>
           <Col>
@@ -54,14 +54,15 @@ const Container = styled.div`
 `;
 
 export const getStaticProps = async (context) => {
-  const userData = await getUserProfile(context.params.uid);
+  const [user, services] = await getUserProfile(context.params.uid);
 
-  console.log("userData", userData);
+  user.changedAt = user.changedAt.toDate().toJSON();
+  user.createdAt = user.createdAt.toDate().toJSON();
 
   return {
     props: {
-      user: userData[0],
-      services: userData[1],
+      user,
+      services,
       ...(await serverSideTranslations(context.locale, [
         "common",
         "profile",
@@ -74,9 +75,9 @@ export const getStaticProps = async (context) => {
 };
 
 export async function getStaticPaths() {
-  const freelancers = await getAllFreelancers();
-  const paths = freelancers.map((freelancer) => ({
-    params: { uid: freelancer.uid },
+  const providers = await getAllProviders();
+  const paths = providers.map((provider) => ({
+    params: { uid: provider.uid },
   }));
 
   return { paths, fallback: false };

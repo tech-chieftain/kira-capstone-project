@@ -11,7 +11,7 @@ import Button from "react-bootstrap/Button";
 
 import { FaUserCircle } from "react-icons/fa";
 
-const LargeProfileCard = ({ uid, photoURL, displayName, job, location, about, skills }) => (
+const LargeProfileCard = ({ uid, photoURL, displayName, title, location, about, skills }) => (
   <Card className="shadow">
     <Card.Body>
       <Row className="align-items-center">
@@ -34,9 +34,9 @@ const LargeProfileCard = ({ uid, photoURL, displayName, job, location, about, sk
               <Card.Title className="text-primary">{displayName}</Card.Title>
             </a>
           </Link>
-          <Link href={`/freelancers_search?q=${job}`}>
+          <Link href={`/freelancers_search?q=${title}`}>
             <a className="text-decoration-none text-reset">
-              <Card.Subtitle>{job}</Card.Subtitle>
+              <Card.Subtitle>{title}</Card.Subtitle>
             </a>
           </Link>
           <Link href={`/freelancers_search?q=${location}`}>

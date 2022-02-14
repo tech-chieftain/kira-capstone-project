@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import AddService from "../../components/AddServicePage/AddService";
+import userContext from "../../context/context";
 
-const addService = () => <AddService />;
+const addService = () => {
+  const user = useContext(userContext);
+  return <AddService user={user} />;
+};
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
