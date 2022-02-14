@@ -1,0 +1,29 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{uid=**} {
+      allow read: 
+        if isOwner(request.auth, uid[0]);
+      allow create, update:
+        if isOwner(request.auth, uid[0])
+          && isValidImgType(request.resource.contentType)
+          && isValidSize(request.resource.size, 10)
+    }
+    match /{uid}/{profilePic} {
+      allow delete:
+        if isOwner(request.auth, uid);
+    }
+  }
+
+  function isValidImgType(contentType) {
+    return contentType.matches('^image/(jpeg|png|webp)$')
+  }
+
+  function isValidSize(size, sizeInMB) {
+    return size < sizeInMB * 1024 * 1024;
+  }
+
+  function isOwner(auth, userId) {
+    return auth != null && auth.uid == userId;
+  }
+}
