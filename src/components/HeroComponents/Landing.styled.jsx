@@ -4,10 +4,9 @@ import { Form, Button } from "react-bootstrap";
 export const Background = styled.div`
   background: #008080;
   width: 100%;
-  height: 35rem;
   display: flex;
   align-items: end;
-  justify-content: flex-end;
+  justify-content: center;
 
   .img {
     margin-top: -2.4rem;
