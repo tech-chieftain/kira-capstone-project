@@ -2,10 +2,7 @@
   "extends": [
     "airbnb",
     "airbnb/hooks",
-    "prettier",
-    "prettier/react",
-    "plugin:import/errors",
-    "plugin:import/warnings",
+    "plugin:@next/next/recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint",
@@ -102,17 +99,6 @@
       {
         "avoidEscape": true,
         "allowTemplateLiterals": true
-      }
-    ],
-    "prettier/prettier": [
-      "error",
-      {
-        "tabWidth": 2,
-        "useTabs": false,
-        "singleQuote": false,
-        "trailingComma": "all",
-        "printWidth": 100,
-        "endOfLine": "auto"
       }
     ],
     "jsx-a11y/href-no-hash": "off",
