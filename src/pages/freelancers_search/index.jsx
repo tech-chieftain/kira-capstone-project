@@ -11,7 +11,7 @@ import Col from "react-bootstrap/Col";
 
 import Pagination from "../../components/Pagination/Pagination";
 import LargeProfileCard from "../../components/LargeProfileCard/LargeProfileCard";
-import { getAllFreelancers } from "../../Utilities/FirebaseUtilities";
+import { getAllProviders } from "../../firebase/utilities";
 
 const Freelancers = ({ query, results }) => {
   const [pageInfo, setPageInfo] = useState({
@@ -72,15 +72,20 @@ Freelancers.propTypes = {
 };
 
 export const getServerSideProps = async (context) => {
-  const freelancers = await getAllFreelancers();
+  let providers = await getAllProviders();
+  providers = providers.map((provider) => {
+    provider.changedAt = provider.changedAt.toDate().toJSON();
+    provider.createdAt = provider.createdAt.toDate().toJSON();
+    return provider;
+  });
 
   const query = context.query.q;
   let results = [];
 
   if (query) {
     const search = new JsSearch.Search("uid");
-    Object.keys(freelancers[0]).forEach((key) => search.addIndex(key));
-    search.addDocuments(freelancers);
+    Object.keys(providers[0]).forEach((key) => search.addIndex(key));
+    search.addDocuments(providers);
     results = search.search(query);
   }
 

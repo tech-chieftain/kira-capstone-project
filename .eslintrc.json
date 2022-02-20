@@ -1,10 +1,9 @@
 {
   "extends": [
     "airbnb",
-    "prettier",
-    "prettier/react",
-    "plugin:import/errors",
-    "plugin:import/warnings"
+    "airbnb/hooks",
+    "plugin:@next/next/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -12,13 +11,13 @@
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
       "impliedStrict": true,
-      "classes": true
+      "classes": true,
+      "jsx": true
     }
   },
   "env": {
     "browser": true,
     "node": true,
-    "jquery": true,
     "jest": true
   },
   "rules": {
@@ -63,7 +62,7 @@
         }
       }
     ],
-    "jsx-a11y/click-events-have-key-events":0,
+    "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-static-element-interactions": 0,
     "import/prefer-default-export": 1,
     "import": 0,
@@ -100,15 +99,6 @@
       {
         "avoidEscape": true,
         "allowTemplateLiterals": true
-      }
-    ],
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "all",
-        "singleQuote": false,
-        "printWidth": 100,
-        "endOfLine": "auto"
       }
     ],
     "jsx-a11y/href-no-hash": "off",

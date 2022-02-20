@@ -11,7 +11,7 @@ import Col from "react-bootstrap/Col";
 
 import Pagination from "../../components/Pagination/Pagination";
 import ServicesCard from "../../components/ServicesCard/ServicesCard";
-import { getAllServices } from "../../Utilities/FirebaseUtilities";
+import { getAllServices } from "../../firebase/utilities";
 
 const Services = ({ query, results }) => {
   const [pageInfo, setPageInfo] = useState({
@@ -96,8 +96,6 @@ export const getServerSideProps = async (context) => {
     search.addDocuments(services);
     results = search.search(query);
   }
-
-  console.log("results", results);
 
   return {
     props: {

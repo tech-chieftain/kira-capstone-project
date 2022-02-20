@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Container } from "react-bootstrap";
-import LargeProfileCard from "../components/LargeProfileCard/LargeProfileCard";
 import LandingComponent from "../components/HeroComponents/LandingComponent";
 import HomeComponent from "../components/HeroComponents/HomeComponent";
 import LogoSection from "../components/HeroComponents/LogoSection";
@@ -12,21 +10,7 @@ import { FPFreelancers, FPbusinesses, TestimonyData } from "../components/MockDa
 import FPCard from "../components/FPCard/FPCard";
 import TestimonyCard from "../components/TestimonyCard/TestimonyCard";
 
-import {
-  getAllFreelancers,
-  getAllServices,
-  updateProfilePicture,
-} from "../Utilities/FirebaseUtilities";
-import firebase from "../Firebase";
-
 function Homepage() {
-  const [user, loading, error] = useAuthState(firebase.auth());
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    updateProfilePicture(data.get("file"), user);
-  };
-
   const { t } = useTranslation("home");
 
   return (

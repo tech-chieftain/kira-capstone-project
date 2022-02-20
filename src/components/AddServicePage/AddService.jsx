@@ -1,36 +1,31 @@
 import React, { useState } from "react";
 import { Row, Col, Form, Card, Button } from "react-bootstrap";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useTranslation } from "next-i18next";
 import { Container, MainContainer, Bubbles } from "./AddService.styled";
-import firebase from "../../Firebase/Firebase";
-import { addService, uploadImage, updateUserInDB } from "../../Utilities/FirebaseUtilities";
+import { addService } from "../../firebase/utilities";
 
-// eslint-disable-next-line arrow-body-style
-const AddService = () => {
+const AddService = ({ user }) => {
   const [serviceData, setServiceData] = useState({});
-  const [user] = useAuthState(firebase.auth());
 
   const handleChange = ({ target: { name, value } }) => {
     setServiceData({ ...serviceData, [name]: value });
   };
 
-  const parseAndHandleChange = ({ target: { name, value } }) => {
-    setServiceData({ ...serviceData, [name]: value.split("\n") });
-  };
-
-  const handleImgUpload = async ({ target: { files } }) => {
-    if (files.length)
-      serviceData.images = await Promise.all(Array.from(files).map((img) => uploadImage(img)));
-  };
+  const parseAndHandleChange =
+    (splitter) =>
+    ({ target: { name, value } }) => {
+      setServiceData({ ...serviceData, [name]: value.split(splitter) });
+    };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    addService(user, serviceData);
-    updateUserInDB(user, { freelancer: true });
+    const form = new FormData(e.target);
+    const images = form.getAll("images");
+    console.log("in handle", serviceData);
+    addService(user, images, serviceData);
   };
 
-  const arrayToString = (arr) => arr && arr.join("\n");
+  const arrayToString = (arr, joiner) => arr && arr.join(joiner);
 
   const { t } = useTranslation("addService");
 
@@ -60,9 +55,8 @@ const AddService = () => {
                   type="file"
                   id="files"
                   name="images"
-                  accept="image/png, image/jpeg"
-                  onChange={handleImgUpload}
-                  class="custom-file-input"
+                  accept="image/png, image/jpeg, image/webp"
+                  className="custom-file-input"
                   multiple
                 />
               </Form.Group>
@@ -125,11 +119,22 @@ const AddService = () => {
                 <Form.Label>{t("addService.perks")}</Form.Label>
                 <Form.Control
                   as="textarea"
-                  value={arrayToString(serviceData.perks)}
-                  onChange={parseAndHandleChange}
+                  value={arrayToString(serviceData.perks, "\n")}
+                  onChange={parseAndHandleChange("\n")}
                   name="perks"
                   placeholder={t("addService.intresting")}
                   style={{ height: "100px" }}
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>{t("addService.tags")} </Form.Label>
+                <Form.Control
+                  className="mb-4"
+                  name="tags"
+                  placeholder={t("addService.tags")}
+                  value={arrayToString(serviceData.tags, ", ")}
+                  onChange={parseAndHandleChange(", ")}
                 />
               </Form.Group>
 

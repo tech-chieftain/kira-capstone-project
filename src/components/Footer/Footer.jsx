@@ -1,16 +1,23 @@
 import { FaTwitter, FaLinkedinIn, FaInstagram, FaFacebookF, FaGlobe } from "react-icons/fa";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { FooterContainer, MainContainer } from "./Footer.styled";
+import cookie from "cookie-cutter";
 
 // eslint-disable-next-line arrow-body-style
 const Footer = () => {
   const { t } = useTranslation("footer");
   const router = useRouter();
-  const { asPath } = useRouter();
+
+  const changeLocale = () => {
+    const locale = router.locale === "en" ? "ku" : "en";
+    cookie.set("NEXT_LOCALE", locale);
+    console.log(cookie.get("NEXT_LOCALE"));
+    router.push(router.asPath, undefined, { locale });
+  };
 
   const links = {
     catagories: [
@@ -112,11 +119,9 @@ const Footer = () => {
             {t("footer.copyRight")}
           </p>
           <div className="dropdown-container d-flex justify-content-md-end">
-            <Link href={asPath} locale={router.locale === "en" ? "ku" : "en"}>
-              <Button className="border-0" variant="primary language">
-                <FaGlobe /> {t("footer.Language")}
-              </Button>
-            </Link>
+            <Button className="border-0" variant="primary language" onClick={changeLocale}>
+              <FaGlobe /> {t("footer.Language")}
+            </Button>
           </div>
         </div>
       </MainContainer>

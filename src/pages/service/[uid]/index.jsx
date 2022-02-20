@@ -4,13 +4,13 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import PropTypes from "prop-types";
-import ServiceDescription from "../../../components/ServiceDescription/ServiceDescription";
-import ServiceHeader from "../../../components/ServiceHeader/ServiceHeader";
-import ServiceSeller from "../../../components/ServiceSeller/ServiceSeller";
-import ServicePricingInformation from "../../../components/ServicePricingInformation/ServicePricingInformation";
-import { getService, getAllServicesUID, getUserInfo } from "../../../Utilities/FirebaseUtilities";
-import CustomCarousel from "../../../components/CustomCarousel/CustomCarousel";
-import ServiceHeaderProfile from "../../../components/ServiceHeaderProfile/ServiceHeaderProfile";
+import ServiceDescription from "src/components/ServiceDescription/ServiceDescription";
+import ServiceHeader from "src/components/ServiceHeader/ServiceHeader";
+import ServiceSeller from "src/components/ServiceSeller/ServiceSeller";
+import ServicePricingInformation from "src/components/ServicePricingInformation/ServicePricingInformation";
+import { getService, getAllServicesUID, getUserInfo } from "src/firebase/utilities";
+import CustomCarousel from "src/components/CustomCarousel/CustomCarousel";
+import ServiceHeaderProfile from "src/components/ServiceHeaderProfile/ServiceHeaderProfile";
 
 const Service = ({ service, user }) => (
   <Container>
@@ -70,7 +70,10 @@ Service.propTypes = {
 };
 export const getStaticProps = async (context) => {
   const service = await getService(context.params.uid);
-  const user = await getUserInfo({ uid: service.freelancerUID });
+  const user = await getUserInfo({ uid: service.provider.uid });
+
+  user.changedAt = user.changedAt.toDate().toJSON();
+  user.createdAt = user.createdAt.toDate().toJSON();
 
   return {
     props: {

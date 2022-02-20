@@ -1,0 +1,17 @@
+{
+    "service" : {
+        "aboutSeller": "About The Seller",
+        "contactMe": "Contact Me",
+        "from": "From",
+
+        "aboutServices": "About services",
+        "overview": "Overview",
+        "description": "Description",
+        "seller": "Seller",
+        "price": "Price",
+        "dayDelivery": "Day Delivery",
+        "revisions": "Revisions",
+        "continue": "Continue",
+        "contactSeller": "Contact Seller"
+    }
+}
