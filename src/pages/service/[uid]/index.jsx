@@ -11,6 +11,7 @@ import ServicePricingInformation from "src/components/ServicePricingInformation/
 import { getService, getAllServicesUID, getUserInfo } from "src/firebase/utilities";
 import CustomCarousel from "src/components/CustomCarousel/CustomCarousel";
 import ServiceHeaderProfile from "src/components/ServiceHeaderProfile/ServiceHeaderProfile";
+import Image from "next/image";
 
 const Service = ({ service, user }) => (
   <Container>
@@ -29,7 +30,7 @@ const Service = ({ service, user }) => (
           <Container style={{ height: "500px", marginBottom: "8rem" }}>
             <CustomCarousel
               thumbnail
-              items={service.images && service.images.map((image) => <img src={image} alt="" />)}
+              items={service.images && service.images.map((image) => <Image src={image} alt="" />)}
             />
           </Container>
         </Container>

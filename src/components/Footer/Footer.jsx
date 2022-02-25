@@ -4,8 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { FooterContainer, MainContainer } from "./Footer.styled";
 import cookie from "cookie-cutter";
+import { FooterContainer, MainContainer } from "./Footer.styled";
 
 // eslint-disable-next-line arrow-body-style
 const Footer = () => {
@@ -15,7 +15,6 @@ const Footer = () => {
   const changeLocale = () => {
     const locale = router.locale === "en" ? "ku" : "en";
     cookie.set("NEXT_LOCALE", locale);
-    console.log(cookie.get("NEXT_LOCALE"));
     router.push(router.asPath, undefined, { locale });
   };
 

@@ -14,7 +14,7 @@ const LogoSection = () => {
         <div className="logo text-center">
           <h1>{t("home.makeLogo")}</h1>
           <h3>{t("home.designLogo")}</h3>
-          <Link href="/services_search?q=logo">
+          <Link href="/services_search?q=logo" passHref>
             <Btn>{t("home.tryKiraLogo")} </Btn>
           </Link>
         </div>

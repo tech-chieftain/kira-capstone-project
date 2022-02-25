@@ -4,6 +4,7 @@ import AddService from "../../components/AddServicePage/AddService";
 import userContext from "../../context/context";
 
 const addService = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const user = useContext(userContext);
   return <AddService user={user} />;
 };

@@ -2,9 +2,9 @@
 import { Card, Col, Row, Form, Button } from "react-bootstrap";
 import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "next-i18next";
+import userContext from "src/context/context";
 import { Container, MainContainer } from "./SettingsPage.styled";
 import { getUserInfo, updateUserInDB, uploadImage } from "../../firebase/utilities";
-import userContext from "src/context/context";
 
 const SettingsPage = () => {
   const user = useContext(userContext);

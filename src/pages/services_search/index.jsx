@@ -85,8 +85,6 @@ Services.propTypes = {
 export const getServerSideProps = async (context) => {
   const services = await getAllServices();
 
-  console.log(services.length);
-
   const query = context.query.q;
   let results = [];
 

@@ -38,29 +38,27 @@ const JoinModal = ({ showJoin, setShowJoin }) => {
 
   const { t } = useTranslation("navbar");
 
-  return (
-    <>
-      {showJoin && (
-        <Background onClick={closeModal} ref={modalRef}>
-          <animated.div style={animation}>
-            <ModalWrapper showJoin={showJoin}>
-              <ModalContent>
-                <h4>{t("navbar.joinNow")} </h4>
-                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-              </ModalContent>
-              <CloseModalButton onClick={() => setShowJoin((show) => !show)} />
-              <ModalBubbles>
-                <div className="uper-bigBubble" />
-                <div className="uper-smallBubble" />
-                <div className="bottom-bigBubble" />
-                <div className="bottom-smallBubble" />
-              </ModalBubbles>
-            </ModalWrapper>
-          </animated.div>
-        </Background>
-      )}
-    </>
-  );
+  if (showJoin)
+    return (
+      <Background onClick={closeModal} ref={modalRef}>
+        <animated.div style={animation}>
+          <ModalWrapper showJoin={showJoin}>
+            <ModalContent>
+              <h4>{t("navbar.joinNow")} </h4>
+              <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+            </ModalContent>
+            <CloseModalButton onClick={() => setShowJoin((show) => !show)} />
+            <ModalBubbles>
+              <div className="uper-bigBubble" />
+              <div className="uper-smallBubble" />
+              <div className="bottom-bigBubble" />
+              <div className="bottom-smallBubble" />
+            </ModalBubbles>
+          </ModalWrapper>
+        </animated.div>
+      </Background>
+    );
+  return null;
 };
 
 export default JoinModal;

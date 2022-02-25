@@ -20,38 +20,36 @@ const SellerContact = ({ show, setShow, email, phone, name }) => {
       setShow(false);
     }
   };
-  return (
-    <>
-      {show && (
-        <Background onClick={closeModal} ref={modalRef}>
-          <animated.div style={animation}>
-            <ModalWrapper show={show}>
-              <ModalContent>
-                <h3 className="mb-4 text-primary">Contact me</h3>
-                <h4 className="mb-4">
-                  Name:
-                  <span className="mx-3">{name && name}</span>
-                </h4>
-                <h4 className="mb-4">
-                  Phone Number:
-                  {phone ? (
-                    <span className="mx-3">{phone && phone}</span>
-                  ) : (
-                    <span className="mx-3 text-muted">XXX</span>
-                  )}
-                </h4>
-                <h4 className="mb-4">
-                  Email:
-                  <span className="mx-3">{email && email}</span>
-                </h4>
-              </ModalContent>
-              <CloseModalButton onClick={() => setShow((show) => !show)} />
-            </ModalWrapper>
-          </animated.div>
-        </Background>
-      )}
-    </>
-  );
+  if (show)
+    return (
+      <Background onClick={closeModal} ref={modalRef}>
+        <animated.div style={animation}>
+          <ModalWrapper show={show}>
+            <ModalContent>
+              <h3 className="mb-4 text-primary">Contact me</h3>
+              <h4 className="mb-4">
+                Name:
+                <span className="mx-3">{name && name}</span>
+              </h4>
+              <h4 className="mb-4">
+                Phone Number:
+                {phone ? (
+                  <span className="mx-3">{phone && phone}</span>
+                ) : (
+                  <span className="mx-3 text-muted">XXX</span>
+                )}
+              </h4>
+              <h4 className="mb-4">
+                Email:
+                <span className="mx-3">{email && email}</span>
+              </h4>
+            </ModalContent>
+            <CloseModalButton onClick={() => setShow((show) => !show)} />
+          </ModalWrapper>
+        </animated.div>
+      </Background>
+    );
+  return null;
 };
 
 const Background = styled.div`
