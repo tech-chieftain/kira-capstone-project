@@ -70,7 +70,7 @@ LargeProfileCard.propTypes = {
   uid: PropTypes.string.isRequired,
   photoURL: PropTypes.string,
   displayName: PropTypes.string.isRequired,
-  job: PropTypes.string,
+  title: PropTypes.string,
   location: PropTypes.string,
   about: PropTypes.string,
   skills: PropTypes.array,
@@ -78,7 +78,7 @@ LargeProfileCard.propTypes = {
 
 LargeProfileCard.defaultProps = {
   photoURL: "",
-  job: "",
+  title: "",
   location: "",
   about: "",
   skills: [],

@@ -16,8 +16,8 @@ import {
   deleteField,
   Timestamp,
 } from "firebase/firestore";
-import { addUserAdmin, addServiceAdmin, getRandomKey } from "./helpers";
 import path from "path";
+import { addUserAdmin, addServiceAdmin, getRandomKey } from "./helpers";
 
 let testEnv;
 
@@ -41,9 +41,12 @@ afterAll(async () => {
 
 describe("firestore security rules", () => {
   const uid = "AuthedUserId";
-  let auth, unauth;
-  let userRef, userData;
-  let serviceRef, serviceData;
+  let auth;
+  let unauth;
+  let userRef;
+  let userData;
+  let serviceRef;
+  let serviceData;
 
   beforeAll(() => {
     auth = testEnv.authenticatedContext(uid).firestore();
@@ -228,12 +231,11 @@ describe("firestore security rules", () => {
 
     describe("users collection", () => {
       let changedUserData;
-      beforeEach(
-        () =>
-          (changedUserData = {
-            displayName: "New Name",
-          }),
-      );
+      beforeEach(() => {
+        changedUserData = {
+          displayName: "New Name",
+        };
+      });
 
       test("allow reads", async () => {
         const otherUser = doc(unauth, "users/otherUser");

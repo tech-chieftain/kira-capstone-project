@@ -1,6 +1,13 @@
 import { db, storage } from "./firebase";
+
 const services = db.collection("services");
 const users = db.collection("users");
+
+export const uploadImage = async (path, file) => {
+  const fileRef = storage.ref().child(`${path}/${file.name}`);
+  await fileRef.put(file);
+  return fileRef.getDownloadURL();
+};
 
 export const addService = async (user, images, serviceData) => {
   const newServiceRef = services.doc();
@@ -14,14 +21,6 @@ export const addService = async (user, images, serviceData) => {
   serviceData.revisions = Number(serviceData.revisions);
   serviceData.price = Number(serviceData.price);
 
-  console.log("commit", {
-    provider: {
-      displayName,
-      photoURL,
-      uid,
-    },
-    ...serviceData,
-  });
   return newServiceRef.set({
     provider: {
       displayName,
@@ -71,7 +70,7 @@ export const getService = async (uid) => {
 };
 
 export const getUserInfo = async (user) =>
-  await users
+  users
     .doc(user.uid)
     .get()
     .then((doc) => doc.data());
@@ -102,12 +101,6 @@ export const getAllServicesUID = async () => {
   const querySnapshot = await db.collection("services").get();
   await querySnapshot.forEach((doc) => uids.push(doc.id));
   return uids;
-};
-
-export const uploadImage = async (path, file) => {
-  const fileRef = storage.ref().child(`${path}/${file.name}`);
-  await fileRef.put(file);
-  return fileRef.getDownloadURL();
 };
 
 export const updateProfilePicture = async (user, file) => {

@@ -21,7 +21,6 @@ const AddService = ({ user }) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const images = form.getAll("images");
-    console.log("in handle", serviceData);
     addService(user, images, serviceData);
   };
 
